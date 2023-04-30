@@ -3,30 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <title>Formulario</title>
+   <link rel="stylesheet" href="../static/css/estilos.css">
 </head>
 <body>
-    <header>
+	<div class="contenido">
+         <header id="headerform">
         <H1>Veterinaria -jujuy</H1>
         <img src="../static/images/logo.jpg" width="200px" alt="">
     </header>
+     
     <hr>
-    <nav>
-        <ul>
-          <li><a href="./index.html">Inicio</a></li>
-            <li><a href="./Productos.html">Productos</a></li>
-            <li><a href="./ConsejodeSalud.html">Consejos de salud</a></li>
-            <li><a href="./TablaServicios.html">Servicios de paseos</a></li> 
-            <li><a href="./Sucursal.html">Surcursal</a></li>
-            <li><a href="./Formulario.html">Contactanos</a></li>
-
-        </ul>
-    </nav>
+    <nav id="menu">
+            <ul>
+                <li><a href="./index.html">Inicio</a></li>
+                <li><a href="./Productos.html">Productos</a></li>
+                <li><a href="./ConsejodeSalud.html">Consejos</a></li>
+                <li><a href="./TablaServicios.html">Servicios</a></li> 
+                <li><a href="./Sucursal.html">Surcursal</a></li>
+                <li><a href="./Formulario.html">Contactanos</a></li>
+            </ul>
+        </nav>
     <hr>
-        <section>
+        <section id="contenido">
+			<div id="formulario">
+			
                 <form>
+					
                        <p>
                         <label>Nombres</label>
-                        <input type="text" name="nombre" size="26px" required placeholder="Ingrese su nombre">
+                        <input type="text" name="nombre" 
+                        size="26px" required placeholder="Ingrese su nombre">
                        </p>
                        <p>
                         <label >Email *</label>
@@ -42,9 +48,10 @@
                         </p>
                         <p class="gusta">
                             <input type="submit">
-                        </p>
-                </form>
-        </section>
+                        </p>  
+              </form> 
+              </div> 
+        </sectionid>
             <hr>
         <footer>
             <p>Copyright 2023 - Veterinaria-Jujuy - Diseñado por Grupo18-Jujuy-República Argentina</h2>       
