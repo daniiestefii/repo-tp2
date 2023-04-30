@@ -197,3 +197,43 @@ body{
 	}
 	
 /*Fin de Formulario */
+
+/*Inicio de Servicios*/
+
+#tabla{
+   	 width: 100%;
+    height: 355px;
+    float: center;
+    background: rgb(36, 22, 36);
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+
+.tabla2{
+    width: 100%;
+    margin: 20px;
+    border-radius: 6px;
+    overflow: hidden;
+     background: white;
+     box-shadow: 0px 1px 10px rgb(59, 59, 59);
+}
+
+#horario td:nth-child(odd){
+	background-color: black;
+}
+
+#horario td:nth-child(odd){
+	color: white;
+}
+
+#horario td{
+	width:200px;
+	height:100px;
+	font-size: 25px;	
+}
+
+/*Fin de Servicios*/
