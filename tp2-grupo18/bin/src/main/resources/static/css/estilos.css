@@ -142,3 +142,175 @@ body{
 
 
 /*Fin de Footer */
+/*Inicio de Formulario*/
+#headerform{
+  padding: 40px;
+  text-align: center;
+  background: rgb(255, 128, 0);
+  color: rgb(255, 255, 255);
+  font-size: 30px;
+}
+
+#bodyform{
+    background: rgb(255, 128, 0);
+    color: rgb(10, 12, 14);
+ }
+#pieform {
+    background: rgb(66, 75, 43);
+    clear: both;   
+}
+
+#pieform{
+    font-size: 20px;
+    text-align: center; 
+    padding: 20px;
+    font-style: italic;}
+#contenido{
+    width: 100%;
+    height: 50%;
+     padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius:20px;
+    overflow: hidden;
+   }
+   #formulario{
+	   font-size: 35px;
+	   text-align: center;
+	   line-height: 60px;
+	   color: rgb(0, 0, 0);
+	   text-decoration: underline;
+	   margin-left: 100px;
+	   text-shadow: 3px 3px 1px rgb(255, 128, 0);
+	   }
+	form{
+		width: 600px;
+		height: 500px;
+		margin: 10px auto;
+		margin-left: 100px;
+		background-color: rgb(234, 199, 0);
+		border-radius: 20px;
+		overflow: hidden;
+     
+        color: black;
+     
+	}
+	
+/*Fin de Formulario */
+
+/*Inicio de Servicios*/
+
+#tabla{
+   	 width: 100%;
+    height: 355px;
+    float: center;
+    background: rgb(36, 22, 36);
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+
+.tabla2{
+    width: 100%;
+    margin: 20px;
+    border-radius: 6px;
+    overflow: hidden;
+     background: white;
+     box-shadow: 0px 1px 10px rgb(59, 59, 59);
+}
+
+#horario td:nth-child(odd){
+	background-color: black;
+}
+
+#horario td:nth-child(odd){
+	color: white;
+}
+
+#horario td{
+	width:200px;
+	height:100px;
+	font-size: 25px;	
+}
+
+/*Fin de Servicios*/
+
+/* inicio de consejos */
+#cuerpo{
+	width:85%;
+	padding: 20px 20px; 
+	margin-top:20px;
+	margin-left:120px;
+	margin-right:70px;
+	text-align:center;	
+	}
+	
+#cuerpo img{
+    width:700px;
+    height:400px;
+	border: 50px solid rgb(255, 209, 158);
+	
+}
+
+#cuerpo p{
+    display:flex;
+    text-align: center;
+    background: white;
+    border: 2px solid black;
+    padding:20px;
+    margin-bottom:50px;
+}
+
+#cuerpo h2{
+	text-aling: center;
+	margin: center;
+	background: rgb(207,210,167);
+}
+/*    fin de consejos */
+
+/* Inicio de Productos */
+#Productos{
+	font-family: Times New Roman, Arial, Helvetica;
+	text-align: center;
+	padding-top: 20px;
+	width: 100%;
+    height: 100%;
+    background: rgb(36, 22, 36);
+    margin-top: 60px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    color:white;
+    
+}
+
+#prod ul{
+	padding-top: 20px;
+	padding-bottom: 20px;
+	list-style:none;
+	display: inline-flex;
+	
+}
+
+#prod ul li{
+	width: 600px;
+	font-size: 20px;
+}
+
+#prod ul li h3{
+	font-size: 35px;
+	color:orange;
+}
+
+#prod ul li p{
+	color:yellow;
+}
+
+
+#tituloprod{
+		font-size: 40px;
+		color:red;
+}
+/* Fin de Productos */
