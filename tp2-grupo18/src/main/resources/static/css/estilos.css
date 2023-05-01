@@ -271,3 +271,46 @@ body{
 }
 /*    fin de consejos */
 
+/* Inicio de Productos */
+#Productos{
+	font-family: Times New Roman, Arial, Helvetica;
+	text-align: center;
+	padding-top: 20px;
+	width: 100%;
+    height: 100%;
+    background: rgb(36, 22, 36);
+    margin-top: 60px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    color:white;
+    
+}
+
+#prod ul{
+	padding-top: 20px;
+	padding-bottom: 20px;
+	list-style:none;
+	display: inline-flex;
+	
+}
+
+#prod ul li{
+	width: 600px;
+	font-size: 20px;
+}
+
+#prod ul li h3{
+	font-size: 35px;
+	color:orange;
+}
+
+#prod ul li p{
+	color:yellow;
+}
+
+
+#tituloprod{
+		font-size: 40px;
+		color:red;
+}
+/* Fin de Productos */
