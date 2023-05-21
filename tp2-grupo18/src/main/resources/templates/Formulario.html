@@ -1,27 +1,13 @@
 <!DOCTYPE html>
-<html lang="es">
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Formulario</title>
-   <link rel="stylesheet" href="../static/css/estilos.css">
+   <link rel="stylesheet" th:href="@{css/estilos.css}">
 </head>
 <body id="bodyform">
-	<div class="contenido">
-         <header id="headerform">
-        <H1>Veterinaria -jujuy</H1>
-        <img src="../static/images/logo1.png" width="200px" alt="">
-    </header>
-     
-  
-    <nav id="menu">
-            <ul>
-                <li><a href="./index.html">Inicio</a></li>
-                <li><a href="./Productos.html">Productos</a></li>
-                <li><a href="./ConsejodeSalud.html">Consejos</a></li>
-                <li><a href="./TablaServicios.html">Servicios</a></li> 
-                <li><a href="./Sucursal.html">Surcursal</a></li>
-                <li><a href="./Formulario.html">Contactanos</a></li>
-            </ul>
+   <header th:replace="layouts/header :: header"></header>
+    <nav th:replace="layouts/nav :: nav">
         </nav>
     
         <section id="contenido">
@@ -51,9 +37,8 @@
                         </p>  
               </form> 
               </div> 
-        </sectionid>
-        <footer id="pieform">
-            <p>Copyright 2023 - Veterinaria-Jujuy - Diseñado por Grupo18-Jujuy-República Argentina</h2>       
+        </section>
+        <footer th:replace="layouts/footer :: footer">       
         </footer>
 </body>
 </html>

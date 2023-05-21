@@ -1,27 +1,16 @@
 <!DOCTYPE html>
-<html lang="es">
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Productos</title>
-    <link rel="stylesheet" href="../static/css/estilos.css">
-    <link rel="stylesheet" href="../static/css/Productos.css">
+    <link rel="stylesheet" th:href="@{css/estilos.css}">
 </head>
 <body>
     <div class="contenido">
-    <header id="headerprin">
-        <H1>Veterinaria -jujuy</H1>
-        <img src="../static/images/logo1.png" width="200px" alt="">
+    <header th:replace="layouts/header :: header">
     </header>
     <hr>
-    <nav id="menu">
-            <ul>
-                <li><a href="./index.html">Inicio</a></li>
-                <li><a href="./Productos.html">Productos</a></li>
-                <li><a href="./ConsejodeSalud.html">Consejos</a></li>
-                <li><a href="./TablaServicios.html">Servicios</a></li> 
-                <li><a href="./Sucursal.html">Surcursal</a></li>
-                <li><a href="./Formulario.html">Contactanos</a></li>
-            </ul>
+    <nav th:replace="layouts/nav :: nav">
         </nav>
     
     <section id = "Productos">
@@ -38,7 +27,7 @@
             </li>
             <li>
                 <h3>Collar Isabelino</h3>
-                <img src="../static/images/pro2.jpeg" " width="400px" alt="">
+                <img src="../static/images/pro2.jpeg" width="400px" alt="">
                  <p>
                     Para evitar que su mascota lama o mordisquee las heridas, zonas operadas o sensibles.
                  </p>
@@ -57,9 +46,7 @@
     </div>        
     </section>
     <hr>
-    <footer id="piedepag">
-        <p>Copyright 2023 - Veterinaria-Jujuy - Diseñado por Grupo18-Jujuy-República Argentina</p>       
-    </footer>
+    <footer th:replace="layouts/footer :: footer"></footer>
 </div>    
 </body>
 </html>
