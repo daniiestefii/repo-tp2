@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario</title>
+   <link rel="stylesheet" th:href="@{/css/estilos.css}">
+</head>
+<body id="bodyform">
+   <header th:replace="layouts/header :: header"></header>
+    <nav th:replace="layouts/nav :: nav">
+        </nav>
+    
+        <section id="contenido">
+			<div id="formulario">
+			
+                <form th:action="@{/productos/guardar}" th:object="${producto}" method="post">
+                       <p>
+                        <label>Nombre</label>
+                        <input type="text" name="nombre" 
+                        size="26px" required placeholder="Ingrese un nombre">
+                       </p>
+                       <p>
+                        <label >Codigo</label>
+                        <input type="text" name="codigo" required  placeholder="Ingrese un codigo" >
+                       </p>
+                       <p>
+                        <label>Precio</label>
+                        <input type="text" name="precio" size="26px" required placeholder="Ingrese el precio">
+                        </p>
+                        <p>
+                        <label>Categoria</label>
+                        <input type="text" name="categoria" size="26px" required placeholder="Ingrese la categoria">
+                        </p>
+                        <p>
+                        <label>Descuento</label>
+                        <input type="text" name="descuento" size="26px" required placeholder="Ingrese el descuento">
+                        </p>
+                        <p>  
+                            <input type="submit" value="guardar">
+                        </p>  
+              </form> 
+              </div> 
+        </section>
+        <footer th:replace="layouts/footer :: footer">       
+        </footer>
+</body>
+</html>

@@ -1,36 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-   
     <title>Consejo de Salud</title>
-    <link rel="stylesheet" href="../static/css/estilos.css">
+    <link rel="stylesheet" th:href="@{css/estilos.css}">
 </head>
-
-
-
-
-
-
 <body>
-    <header id="headerprin">
-        <H1>Veterianria -jujuy</H1>
-        <img src="../static/images/logo1.png" width="200px" alt="logo">
+    <header th:replace="layouts/header :: header">
     </header>
     <hr>
-      <nav id="menu">
-            <ul>
-                <li><a href="./index.html">Inicio</a></li>
-                <li><a href="./Productos.html">Productos</a></li>
-                <li><a href="./ConsejodeSalud.html">Consejos</a></li>
-                <li><a href="./TablaServicios.html">Servicios</a></li> 
-                <li><a href="./Sucursal.html">Surcursal</a></li>
-                <li><a href="./Formulario.html">Contactanos</a></li>
-            </ul>
+      <nav th:replace="layouts/nav :: nav">
         </nav>
 <section id="cuerpo">
      <h2>Consejo de Salud para nuestra mascotas</h2>
     <h2>¿Son realmente tan necesarias la vacunación y la revacunación?</h2>
-    <img src="../static/images/preve1.jpeg"" width="600" alt="">
+    <img src="../static/images/preve1.jpeg" width="600" alt="">
     <p>La vacunación de los animales de compañía es el método preventivo más adecuado para evitar la aparición de diversas enfermedades. Es imprescindible respetar el calendario de vacunaciones propuesto por el veterinario ya que tiene una importancia fundamental para la consecución de una salud plena.
 
     La vacunación o inmunización activa es el procedimiento preventivo por excelencia; desgraciadamente 
@@ -104,9 +87,7 @@
      </p>
 </section>
 <hr>
-<footer id="piedepag">
-    <p>Copyright 2023 - Veterinaria-Jujuy - Diseñado por Grupo18-Jujuy-República Argentina</p>
+<footer th:replace="layouts/footer :: footer">
 </footer>
-
 </body>
 </html>
