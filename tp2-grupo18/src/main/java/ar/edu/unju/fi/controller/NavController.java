@@ -12,11 +12,6 @@ public class NavController {
 	   
 		return "Formulario";
 	}
-	@GetMapping("/index")
-	public String getIndexPage() {
-		
-		return "index";
-	}
 	@GetMapping("/consejos")
 	public String getConsejosPage() {
 		
