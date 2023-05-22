@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Veterinaria-Jujuy</title>
-    <link rel="stylesheet" th:href="@{css/estilos.css}">
+    <link rel="stylesheet" th:href="@{/css/estilos.css}">
 </head>
 <body>
     <div class="contenido">
@@ -14,40 +14,19 @@
    
    <section id="tabla">
     <div class="tabla2">
-    <table border=1 id="horario">
-
-            <thead>
-               <tr>
-                <td>Dia</td>
-                <td>Lunes</td>
-                <td>Martes</td>
-                <td>Miércoles</td>
-                <td>Jueves</td> 
-                <td>Viernes</td>
-                <td>Sabado</td>
-              </tr>
-
-             <tr>
-                <td>Horario</td>
-                <td>9 a 12 - 16 a 18</td>
-                <td>9 a 12 - 16 a 18</td>
-                <td>9 a 12 - 16 a 18</td>
-                <td>9 a 12 - 16 a 18</td> 
-                <td>9 a 12 - 16 a 18</td>
-                <td>9 a 12 - 16 a 18</td>
-             </tr>
-             <tr>
-                <td>Paseadores</td>
-                <td>Juan Perez</td>
-                <td>Lucas Diaz</td>
-                <td>Juan Perez</td>
-                 <td>Maria Gomez</td> 
-                <td>Lucas Diaz</td>
-                <td>Roberto Vazquez</td>
-             </tr>
-
-            </thead>
+    <table>
+            <tr>
+	         <th> Dia </th>
+	         <th> Horario </th>
+	         <th> Nombre </th>
+	      </tr>
+	      <tr th:each="ser:${servicio}">
+	         <td th:text="${ser.dia}">
+	         <td th:text="${ser.horario}">
+	         <td th:text="${ser.nombre}">
+	      </tr>
    </table> 
+   <a class="button" th:href="@{/servicios/nuevo}"> agregar </a>
    </div>
    </section>
    <hr>

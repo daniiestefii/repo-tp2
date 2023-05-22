@@ -22,11 +22,6 @@ public class NavController {
 		
 		return "ConsejodeSalud";
 	}
-	@GetMapping("/servicios")
-	public String getServiciosPage() {
-		
-		return "TablaServicios";
-	}
 	@GetMapping("/sucursal")
 	public String getSucursalPage() {
 		
