@@ -11,8 +11,6 @@ import org.springframework.web.servlet.ModelAndView;
 import ar.edu.unju.fi.controller.model.Producto;
 import ar.edu.unju.fi.listas.ListaProducto;
 
-
-
 @Controller
 @RequestMapping("/productos")
 public class ProductoController {
@@ -21,6 +19,9 @@ public class ProductoController {
 	
 	@GetMapping("/listadoProductos")
 	public String getProductoPage(Model model) {
+		for (Producto i : listaPro.getProductos()) {
+            i.setPrecio(i.calcularDescuento());
+        }
 		model.addAttribute("producto",listaPro.getProductos());
 		return "Productos";
 	}

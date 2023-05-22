@@ -12,9 +12,4 @@ public class NavController {
 	   
 		return "Formulario";
 	}
-	@GetMapping("/consejos")
-	public String getConsejosPage() {
-		
-		return "ConsejodeSalud";
-	}
 }
