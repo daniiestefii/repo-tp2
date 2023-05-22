@@ -14,6 +14,9 @@ public class Producto {
 		this.categoria = categoria;
 		this.descuento = descuento;
 	}
+	public double calcularDescuento() {
+		return (this.precio-(this.precio*this.descuento)/100);
+	}
 	public String getNombre() {
 		return nombre;
 	}
