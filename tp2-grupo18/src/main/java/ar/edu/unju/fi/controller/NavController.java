@@ -22,9 +22,4 @@ public class NavController {
 		
 		return "ConsejodeSalud";
 	}
-	@GetMapping("/sucursal")
-	public String getSucursalPage() {
-		
-		return "Sucursal";
-	}
 }
