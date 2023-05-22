@@ -33,7 +33,7 @@ public class ConsejoController {
 	public ModelAndView getGuardarConsejo(@ModelAttribute("consejo")Consejo cons){
 		ModelAndView mav = new ModelAndView("ConsejodeSalud");
 		listaCon.getConsejos().add(cons);
-		mav.addObject("noticia",listaCon.getConsejos());
+		mav.addObject("consejo",listaCon.getConsejos());
 		return mav;
 	}
 }
