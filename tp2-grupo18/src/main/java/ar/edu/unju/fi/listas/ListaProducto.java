@@ -10,9 +10,9 @@ public class ListaProducto {
    
    public ListaProducto() {
 	   productos = new ArrayList<Producto>();
-	   productos.add(new Producto("collar para perro",3213,500.50,"Vestimenta",20));
-	   productos.add(new Producto("collar isabelino",4546,260.20,"Vestimenta",50));
-	   productos.add(new Producto("cepillo de doble cerda",890,120.50,"Cuidado",0));
+	   productos.add(new Producto("Collar para perro",3213,5000,"Vestimenta",20));
+	   productos.add(new Producto("Collar isabelino",4546,2600,"Vestimenta",10));
+	   productos.add(new Producto("Cepillo de doble cerda",890,120,"Cuidado",0));
    }
 
 public List<Producto> getProductos() {

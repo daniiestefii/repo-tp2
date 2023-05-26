@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Sucursal</title>
+    <link rel="stylesheet" th:href="@{/css/estilos.css}">
+</head>
+
+<body>
+    <header th:replace="layouts/header :: header">
+    </header>
+  
+    <nav th:replace="layouts/nav :: nav">
+    </nav>
+	
+<section id="cuerpo">
+
+     <table>
+            <tr>
+	         <th> LUGAR </th>
+	         <th>  TELEFONO </th>
+	         <th> DIAS </th>
+	         <th> HORARIOS </th>
+	         <th> E-MAIL </th>
+	      </tr>
+	      <tr th:each="sucu:${sucursal}">
+	         <td th:text="${sucu.lugar}">
+	         <td th:text="${sucu.telefono}">
+	         <td th:text="${sucu.dia}">
+	         <td th:text="${sucu.horario}">
+	         <td th:text="${sucu.gmail}">
+	      </tr>
+   </table> 
+   <a class="button" th:href="@{/sucursales/nuevo}"> agregar </a>
+</section>
+<hr>
+ <footer th:replace="layouts/footer :: footer">       
+ </footer>
+    
+</body>
+</html>

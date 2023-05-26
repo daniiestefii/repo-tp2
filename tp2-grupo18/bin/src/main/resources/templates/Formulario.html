@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario</title>
+   <link rel="stylesheet" th:href="@{css/estilos.css}">
+</head>
+<body id="bodyform">
+   <header th:replace="layouts/header :: header"></header>
+    <nav th:replace="layouts/nav :: nav">
+        </nav>
+    
+        <section id="contenido">
+			<div id="formulario">
+			
+                <form>
+					
+                       <p>
+                        <label>Nombres</label>
+                        <input type="text" name="nombre" 
+                        size="26px" required placeholder="Ingrese su nombre">
+                       </p>
+                       <p>
+                        <label >Email *</label>
+                        <input type="email" name="correo electronico" required  placeholder="Ingrese un email válido" >
+                       </p>
+                       <p>
+                        <label>Ciudad</label>
+                        <input type="text" name="ciudad" size="26px" required placeholder="Ingrese sus cuidad">
+                        </p>
+                        <p>
+                          <label for="">Mensaje</label>
+                          <textarea></textarea>
+                        </p>
+                        <p>
+                            <input type="submit">
+                        </p>  
+              </form> 
+              </div> 
+        </section>
+        <footer th:replace="layouts/footer :: footer">       
+        </footer>
+</body>
+</html>
