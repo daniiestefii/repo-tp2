@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario</title>
+   <link rel="stylesheet" th:href="@{/css/estilos.css}">
+</head>
+<body id="bodyform">
+   <header th:replace="layouts/header :: header"></header>
+    <nav th:replace="layouts/nav :: nav">
+        </nav>
+    
+        <section id="contenido">
+			<div id="formulario">
+			
+                <form th:action="@{/sucursales/guardar}" th:object="${sucursal}" method="post">
+                       <p>
+                        <label>lugar</label>
+                        <input type="text" name="lugar" 
+                        size="26px" required placeholder="Ingrese un lugar">
+                       </p>
+                       <p>
+                        <label >telefono</label>
+                        <input type="text" name="telefono" required  placeholder="Ingrese un telefono" >
+                       </p>
+                       <p>
+                        <label>dias</label>
+                        <input type="text" name="dia" size="26px" required placeholder="Ingrese dias lunes a viernes">
+                        </p>
+                        <p>
+                        <label>horario hh a hh </label>
+                        <input type="text" name="horario" size="26px" required placeholder="Ingrese un horario">
+                        </p>
+                        <p>
+                        <label> correo </label>
+                        <input type="text" name="gmail" size="26px" required placeholder="Ingrese un correo">
+                        </p>
+                        <p>  
+                            <input type="submit" value="guardar">
+                        </p>  
+              </form> 
+              </div> 
+        </section>
+        <footer th:replace="layouts/footer :: footer">       
+        </footer>
+</body>
+</html>

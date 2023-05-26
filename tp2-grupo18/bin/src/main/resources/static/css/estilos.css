@@ -282,7 +282,7 @@ body{
     margin-top: 60px;
     margin-right: 10px;
     margin-bottom: 10px;
-    font-size: 20px;
+    
 }
 
 #prod ul{
@@ -309,8 +309,8 @@ body{
 
 
 #tituloprod{
-		font-size: 35px;
-		color:rgb(255, 255, 255);
+		font-size: 40px;
+		color:red;
 }
 /* Fin de Productos */
 
@@ -348,7 +348,7 @@ tr:nth-child(even) {
 
 /* Estilos para las celdas del encabezado (th) */
 th {
-  background-color: rgb(220, 220, 220);
+  background-color: #333;
   color: black;
   padding: 10px;
 }

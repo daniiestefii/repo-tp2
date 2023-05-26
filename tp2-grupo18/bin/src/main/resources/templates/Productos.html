@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Productos</title>
+    <link rel="stylesheet" th:href="@{/css/estilos.css}">
+</head>
+<body>
+    <div class="contenido">
+    <header th:replace="layouts/header :: header">
+    </header>
+    <hr>
+    <nav th:replace="layouts/nav :: nav">
+        </nav>
+    
+    <section id = "Productos">
+     <h2 id="tituloprod">PRODUCTOS</h2>
+ 	 <div id="prod">	 
+        <table>
+	      <tr>
+	         <th>Nombre </th>
+	         <th> Codigo</th>
+	         <th> Precio</th>
+	         <th> Categoria</th>
+	         <th> Descuento</th>
+	      </tr>
+	      <tr th:each="pro:${producto}">
+	         <td th:text="${pro.nombre}">
+	         <td th:text="${pro.codigo}"></td>
+	         <td th:text="${pro.precio}"></td>
+	         <td th:text="${pro.categoria}"></td>
+	         <td th:text="${pro.descuento}"></td>
+	      </tr>
+	  </table>
+	  <a class="button" th:href="@{/productos/nuevo}"> agregar </a>
+    </div>        
+    </section>
+    <hr>
+    <footer th:replace="layouts/footer :: footer"></footer>
+</div>    
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario</title>
+   <link rel="stylesheet" th:href="@{/css/estilos.css}">
+</head>
+<body id="bodyform">
+   <header th:replace="layouts/header :: header"></header>
+    <nav th:replace="layouts/nav :: nav">
+        </nav>
+    
+        <section id="contenido">
+			<div id="formulario">
+			
+                <form th:action="@{/noticias/guardar}" th:object="${noticia}" method="post">
+                       <p>
+                        <label>TITULO</label>
+                        <input type="text" name="titulo" 
+                        size="26px" required placeholder="Ingrese su titulo">
+                       </p>
+                       <p>
+                        <label >TEXTO</label>
+                        <textarea rows="8" cols="40" name="texto" required  placeholder="Ingrese su noticia" >
+                        </textarea>
+                 
+                       </p>
+         
+                        <p>  
+                            <input type="submit" value="guardar">
+                        </p>  
+              </form> 
+              </div> 
+        </section>
+        <footer th:replace="layouts/footer :: footer">       
+        </footer>
+</body>
+</html>
