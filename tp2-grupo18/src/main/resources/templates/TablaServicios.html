@@ -14,19 +14,22 @@
    
    <section id="tabla">
     <div class="tabla2">
-    <table>
-            <tr>
+    <table  class="table table-success table-striped-columns border-dark">
+            <tr >
 	         <th> Dia </th>
-	         <th> Horario </th>
+	         <th class="d-none d-sm-table-cell" > Horario </th>
 	         <th> Nombre </th>
 	      </tr>
 	      <tr th:each="ser:${servicio}">
 	         <td th:text="${ser.dia}">
-	         <td th:text="${ser.horario}">
+	         <td class="d-none d-sm-table-cell" th:text="${ser.horario}">
 	         <td th:text="${ser.nombre}">
 	      </tr>
-   </table> 
-   <a class="button" th:href="@{/servicios/nuevo}"> agregar </a>
+   </table>
+        <button type="button" class="btn btn-dark ">
+            <a class="text-light" th:href="@{/servicios/nuevo}" style="text-decoration: none;">Agregar</a>
+        </button>
+
    </div>
    </section>
     <footer th:replace="layouts/footer :: footer">       

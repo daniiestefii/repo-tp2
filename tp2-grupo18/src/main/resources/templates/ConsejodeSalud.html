@@ -25,11 +25,13 @@
 	      <tr>
 	      </tr>
 	      <tr th:each="cons:${consejo}">
-	         <td th:text="${cons.titulo}">
+	         <td th:text="${cons.titulo}"></td>
 	         <td th:text="${cons.texto}"></td>
 	      </tr>
 	  </table>
-	  <a class="button" th:href="@{/consejos/nuevo}"> agregar </a>
+    <button type="button" class="btn btn-dark ">
+        <a class="text-light" th:href="@{/servicios/nuevo}" style="text-decoration: none;">Agregar</a>
+    </button>
 </section>
 <footer th:replace="layouts/footer :: footer">
 </footer>
