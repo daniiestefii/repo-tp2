@@ -2,13 +2,13 @@
 <html  xmlns:th="http://www.thymeleaf.org" lang="es" >
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Veterinaria-Jujuy</title>
+    <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
     <link rel="stylesheet" th:href="@{/css/estilos.css}">
 </head>
 <body>
-    <div class="contenido">
-         <header th:replace="layouts/header :: header"></header>
-    <hr>
+    <header th:replace="layouts/header :: header"></header>
     <nav th:replace="layouts/nav :: nav">
     </nav>
    
@@ -29,9 +29,8 @@
    <a class="button" th:href="@{/servicios/nuevo}"> agregar </a>
    </div>
    </section>
-   <hr>
     <footer th:replace="layouts/footer :: footer">       
     </footer>
-    </div>
+    <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>
 </html>
