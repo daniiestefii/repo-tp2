@@ -1,11 +1,20 @@
 package ar.edu.unju.fi.controller.model;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+
 public class Sucursal {
-   private String lugar;
-   private String telefono;
-   private String dia;
-   private String horario;
-   private String gmail;
+	@NotBlank(message = "El lugar no puede estar vacío")
+	private String lugar;
+	@NotBlank(message = "El telefono no puede estar vacío")
+	private String telefono;
+	@NotBlank(message = "El dia no puede estar vacío")
+	private String dia;
+	@NotBlank(message = "El horario no puede estar vacío")
+	private String horario;
+	@NotBlank(message = "El gmail no puede estar vacío")
+	@Email(message = "El gmail debe ser una dirección de correo electrónico válida")
+	private String gmail;
 public Sucursal(String lugar, String telefono, String dia, String horario, String gmail) {
 	super();
 	this.lugar = lugar;

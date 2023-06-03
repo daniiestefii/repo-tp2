@@ -1,11 +1,19 @@
 package ar.edu.unju.fi.controller.model;
-   
+
+import jakarta.validation.constraints.*;
+
 public class Producto {
-    private String nombre;
-    private int codigo;
-    private double precio;
-    private String categoria;
-    private int descuento;
+	@NotBlank(message = "El nombre no puede estar vacío")
+	private String nombre;
+	@NotNull(message = "El codigo no puede ser nulo")
+	private int codigo;
+	@Positive(message = "El precio siempre debe ser positivo")
+	private double precio;
+	@NotBlank(message = "Las categoria no puede estar vacío")
+	private String categoria;
+	@Min(value = 0, message = "El descuento no puede ser negativo")
+	@Max(value = 100, message = "El descuento no puede ser mayor a 100")
+	private int descuento;
 	public Producto(String nombre, int codigo, double precio, String categoria, int descuento) {
 		super();
 		this.nombre = nombre;

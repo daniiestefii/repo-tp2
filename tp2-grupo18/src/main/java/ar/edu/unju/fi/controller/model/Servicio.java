@@ -1,8 +1,13 @@
 package ar.edu.unju.fi.controller.model;
 
+import jakarta.validation.constraints.NotBlank;
+
 public class Servicio {
-   private String dia;
-   private String horario;
+	@NotBlank(message = "El dia no puede estar vacío")
+	private String dia;
+	@NotBlank(message = "El horario no puede estar vacío")
+	private String horario;
+	@NotBlank(message = "El nombre no puede estar vacío")
    private String nombre;
 public Servicio(String dia, String horario, String nombre) {
 	super();
