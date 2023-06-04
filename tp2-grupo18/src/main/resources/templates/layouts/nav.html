@@ -9,17 +9,25 @@
 	<body>
 	     <nav th:fragment="nav" id="menu">
 	       <div class="container-fluid">
-	        <div class="row">
-	         <div class="col-12">
-             <ul>
-                <li><a th:href="@{/noticias/listadoNoticias}">Inicio</a></li>
-                <li><a th:href="@{/productos/listadoProductos}">Productos</a></li>
-                <li><a th:href="@{/consejos/listadoConsejos}">Consejos</a></li>
-                <li><a th:href="@{/servicios/listadoServicios}">Servicios</a></li> 
-                <li><a th:href="@{/sucursales/listadoSucursales}">Surcursal</a></li>
-                <li><a th:href="@{/formulario}">Contactanos</a></li>
-              </ul>
-             </div>
+	        <div class="row justify-content-center">
+	         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-2 col-xxl-2 menucont">  
+                <a th:href="@{/noticias/listadoNoticias}">Inicio</a>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-2 col-xxl-2 menucont">
+                <a th:href="@{/productos/listadoProductos}">Productos</a>
+               </div>
+              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-2 col-xxl-2 menucont">
+                <a th:href="@{/consejos/listadoConsejos}">Consejos</a>
+               </div>
+              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-2 col-xxl-2 menucont">  
+                <a th:href="@{/servicios/listadoServicios}">Servicios</a>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-2 col-xxl-2 menucont">
+                <a th:href="@{/sucursales/listadoSucursales}">Surcursal</a>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-2 col-xxl-2 menucont"> 
+                <a th:href="@{/formulario}">Contactanos</a>
+              </div>
             </div>
            </div>
         </nav>

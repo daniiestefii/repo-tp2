@@ -2,17 +2,19 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Formulario</title>
+    <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
    <link rel="stylesheet" th:href="@{/css/estilos.css}">
 </head>
 <body id="bodyform">
    <header th:replace="layouts/header :: header"></header>
-    <nav th:replace="layouts/nav :: nav">
-        </nav>
-    
+    <nav th:replace="layouts/nav :: nav"></nav>
+     <div class="container-fluid">
+      <div class="row justify-content-center">
+       <div class="col-4">
         <section id="contenido">
-			<div id="formulario">
-			
+		  <div id="formulario">
                 <form th:action="@{/noticias/guardar}" th:object="${noticia}" method="post">
                        <p>
                         <label>TITULO</label>
@@ -21,18 +23,20 @@
                        </p>
                        <p>
                         <label >TEXTO</label>
-                        <textarea rows="8" cols="40" name="texto" required  placeholder="Ingrese su noticia" >
+                        <textarea rows="8" cols="35" name="texto" required  placeholder="Ingrese su noticia" >
                         </textarea>
-                 
                        </p>
-         
-                        <p>  
+                       <p>  
                             <input type="submit" value="guardar">
-                        </p>  
+                       </p>  
               </form> 
-              </div> 
+            </div> 
         </section>
+        </div>
+        </div>
+      </div>
         <footer th:replace="layouts/footer :: footer">       
         </footer>
+        <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>
 </html>

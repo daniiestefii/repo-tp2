@@ -3,8 +3,11 @@ package ar.edu.unju.fi.listas;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import ar.edu.unju.fi.controller.model.Servicio;
 
+@Component
 public class ListaServicio{
    private List<Servicio>servicios;
    

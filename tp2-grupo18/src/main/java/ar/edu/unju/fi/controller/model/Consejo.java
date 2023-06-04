@@ -1,11 +1,12 @@
 package ar.edu.unju.fi.controller.model;
 
-import jakarta.validation.constraints.NotBlank;
+import org.springframework.stereotype.Component;
 
-public class Consejo {
-   @NotBlank(message = "El título no puede estar vacío")
+
+public class Consejo{
+	
 	private String titulo;
-	@NotBlank(message = "El texto no puede estar vacío")
+	
    private String texto;
 public Consejo(String titulo, String texto) {
 	super();

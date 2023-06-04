@@ -1,5 +1,6 @@
 package ar.edu.unju.fi.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,8 +18,10 @@ import ar.edu.unju.fi.listas.ListaSucursal;
 @RequestMapping("/sucursales")
 public class SucursalController {
 
-	ListaSucursal listaSucu = new ListaSucursal();
+	@Autowired
+	private ListaSucursal listaSucu;
 	
+	private Sucursal sucursal;
 	@GetMapping("/listadoSucursales")
 	public String getSucursalPage(Model model) {
 		model.addAttribute("sucursal",listaSucu.getSucursales());
@@ -26,7 +29,7 @@ public class SucursalController {
 	}
 	@GetMapping("/nuevo")
 	public String getNuevoSucursalPage(Model model) {
-		model.addAttribute("sucursal",new Sucursal("","","","",""));
+		model.addAttribute("sucursal",sucursal);
 		return "nuevo_sucursal"; 
 	}
 	@PostMapping("/guardar")

@@ -9,7 +9,7 @@ public class NavController {
 
 	@GetMapping("/formulario")
 	public String getFormularioPage() {
-	   
+	    
 		return "Formulario";
 	}
 }

@@ -1,31 +1,40 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
+    <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Consejo de Salud</title>
+    <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
     <link rel="stylesheet" th:href="@{/css/estilos.css}">
 </head>
 <body>
     <header th:replace="layouts/header :: header">
     </header>
-    <hr>
       <nav th:replace="layouts/nav :: nav">
         </nav>
 <section id="cuerpo">
-<h2>Consejo de Salud para nuestra mascotas</h2>
-    <h2>¿Son realmente tan necesarias la vacunación y la revacunación?</h2>
-    <img src="../images/preve1.jpeg" width="600" alt="">
-      <table>
+
+    <h2 class="container">Consejo de Salud para nuestra mascotas</h2>
+
+    <h2 class="container-fluid">¿Son realmente tan necesarias la vacunación y la revacunación?</h2>
+
+    <img src="../images/preve1.jpeg" class="img-fluid" alt="">
+
+
+      <table class="table table-success table-striped-columns">
 	      <tr>
 	      </tr>
 	      <tr th:each="cons:${consejo}">
-	         <td th:text="${cons.titulo}">
+	         <td th:text="${cons.titulo}"></td>
 	         <td th:text="${cons.texto}"></td>
 	      </tr>
 	  </table>
-	  <a class="button" th:href="@{/consejos/nuevo}"> agregar </a>
+    <button type="button" class="btn btn-dark ">
+        <a class="text-light" th:href="@{/servicios/nuevo}" style="text-decoration: none;">Agregar</a>
+    </button>
 </section>
-<hr>
 <footer th:replace="layouts/footer :: footer">
 </footer>
+<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>
 </html>

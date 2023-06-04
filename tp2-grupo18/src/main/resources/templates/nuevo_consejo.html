@@ -11,7 +11,9 @@
    <header th:replace="layouts/header :: header"></header>
     <nav th:replace="layouts/nav :: nav">
         </nav>
-    
+      <div class="container-fluid">
+       <div class="row justify-content-center">
+         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-6 col-xl-4 col-xxl-4">
         <section id="contenido">
 			<div id="formulario">
 			
@@ -23,7 +25,7 @@
                        </p>
                        <p>
                         <label >TEXTO</label>
-                        <textarea rows="8" cols="40" name="texto" required  placeholder="Ingrese su Consejo" >
+                        <textarea name="texto" required  placeholder="Ingrese su Consejo" >
                         </textarea>
                  
                        </p>
@@ -33,6 +35,9 @@
               </form> 
               </div> 
         </section>
+           </div>
+         </div>
+        </div>
         <footer th:replace="layouts/footer :: footer">       
         </footer>
         <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>

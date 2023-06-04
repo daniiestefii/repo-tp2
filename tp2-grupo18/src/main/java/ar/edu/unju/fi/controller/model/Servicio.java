@@ -1,6 +1,9 @@
 package ar.edu.unju.fi.controller.model;
 
+import org.springframework.stereotype.Component;
+
 import jakarta.validation.constraints.NotBlank;
+
 
 public class Servicio {
 	@NotBlank(message = "El dia no puede estar vacío")

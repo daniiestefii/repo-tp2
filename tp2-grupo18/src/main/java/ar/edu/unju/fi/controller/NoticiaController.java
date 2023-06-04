@@ -1,5 +1,6 @@
 package ar.edu.unju.fi.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +18,11 @@ import ar.edu.unju.fi.listas.ListaNoticia;
 @RequestMapping("/noticias")
 public class NoticiaController {
 
-	ListaNoticia listaNot = new ListaNoticia();
+	@Autowired
+	private ListaNoticia listaNot;
+	
+	
+	private Noticia noticia;
 	
 	@GetMapping("/listadoNoticias")
 	public String getNoticiaPage(Model model) {
@@ -26,7 +31,7 @@ public class NoticiaController {
 	}
 	@GetMapping("/nuevo")
 	public String getNuevoNoticiaPage(Model model) {
-		model.addAttribute("noticia",new Noticia("",""));
+		model.addAttribute("noticia",noticia);
 		return "nuevo_noticia"; 
 	}
 	@PostMapping("/guardar")

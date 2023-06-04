@@ -2,12 +2,26 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
 	<head>
 		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
 		<link rel="stylesheet" th:href="@{css/estilos.css}">
+		
 	</head>
 	<body>
 	  <header th:fragment="header" id="headerprin">
-        <H1>Veterinaria -jujuy</H1>
-        <img  src="../images/logo1.png" alt="logo">
+	   <div class="container-fluid">
+	    <div class="row justify-content-center">
+	      <div class="col-auto">
+           <H1>Veterinaria -jujuy</H1>
+          </div>
+        </div>
+         <div class="row justify-content-center">
+         <div class="col-auto">
+         <img src="../images/logo1.png" alt="logo">
+         </div>
+        </div>
+       </div>
 	  </header>
+	  <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 	</body>
 </html>
