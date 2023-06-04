@@ -9,27 +9,36 @@
     <link rel="stylesheet" th:href="@{/css/estilos.css}">
 </head>
 <body>
-         <header th:replace="layouts/header :: header"></header>
-        <nav th:replace="layouts/nav :: nav"></nav>
     
+      
+         <header th:replace="layouts/header :: header"></header>
+       
+     
+        <nav th:replace="layouts/nav :: nav"></nav>
+    <div class="container-fluid">   
+       <div class="row justify-content-center">
+       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 col-xxl-8">
         <section id="articulos">
             <div class="card">
-            <table>
-	      <tr>
-	      </tr>
+       <table>
 	      <tr th:each="noti:${noticia}">
 	         <td th:text="${noti.titulo}">
 	         <td th:text="${noti.texto}"></td>
 	      </tr>
 	  </table>
 	  <a class="button" th:href="@{/noticias/nuevo}"> agregar </a>
-        </div>
-        </section>
-    
+	  </div>
+	  </section>
+	  </div>
+	  
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4">
         <aside id="info">  
           <img src="../images/inicio1.jpeg" >
           <img src="../images/inicio2.jpeg" >
        </aside>
+       </div>
+     </div>
+      </div>
       
       <footer th:replace="layouts/footer :: footer"></footer>
     <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>

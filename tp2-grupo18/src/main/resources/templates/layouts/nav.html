@@ -2,18 +2,27 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
 	<head>
 		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
 		<link rel="stylesheet" th:href="@{css/estilos.css}">
 	</head>
 	<body>
 	     <nav th:fragment="nav" id="menu">
-            <ul>
+	       <div class="container-fluid">
+	        <div class="row">
+	         <div class="col-12">
+             <ul>
                 <li><a th:href="@{/noticias/listadoNoticias}">Inicio</a></li>
                 <li><a th:href="@{/productos/listadoProductos}">Productos</a></li>
                 <li><a th:href="@{/consejos/listadoConsejos}">Consejos</a></li>
                 <li><a th:href="@{/servicios/listadoServicios}">Servicios</a></li> 
                 <li><a th:href="@{/sucursales/listadoSucursales}">Surcursal</a></li>
                 <li><a th:href="@{/formulario}">Contactanos</a></li>
-            </ul>
+              </ul>
+             </div>
+            </div>
+           </div>
         </nav>
+        <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 	</body>
 </html>
