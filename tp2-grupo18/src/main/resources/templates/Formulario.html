@@ -11,27 +11,29 @@
    <header th:replace="layouts/header :: header"></header>
     <nav th:replace="layouts/nav :: nav">
         </nav>
-    
+     <div class="container-fluid">
+      <div class="row justify-content-center">
+       <div class="col-xs-12 col-sm-12 col-md-8 col-lg-6 col-xl-4 col-xxl-4">
         <section id="contenido">
 			<div id="formulario">
 			
                 <form>
 					
                        <p>
-                        <label>Nombres</label>
+                        <h2>Nombres</h2>
                         <input type="text" name="nombre" 
-                        size="26px" required placeholder="Ingrese su nombre">
+                         required placeholder="Ingrese su nombre">
                        </p>
                        <p>
-                        <label >Email *</label>
-                        <input type="email" name="correo electronico" required  placeholder="Ingrese un email válido" >
+                        <h2>Email</h2>
+                        <input type="email" name="correo electronico" required size="26px" placeholder="Ingrese un email válido" >
                        </p>
                        <p>
-                        <label>Ciudad</label>
+                        <h2>Ciudad</h2>
                         <input type="text" name="ciudad" size="26px" required placeholder="Ingrese sus cuidad">
                         </p>
                         <p>
-                          <label for="">Mensaje</label>
+                          <h2>Mensaje</h2>
                           <textarea></textarea>
                         </p>
                         <p>
@@ -40,6 +42,9 @@
               </form> 
               </div> 
         </section>
+        </div>
+        </div>
+        </div>
         <footer th:replace="layouts/footer :: footer">       
         </footer>
         <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>

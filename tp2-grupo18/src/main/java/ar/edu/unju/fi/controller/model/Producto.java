@@ -1,6 +1,9 @@
 package ar.edu.unju.fi.controller.model;
 
+import org.springframework.stereotype.Component;
+
 import jakarta.validation.constraints.*;
+
 
 public class Producto {
 	@NotBlank(message = "El nombre no puede estar vacío")

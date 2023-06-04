@@ -1,7 +1,10 @@
 package ar.edu.unju.fi.controller.model;
 
+import org.springframework.stereotype.Component;
+
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+
 
 public class Sucursal {
 	@NotBlank(message = "El lugar no puede estar vacío")
