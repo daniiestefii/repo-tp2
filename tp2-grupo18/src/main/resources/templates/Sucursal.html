@@ -17,23 +17,26 @@
 	
 <section id="cuerpo">
 
-     <table>
+     <table class="table table-success table-striped-columns border-dark">
             <tr id="colorbarras">
 	         <th> LUGAR </th>
 	         <th>  TELEFONO </th>
-	         <th> DIAS </th>
+	         <th class="d-none d-xl-table-cell"> DIAS </th>
 	         <th> HORARIOS </th>
-	         <th> E-MAIL </th>
+	         <th class="d-none d-lg-table-cell"> E-MAIL </th>
 	      </tr>
 	      <tr th:each="sucu:${sucursal}">
 	         <td th:text="${sucu.lugar}">
 	         <td th:text="${sucu.telefono}">
-	         <td th:text="${sucu.dia}">
+	         <td class="d-none d-xl-table-cell" th:text="${sucu.dia}">
 	         <td th:text="${sucu.horario}">
-	         <td th:text="${sucu.gmail}">
+	         <td class="d-none d-lg-table-cell" th:text="${sucu.gmail}">
 	      </tr>
-   </table> 
-   <a class="button" th:href="@{/sucursales/nuevo}"> agregar </a>
+   </table>
+    <button type="button" class="btn btn-dark ">
+        <a class="text-light" th:href="@{/sucursales/nuevo}" style="text-decoration: none">Agregar</a>
+    </button>
+
 </section>
  <footer th:replace="layouts/footer :: footer">       
  </footer>
