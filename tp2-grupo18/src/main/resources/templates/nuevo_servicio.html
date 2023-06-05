@@ -20,16 +20,18 @@
                 <form th:action="@{/servicios/guardar}" th:object="${servicio}" method="post">
                        <p>
                         <label>Dia</label>
-                        <input type="text" name="dia" 
-                        size="30px" required placeholder="Ingrese el dia">
+                        <input type="text" th:field="*{dia}" size="30px" placeholder="Ingrese el dia">
+                        <div class="text-danger" th:if="${#fields.hasErrors('dia')}" th:errors="*{dia}"></div>
                        </p>
                        <p>
                         <label >Horario hh a hh</label>
-                        <input type="text" name="horario" size="26px" required  placeholder="Ingrese un horario" >
+                        <input type="text" th:field="*{horario}" size="26px" placeholder="Ingrese un horario" >
+                        <div class="text-danger" th:if="${#fields.hasErrors('horario')}" th:errors="*{horario}"></div>
                        </p>
                        <p>
                         <label>Nombre</label>
-                        <input type="text" name="nombre" size="26px" required placeholder="Ingrese un nombre">
+                        <input type="text" th:field="*{nombre}" size="26px" placeholder="Ingrese un nombre">
+                        <div class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
                         </p>
                         <p>  
                             <input type="submit" value="guardar">

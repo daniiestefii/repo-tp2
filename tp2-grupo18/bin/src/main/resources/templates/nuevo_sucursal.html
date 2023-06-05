@@ -11,7 +11,9 @@
    <header th:replace="layouts/header :: header"></header>
     <nav th:replace="layouts/nav :: nav">
         </nav>
-    
+     <div class="container-fluid">
+      <div class="row justify-content-center">
+       <div class="col-xs-12 col-sm-12 col-md-8 col-lg-6 col-xl-4 col-xxl-4">
         <section id="contenido">
 			<div id="formulario">
 			
@@ -19,23 +21,23 @@
                        <p>
                         <label>lugar</label>
                         <input type="text" name="lugar" 
-                        size="26px" required placeholder="Ingrese un lugar">
+                        size="28px" required placeholder="Ingrese un lugar">
                        </p>
                        <p>
                         <label >telefono</label>
-                        <input type="text" name="telefono" required  placeholder="Ingrese un telefono" >
+                        <input type="text" name="telefono" size="26px" required  placeholder="Ingrese un telefono" >
                        </p>
                        <p>
                         <label>dias</label>
-                        <input type="text" name="dia" size="26px" required placeholder="Ingrese dias lunes a viernes">
+                        <input type="text" name="dia" size="30px" required placeholder="Ingrese dias lunes a viernes">
                         </p>
                         <p>
                         <label>horario hh a hh </label>
-                        <input type="text" name="horario" size="26px" required placeholder="Ingrese un horario">
+                        <input type="text" name="horario" size="32px" required placeholder="Ingrese un horario">
                         </p>
                         <p>
                         <label> correo </label>
-                        <input type="text" name="gmail" size="26px" required placeholder="Ingrese un correo">
+                        <input type="text" name="gmail" size="30px" required placeholder="Ingrese un correo">
                         </p>
                         <p>  
                             <input type="submit" value="guardar">
@@ -43,6 +45,9 @@
               </form> 
               </div> 
         </section>
+        </div>
+        </div>
+        </div>
         <footer th:replace="layouts/footer :: footer">       
         </footer>
         <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>

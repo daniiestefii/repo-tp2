@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Consejo de Salud</title>
     <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
     <link rel="stylesheet" th:href="@{/css/estilos.css}">
@@ -20,7 +20,6 @@
 
     <img src="../images/preve1.jpeg" class="img-fluid" alt="">
 
-
       <table class="table table-success table-striped-columns">
 	      <tr>
 	      </tr>
@@ -29,8 +28,9 @@
 	         <td th:text="${cons.texto}"></td>
 	      </tr>
 	  </table>
-    <button type="button" class="btn btn-dark ">
-        <a class="text-light" th:href="@{/servicios/nuevo}" style="text-decoration: none;">Agregar</a>
+	
+   <button type="button" class="btn btn-dark ">
+        <a class="text-light" th:href="@{/consejos/nuevo}" style="text-decoration: none">Agregar</a>
     </button>
 </section>
 <footer th:replace="layouts/footer :: footer">

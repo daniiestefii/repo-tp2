@@ -3,6 +3,7 @@ package ar.edu.unju.fi.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.controller.model.Servicio;
 import ar.edu.unju.fi.listas.ListaServicio;
+import jakarta.validation.Valid;
 
 
 
@@ -30,12 +32,17 @@ public class ServicioController {
 	}
 	@GetMapping("/nuevo")
 	public String getNuevoServicioPage(Model model) {
-		model.addAttribute("servicio",servicio);
+		model.addAttribute("servicio",new Servicio("","",""));
 		return "nuevo_servicio"; 
 	}
 	@PostMapping("/guardar")
-	public ModelAndView getGuardarProducto(@ModelAttribute("servicio")Servicio serv) {
+	public ModelAndView getGuardarProducto(@Valid @ModelAttribute("servicio")Servicio serv, BindingResult result) {
 		ModelAndView mav = new ModelAndView("TablaServicios");
+		if(result.hasErrors()) {
+			mav.setViewName("nuevo_servicio");
+			mav.addObject("servicio",serv);
+			return mav;
+		}
 		listaSer.getServicios().add(serv);
 		mav.addObject("servicio",listaSer.getServicios());
 		return mav;

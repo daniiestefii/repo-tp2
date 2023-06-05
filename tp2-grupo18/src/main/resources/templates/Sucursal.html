@@ -24,6 +24,7 @@
 	         <th class="d-none d-xl-table-cell"> DIAS </th>
 	         <th> HORARIOS </th>
 	         <th class="d-none d-lg-table-cell"> E-MAIL </th>
+	         <th> FECHA INICIO </th>
 	      </tr>
 	      <tr th:each="sucu:${sucursal}">
 	         <td th:text="${sucu.lugar}">
@@ -31,6 +32,7 @@
 	         <td class="d-none d-xl-table-cell" th:text="${sucu.dia}">
 	         <td th:text="${sucu.horario}">
 	         <td class="d-none d-lg-table-cell" th:text="${sucu.gmail}">
+	         <td th:text="${sucu.fechainicio}">
 	      </tr>
    </table>
     <button type="button" class="btn btn-dark ">
