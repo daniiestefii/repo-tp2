@@ -10,7 +10,10 @@ import ar.edu.unju.fi.controller.model.Servicio;
 @Component
 public class ListaServicio{
    private List<Servicio>servicios;
-   
+
+	/*
+	 * Esta lista de servicios contiene objetos de la clase "Servicio".
+	 */
    public ListaServicio() {
 	   servicios = new ArrayList<Servicio>();
 	   servicios.add(new Servicio("Lunes","9 a 12 - 16 a 18","Juan Perez"));

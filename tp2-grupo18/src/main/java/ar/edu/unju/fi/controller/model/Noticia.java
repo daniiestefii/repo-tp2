@@ -3,7 +3,10 @@ package ar.edu.unju.fi.controller.model;
 import org.springframework.stereotype.Component;
 
 import jakarta.validation.constraints.NotBlank;
-
+/**
+ * @model Noticia
+ * @author DOrdonez
+ */
 
 public class Noticia {
 	@NotBlank(message = "El título no puede estar vacío")
@@ -15,6 +18,13 @@ public Noticia(String titulo, String texto) {
 	this.titulo = titulo;
 	this.texto = texto;
 }
+	/**
+	 *
+	 * @Get
+	 * @Set
+	 */
+
+
 public String getTitulo() {
 	return titulo;
 }

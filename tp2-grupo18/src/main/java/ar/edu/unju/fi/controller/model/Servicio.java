@@ -3,7 +3,10 @@ package ar.edu.unju.fi.controller.model;
 import org.springframework.stereotype.Component;
 
 import jakarta.validation.constraints.NotBlank;
-
+/**
+ * @model Servicio
+ * @author DOrdonez
+ */
 
 public class Servicio {
 	@NotBlank(message = "El dia no puede estar vacío")
@@ -18,6 +21,12 @@ public Servicio(String dia, String horario, String nombre) {
 	this.horario = horario;
 	this.nombre = nombre;
 }
+	/**
+	 *
+	 * @Get
+	 * @Set
+	 */
+
 public String getDia() {
 	return dia;
 }

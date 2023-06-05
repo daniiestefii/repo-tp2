@@ -2,9 +2,15 @@ package ar.edu.unju.fi.controller.model;
 
 import org.springframework.stereotype.Component;
 
+
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 
+
+/**
+ * @model Consejo
+ * @author DOrdonez
+ */
 
 public class Consejo{
 	@NotBlank(message="Tiene que escribir un titulo")
@@ -16,6 +22,14 @@ public Consejo(String titulo, String texto) {
 	this.titulo = titulo;
 	this.texto = texto;
 }
+
+	/**
+	 *
+	 * @Get
+	 * @Set
+	 */
+
+
 public String getTitulo() {
 	return titulo;
 }

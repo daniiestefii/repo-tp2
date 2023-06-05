@@ -10,7 +10,10 @@ import ar.edu.unju.fi.controller.model.Consejo;
 @Component
 public class ListaConsejo{
    private List<Consejo>consejos;
-   
+
+	/*
+	 * Esta lista de consejos para la salud de las mascotas contiene objetos de la clase "Consejo".
+	 */
    public ListaConsejo(){
 	   consejos = new ArrayList<Consejo>();
 	   consejos.add(new Consejo("Consejo de Salud para nuestra mascotas\r\n"

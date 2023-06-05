@@ -10,7 +10,10 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
 
-
+/**
+ * @model Sucursal
+ * @author DOrdonez
+ */
 public class Sucursal {
 	@NotBlank(message = "El lugar no puede estar vacío")
 	private String lugar;
@@ -88,3 +91,4 @@ public class Sucursal {
 	}
 		
 }
+

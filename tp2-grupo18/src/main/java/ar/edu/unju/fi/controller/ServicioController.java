@@ -24,17 +24,44 @@ public class ServicioController {
 	private ListaServicio listaSer;
 	
 	private Servicio servicio;
-	
+
+	/*
+	 * Este método utiliza la anotación @GetMapping para mapear una solicitud GET a
+	 * la ruta "/listadoServicios".
+	 * Devuelve la vista "TablaServicios" con un modelo que contiene una lista de
+	 * servicios".
+	 *
+	 * @param model:el objeto de modelo al que se agrega la lista de servicios
+	 * @return el nombre de vista "TablaServicios"
+	 */
 	@GetMapping("/listadoServicios")
 	public String getServicioPage(Model model) {
 		model.addAttribute("servicio",listaSer.getServicios());
 		return "TablaServicios";
 	}
+
+	/*
+	 * Este método utiliza la anotación @GetMapping para mapear una solicitud GET a la ruta "/nuevo".
+	 * Devuelve la vista "nuevo_servicio" con un modelo que contiene un objeto "servicio".
+	 *
+	 * @param model:el objeto de modelo al que se agrega el objeto "servicio"
+	 * @return el nombre de vista "nuevo_servicio"
+	 */
 	@GetMapping("/nuevo")
 	public String getNuevoServicioPage(Model model) {
 		model.addAttribute("servicio",new Servicio("","",""));
 		return "nuevo_servicio"; 
 	}
+
+	/*
+	 * Este método utiliza la anotación @PostMapping para mapear una solicitud POST a la ruta "/guardar".
+	 * Agrega un objeto "serv" a una lista de servicios en un objeto "listaSer".
+	 * Devuelve la vista "TablaServicios" con un modelo que contiene la lista actualizada de servicios.
+	 *
+	 * @param serv:el objeto de servicio que se agrega a la lista de servicios
+	 * @return el objeto ModelAndView que contiene la vista "TablaServicios" y el modelo actualizado
+	 *  de servicios
+	 */
 	@PostMapping("/guardar")
 	public ModelAndView getGuardarProducto(@Valid @ModelAttribute("servicio")Servicio serv, BindingResult result) {
 		ModelAndView mav = new ModelAndView("TablaServicios");
