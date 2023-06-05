@@ -16,23 +16,26 @@
     <section id = "Productos">
      <h2 id="tituloprod">PRODUCTOS</h2>
  	 <div id="prod">	 
-        <table>
+        <table class="table table-success table-striped-columns border-dark">
 	      <tr>
 	         <th>Nombre </th>
 	         <th> Codigo</th>
 	         <th> Precio</th>
-	         <th> Categoria</th>
-	         <th> Descuento</th>
+	         <th class="d-none d-xl-table-cell"> Categoria</th>
+	         <th class="d-none d-lg-table-cell"> Descuento</th>
 	      </tr>
 	      <tr th:each="pro:${producto}">
 	         <td th:text="${pro.nombre}">
 	         <td th:text="${pro.codigo}"></td>
 	         <td th:text="${pro.precio}"></td>
-	         <td th:text="${pro.categoria}"></td>
-	         <td th:text="${pro.descuento}"></td>
+	         <td class="d-none d-xl-table-cell" th:text="${pro.categoria}"></td>
+	         <td class="d-none d-lg-table-cell" th:text="${pro.descuento}"></td>
 	      </tr>
 	  </table>
-	  <a class="button" th:href="@{/productos/nuevo}"> agregar </a>
+
+		 <button type="button" class="btn btn-dark ">
+			 <a class="text-light" th:href="@{/productos/nuevo}" style="text-decoration: none">Agregar</a>
+		 </button>
     </div>        
     </section>
  

@@ -21,7 +21,7 @@
 			
                 <form th:action="@{/sucursales/guardar}" th:object="${sucursal}" method="post">
                        <p>
-                        <label>lugar</label>
+                        <label>Lugar</label>
                         <input type="text" th:field="*{lugar}" size="28px" placeholder="Ingrese un lugar">
                         <div class="text-danger" th:if="${#fields.hasErrors('lugar')}" th:errors="*{lugar}"></div>
                        </p>
@@ -31,22 +31,22 @@
                         <div class="text-danger" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></div>
                        </p>
                        <p>
-                        <label>dias</label>
+                        <label>Dias</label>
                         <input type="text" th:field="*{dia}" size="30px" placeholder="Ingrese dias lunes a viernes">
                         <div class="text-danger" th:if="${#fields.hasErrors('dia')}" th:errors="*{dia}"></div>
                         </p>
                         <p>
-                        <label>horario hh a hh </label>
+                        <label>Horario hh a hh </label>
                         <input type="text" th:field="*{horario}" size="32px" placeholder="Ingrese un horario">
                         <div class="text-danger" th:if="${#fields.hasErrors('horario')}" th:errors="*{horario}"></div>
                         </p>
                         <p>
-                        <label> correo </label>
+                        <label> Correo </label>
                         <input type="text" th:field="*{gmail}" size="30px" placeholder="Ingrese un correo">
                         <div class="text-danger" th:if="${#fields.hasErrors('gmail')}" th:errors="*{gmail}"></div>
                         </p>
                         <p>
-                        <label> fecha inicio </label>
+                        <label> Fecha Inicio </label>
                         <input type="date" th:field="*{fechainicio}" size="30px" placeholder="Ingrese una fecha">
                         <div class="text-danger" th:if="${#fields.hasErrors('fechainicio')}" th:errors="*{fechainicio}"></div>
                         </p>
