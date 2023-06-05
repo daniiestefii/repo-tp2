@@ -17,12 +17,22 @@ import jakarta.validation.Valid;
 @Controller
 @RequestMapping("/productos")
 public class ProductoController {
-
+   
+	/** 
+	 * Inyeccion de dependencia, para utilizar el objeto de la clase
+	 * sin necesidad de instanciar**/
 	@Autowired
 	private ListaProducto listaPro;
 	
 	
 	private Producto producto;
+	
+	/**
+	 * metodo getMapping para responder a una peticion /productos/
+	 * listadoProductos que muestra una pagina llamada "Productos"
+	 * antes de cargar la lista de productos al model y este ser usado
+	 * en la pagina de return, calcula el descuento de todos los objetos
+	 * de la lista antes de enviarse **/
 	
 	@GetMapping("/listadoProductos")
 	public String getProductoPage(Model model) {
@@ -32,11 +42,20 @@ public class ProductoController {
 		model.addAttribute("producto",listaPro.getProductos());
 		return "Productos";
 	}
+	/** 
+	 * metodo getMapping simple para mostrar una pagina "nuevo_producto"
+	 * enviando atravez del model un objeto tipo Producto para ser utilizado**/
 	@GetMapping("/nuevo")
 	public String getNuevoProductoPage(Model model) {
 		model.addAttribute("producto", new Producto("",0,0,"",0));
 		return "nuevo_producto"; 
 	}
+	/** 
+	 * metodo postMapping obtiene un objeto de tipo producto para luego
+	 * asignarlo dentro de la listaPro para su actualizacion y ser mostrado
+	 * en la pagina "Producto",antes de eso tambien se obtienen los errores ocurridos
+	 * y si estos ocurrieron al momento de querer mandar un objeto, se volvera a 
+	 * solicitar el ingreso de el objeto (por lo que no se cambia de pagina)**/
 	@PostMapping("/guardar")
 	public ModelAndView getGuardarProducto(@Valid @ModelAttribute("producto")Producto prod, BindingResult result) {
 		ModelAndView mav = new ModelAndView("Productos");
