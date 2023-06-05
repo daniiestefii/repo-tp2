@@ -11,6 +11,10 @@ import ar.edu.unju.fi.controller.model.Producto;
 public class ListaProducto {
    private List<Producto>productos;
    
+	/*
+	 * Esta lista de productos contiene objetos de la clase "Producto".
+	 */
+   
    public ListaProducto() {
 	   productos = new ArrayList<Producto>();
 	   productos.add(new Producto("Collar para perro",3213,5000,"Vestimenta",20));
