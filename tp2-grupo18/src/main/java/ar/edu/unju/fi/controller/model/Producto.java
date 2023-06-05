@@ -3,7 +3,10 @@ package ar.edu.unju.fi.controller.model;
 import org.springframework.stereotype.Component;
 
 import jakarta.validation.constraints.*;
-
+/**
+ * @model Producto
+ * @author DOrdonez
+ */
 
 public class Producto {
 	@NotBlank(message = "El nombre no puede estar vacío")
@@ -25,6 +28,12 @@ public class Producto {
 		this.categoria = categoria;
 		this.descuento = descuento;
 	}
+	/**
+	 *
+	 * @Get
+	 * @Set
+	 */
+
 	public double calcularDescuento() {
 		return (this.precio-(this.precio*this.descuento)/100);
 	}

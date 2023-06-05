@@ -2,7 +2,10 @@ package ar.edu.unju.fi.controller.model;
 
 import org.springframework.stereotype.Component;
 
-
+/**
+ * @model Consejo
+ * @author DOrdonez
+ */
 public class Consejo{
 	
 	private String titulo;
@@ -13,6 +16,14 @@ public Consejo(String titulo, String texto) {
 	this.titulo = titulo;
 	this.texto = texto;
 }
+
+	/**
+	 *
+	 * @Get
+	 * @Set
+	 */
+
+
 public String getTitulo() {
 	return titulo;
 }

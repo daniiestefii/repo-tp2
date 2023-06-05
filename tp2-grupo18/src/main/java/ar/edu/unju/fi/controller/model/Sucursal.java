@@ -5,7 +5,10 @@ import org.springframework.stereotype.Component;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 
-
+/**
+ * @model Sucursal
+ * @author DOrdonez
+ */
 public class Sucursal {
 	@NotBlank(message = "El lugar no puede estar vacío")
 	private String lugar;
@@ -26,6 +29,12 @@ public Sucursal(String lugar, String telefono, String dia, String horario, Strin
 	this.horario = horario;
 	this.gmail = gmail;
 }
+	/**
+	 *
+	 * @Get
+	 * @Set
+	 */
+
 public String getLugar() {
 	return lugar;
 }
