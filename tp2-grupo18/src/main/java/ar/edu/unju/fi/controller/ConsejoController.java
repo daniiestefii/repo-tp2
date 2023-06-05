@@ -3,6 +3,7 @@ package ar.edu.unju.fi.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.controller.model.Consejo;
 import ar.edu.unju.fi.listas.ListaConsejo;
+import jakarta.validation.Valid;
 
 
 
@@ -44,7 +46,7 @@ public class ConsejoController {
 	 */
 	@GetMapping("/nuevo")
 	public String getNuevoConsejoPage(Model model) {
-		model.addAttribute("consejo",consejo);
+		model.addAttribute("consejo", new Consejo("",""));
 		return "nuevo_consejo"; 
 	}
 
@@ -57,8 +59,13 @@ public class ConsejoController {
 	 * @return el objeto ModelAndView que contiene la vista "ConsejodeSalud" y el modelo actualizado
 	 */
 	@PostMapping("/guardar")
-	public ModelAndView getGuardarConsejo(@ModelAttribute("consejo")Consejo cons){
+	public ModelAndView getGuardarConsejo(@Valid @ModelAttribute("consejo")Consejo cons, BindingResult result){
 		ModelAndView mav = new ModelAndView("ConsejodeSalud");
+		if(result.hasErrors()){
+			mav.setViewName("nuevo_consejo");
+			mav.addObject("consejo",cons);
+			return mav;
+		}
 		listaCon.getConsejos().add(cons);
 		mav.addObject("consejo",listaCon.getConsejos());
 		return mav;

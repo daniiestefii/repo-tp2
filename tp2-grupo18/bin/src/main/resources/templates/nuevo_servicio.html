@@ -11,7 +11,9 @@
    <header th:replace="layouts/header :: header"></header>
     <nav th:replace="layouts/nav :: nav">
         </nav>
-    
+       <div class="container-fluid">
+        <div class="row justify-content-center">
+         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-6 col-xl-4 col-xxl-4">
         <section id="contenido">
 			<div id="formulario">
 			
@@ -19,11 +21,11 @@
                        <p>
                         <label>Dia</label>
                         <input type="text" name="dia" 
-                        size="26px" required placeholder="Ingrese el dia">
+                        size="30px" required placeholder="Ingrese el dia">
                        </p>
                        <p>
                         <label >Horario hh a hh</label>
-                        <input type="text" name="horario" required  placeholder="Ingrese un horario" >
+                        <input type="text" name="horario" size="26px" required  placeholder="Ingrese un horario" >
                        </p>
                        <p>
                         <label>Nombre</label>
@@ -35,6 +37,9 @@
               </form> 
               </div> 
         </section>
+        </div>
+        </div>
+        </div>
         <footer th:replace="layouts/footer :: footer">       
         </footer>
         <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>

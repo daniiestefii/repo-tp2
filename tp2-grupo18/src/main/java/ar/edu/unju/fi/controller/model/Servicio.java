@@ -14,7 +14,7 @@ public class Servicio {
 	@NotBlank(message = "El horario no puede estar vacío")
 	private String horario;
 	@NotBlank(message = "El nombre no puede estar vacío")
-   private String nombre;
+    private String nombre;
 public Servicio(String dia, String horario, String nombre) {
 	super();
 	this.dia = dia;

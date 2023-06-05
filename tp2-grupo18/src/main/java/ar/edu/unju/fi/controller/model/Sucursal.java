@@ -1,9 +1,14 @@
 package ar.edu.unju.fi.controller.model;
 
+import java.time.LocalDate;
+
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Past;
 
 /**
  * @model Sucursal
@@ -21,49 +26,69 @@ public class Sucursal {
 	@NotBlank(message = "El gmail no puede estar vacío")
 	@Email(message = "El gmail debe ser una dirección de correo electrónico válida")
 	private String gmail;
-public Sucursal(String lugar, String telefono, String dia, String horario, String gmail) {
-	super();
-	this.lugar = lugar;
-	this.telefono = telefono;
-	this.dia = dia;
-	this.horario = horario;
-	this.gmail = gmail;
-}
-	/**
-	 *
-	 * @Get
-	 * @Set
-	 */
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	@NotNull(message="la fecha no puede ser null")
+	@Past(message="la fecha debe ser menor a la fecha actual")
+	private LocalDate fechainicio;
 
-public String getLugar() {
-	return lugar;
+	public Sucursal(String lugar,String telefono,String dia,String horario,String gmail
+			,LocalDate fechainicio) {
+		super();
+		this.lugar = lugar;
+		this.telefono = telefono;
+		this.dia = dia;
+		this.horario = horario;
+		this.gmail = gmail;
+		this.fechainicio = fechainicio;
+	}
+
+	public String getLugar() {
+		return lugar;
+	}
+
+	public void setLugar(String lugar) {
+		this.lugar = lugar;
+	}
+
+	public String getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+
+	public String getDia() {
+		return dia;
+	}
+
+	public void setDia(String dia) {
+		this.dia = dia;
+	}
+
+	public String getHorario() {
+		return horario;
+	}
+
+	public void setHorario(String horario) {
+		this.horario = horario;
+	}
+
+	public String getGmail() {
+		return gmail;
+	}
+
+	public void setGmail(String gmail) {
+		this.gmail = gmail;
+	}
+
+	public LocalDate getFechainicio() {
+		return fechainicio;
+	}
+
+	public void setFechainicion(LocalDate fechainicio) {
+		this.fechainicio = fechainicio;
+	}
+		
 }
-public void setLugar(String lugar) {
-	this.lugar = lugar;
-}
-public String getTelefono() {
-	return telefono;
-}
-public void setTelefono(String telefono) {
-	this.telefono = telefono;
-}
-public String getDia() {
-	return dia;
-}
-public void setDia(String dia) {
-	this.dia = dia;
-}
-public String getHorario() {
-	return horario;
-}
-public void setHorario(String horario) {
-	this.horario = horario;
-}
-public String getGmail() {
-	return gmail;
-}
-public void setGmail(String gmail) {
-	this.gmail = gmail;
-}
-   
-}
+

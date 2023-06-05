@@ -18,13 +18,13 @@
                 <form th:action="@{/noticias/guardar}" th:object="${noticia}" method="post">
                        <p>
                         <label>TITULO</label>
-                        <input type="text" name="titulo" 
-                        size="26px" required placeholder="Ingrese su titulo">
+                        <input type="text" th:field="*{titulo}" size="26px" placeholder="Ingrese su titulo">
+                        <div class="text-danger" th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}"></div>
                        </p>
                        <p>
                         <label >TEXTO</label>
-                        <textarea name="texto" required  placeholder="Ingrese su noticia" >
-                        </textarea>
+                        <textarea th:field="*{texto}" placeholder="Ingrese su noticia" ></textarea>
+                        <div class="text-danger" th:if="${#fields.hasErrors('texto')}" th:errors="*{texto}"></div>
                        </p>
                        <p>  
                             <input type="submit" value="guardar">

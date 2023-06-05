@@ -11,23 +11,24 @@
    <header th:replace="layouts/header :: header"></header>
     <nav th:replace="layouts/nav :: nav">
         </nav>
-    
+      <div class="container-fluid">
+         <div class="row justify-content-center">
+           <div class="col-xs-12 col-sm-12 col-md-8 col-lg-6 col-xl-4 col-xxl-4">
         <section id="contenido">
 			<div id="formulario">
 			
                 <form th:action="@{/productos/guardar}" th:object="${producto}" method="post">
                        <p>
                         <label>Nombre</label>
-                        <input type="text" name="nombre" 
-                        size="26px" required placeholder="Ingrese un nombre">
+                        <input type="text" name="nombre" size="26px" required placeholder="Ingrese un nombre">
                        </p>
                        <p>
                         <label >Codigo</label>
-                        <input type="text" name="codigo" required  placeholder="Ingrese un codigo" >
+                        <input type="text" name="codigo" size="26px" required placeholder="Ingrese un codigo">
                        </p>
                        <p>
                         <label>Precio</label>
-                        <input type="text" name="precio" size="26px" required placeholder="Ingrese el precio">
+                        <input type="text" name="precio" size="29px" required placeholder="Ingrese el precio">
                         </p>
                         <p>
                         <label>Categoria</label>
@@ -43,6 +44,9 @@
               </form> 
               </div> 
         </section>
+       </div>
+       </div>
+       </div>
         <footer th:replace="layouts/footer :: footer">       
         </footer>
         <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>

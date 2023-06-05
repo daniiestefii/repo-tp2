@@ -12,7 +12,7 @@
     <nav th:replace="layouts/nav :: nav"></nav>
      <div class="container-fluid">
       <div class="row justify-content-center">
-       <div class="col-4">
+       <div class="col-xs-12 col-sm-12 col-md-8 col-lg-6 col-xl-4 col-xxl-4">
         <section id="contenido">
 		  <div id="formulario">
                 <form th:action="@{/noticias/guardar}" th:object="${noticia}" method="post">
@@ -23,7 +23,7 @@
                        </p>
                        <p>
                         <label >TEXTO</label>
-                        <textarea rows="8" cols="35" name="texto" required  placeholder="Ingrese su noticia" >
+                        <textarea name="texto" required  placeholder="Ingrese su noticia" >
                         </textarea>
                        </p>
                        <p>  

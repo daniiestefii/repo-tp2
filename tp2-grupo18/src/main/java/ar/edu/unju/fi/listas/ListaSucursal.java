@@ -1,5 +1,6 @@
 package ar.edu.unju.fi.listas;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +17,7 @@ public class ListaSucursal{
 	 */
    public ListaSucursal() {
 	   sucursales = new ArrayList<Sucursal>();
-	   sucursales.add(new Sucursal("3915 Av. General Belgrano","388-4999999","Luneas a viernes","9:00 a. m. 8 p. m","contactos@mail.com.ar"));
+	   sucursales.add(new Sucursal("3915 Av. General Belgrano","388-4999999","Luneas a viernes","9:00 a. m. 8 p. m","contactos@mail.com.ar",LocalDate.of(2002,02,22)));
    }
 
 public List<Sucursal> getSucursales() {

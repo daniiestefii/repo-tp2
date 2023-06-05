@@ -14,6 +14,7 @@ public class Producto {
 	@NotNull(message = "El codigo no puede ser nulo")
 	private int codigo;
 	@Positive(message = "El precio siempre debe ser positivo")
+	@NotNull(message = "No puede quedar vacio")
 	private double precio;
 	@NotBlank(message = "Las categoria no puede estar vacío")
 	private String categoria;

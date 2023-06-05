@@ -20,23 +20,28 @@
                 <form th:action="@{/productos/guardar}" th:object="${producto}" method="post">
                        <p>
                         <label>Nombre</label>
-                        <input type="text" name="nombre" size="26px" required placeholder="Ingrese un nombre">
+                        <input type="text" th:field="*{nombre}" size="26px" placeholder="Ingrese un nombre">
+                        <div class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
                        </p>
                        <p>
                         <label >Codigo</label>
-                        <input type="text" name="codigo" size="26px" required placeholder="Ingrese un codigo">
+                        <input type="text" th:field="*{codigo}" size="26px" placeholder="Ingrese un codigo">
+                        <div class="text-danger" th:if="${#fields.hasErrors('codigo')}" th:errors="*{codigo}"></div>
                        </p>
                        <p>
                         <label>Precio</label>
-                        <input type="text" name="precio" size="29px" required placeholder="Ingrese el precio">
+                        <input type="text" th:field="*{precio}" size="29px" placeholder="Ingrese el precio">
+                        <div class="text-danger" th:if="${#fields.hasErrors('precio')}" th:errors="*{precio}"></div>
                         </p>
                         <p>
                         <label>Categoria</label>
-                        <input type="text" name="categoria" size="26px" required placeholder="Ingrese la categoria">
+                        <input type="text" th:field="*{categoria}" size="26px" placeholder="Ingrese la categoria">
+                        <div class="text-danger" th:if="${#fields.hasErrors('categoria')}" th:errors="*{categoria}"></div>
                         </p>
                         <p>
                         <label>Descuento</label>
-                        <input type="text" name="descuento" size="26px" required placeholder="Ingrese el descuento">
+                        <input type="text" th:field="*{descuento}" size="26px" placeholder="Ingrese el descuento">
+                        <div class="text-danger" th:if="${#fields.hasErrors('descuento')}" th:errors="*{descuento}"></div>
                         </p>
                         <p>  
                             <input type="submit" value="guardar">
