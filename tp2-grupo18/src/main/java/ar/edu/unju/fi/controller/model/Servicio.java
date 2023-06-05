@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import jakarta.validation.constraints.NotBlank;
 /**
  * @model Servicio
- * @author DOrdonez
+ * @author DOrdonez, RicardoFlores
  */
 
 public class Servicio {
