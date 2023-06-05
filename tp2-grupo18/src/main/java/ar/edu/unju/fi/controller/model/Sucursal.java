@@ -12,7 +12,7 @@ import jakarta.validation.constraints.Past;
 
 /**
  * @model Sucursal
- * @author DOrdonez
+ * @author DOrdonez, RicardoFlores, MiltonDelgado
  */
 public class Sucursal {
 	@NotBlank(message = "El lugar no puede estar vacío")

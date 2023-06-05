@@ -9,7 +9,7 @@ import jakarta.validation.constraints.NotEmpty;
 
 /**
  * @model Consejo
- * @author DOrdonez
+ * @author DOrdonez, RicardoFlores, MiltonDelgado
  */
 
 public class Consejo{
