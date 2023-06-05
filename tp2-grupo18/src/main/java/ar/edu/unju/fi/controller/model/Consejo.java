@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * @model Consejo
- * @author DOrdonez
+ * @author DOrdonez, RicardoFlores, MiltonDelgado
  */
 public class Consejo{
 	

@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import jakarta.validation.constraints.*;
 /**
  * @model Producto
- * @author DOrdonez
+ * @author DOrdonez, RicardoFlores, MiltonDelgado
  */
 
 public class Producto {
