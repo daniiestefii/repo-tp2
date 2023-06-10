@@ -7,7 +7,7 @@ import jakarta.validation.constraints.*;
  * @model Producto
  * @author DOrdonez, RicardoFlores, MiltonDelgado
  */
-
+@Component
 public class Producto {
 	@NotBlank(message = "El nombre no puede estar vacío")
 	private String nombre;

@@ -26,8 +26,18 @@
 	      <tr>
 	      </tr>
 	      <tr th:each="cons:${consejo}">
-	         <td th:text="${cons.titulo}"></td>
-	         <td th:text="${cons.texto}"></td>
+              <td th:text="${cons.titulo}"></td>
+              <td th:text="${cons.texto}"></td>
+              <td>
+                  <button type="button" class="btn btn-primary ">
+                      <a class="text-light" th:href="@{/consejos/modificar/}+${cons.titulo}" style="text-decoration: none">Editar</a>
+                  </button>
+              </td>
+              <td>
+                  <button type="button" class="btn btn-danger ">
+                      <a class="text-light" th:href="@{/consejos/eliminar/}+${cons.titulo}" style="text-decoration: none">Eliminar</a>
+                  </button>
+              </td>
 	      </tr>
 	  </table>
 	

@@ -7,7 +7,7 @@ import jakarta.validation.constraints.NotBlank;
  * @model Noticia
  * @author DOrdonez, RicardoFlores, MiltonDelgado
  */
-
+@Component
 public class Noticia {
 	@NotBlank(message = "El título no puede estar vacío")
 	private String titulo;

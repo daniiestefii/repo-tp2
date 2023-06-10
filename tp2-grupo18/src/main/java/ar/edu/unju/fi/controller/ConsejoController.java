@@ -4,10 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.controller.model.Consejo;
@@ -32,8 +29,8 @@ public class ConsejoController {
 	 * @return el nombre de vista "ConsejodeSalud"
 	 */
 	@GetMapping("/listadoConsejos")
-	public String getConsejoPage(Model model){
-		model.addAttribute("consejo",listaCon.getConsejos());
+	public String getConsejoPage(Model model) {
+		model.addAttribute("consejo", listaCon.getConsejos());
 		return "ConsejodeSalud";
 	}
 
@@ -46,8 +43,10 @@ public class ConsejoController {
 	 */
 	@GetMapping("/nuevo")
 	public String getNuevoConsejoPage(Model model) {
-		model.addAttribute("consejo", new Consejo("",""));
-		return "nuevo_consejo"; 
+		boolean edicion = false;
+		model.addAttribute("consejo", new Consejo("", ""));
+		model.addAttribute("edicionConsejo", edicion);
+		return "nuevo_consejo";
 	}
 
 	/*
@@ -59,15 +58,52 @@ public class ConsejoController {
 	 * @return el objeto ModelAndView que contiene la vista "ConsejodeSalud" y el modelo actualizado
 	 */
 	@PostMapping("/guardar")
-	public ModelAndView getGuardarConsejo(@Valid @ModelAttribute("consejo")Consejo cons, BindingResult result){
+	public ModelAndView getGuardarConsejo(@Valid @ModelAttribute("consejo") Consejo cons, BindingResult result) {
 		ModelAndView mav = new ModelAndView("ConsejodeSalud");
-		if(result.hasErrors()){
+		if (result.hasErrors()) {
 			mav.setViewName("nuevo_consejo");
-			mav.addObject("consejo",cons);
+			mav.addObject("consejo", cons);
 			return mav;
 		}
 		listaCon.getConsejos().add(cons);
-		mav.addObject("consejo",listaCon.getConsejos());
+		mav.addObject("consejo", listaCon.getConsejos());
 		return mav;
+	}
+
+	@GetMapping("/modificar/{titulo}")
+	public String getModificarConsejo(Model model, @PathVariable(value = "titulo") String titulo) {
+		Consejo consejoencontrado = new Consejo();
+		boolean edicion = true;
+		for (Consejo conse : listaCon.getConsejos()) {
+			if (conse.getTitulo().equals(titulo)) {
+				consejoencontrado = conse;
+				break;
+			}
+		}
+		model.addAttribute("consejo", consejoencontrado);
+		model.addAttribute("edicionConsejo", edicion);
+		return "nuevo_consejo";
+
+	}
+
+	@PostMapping("/modificar")
+	public String modificarConsejo(@ModelAttribute("consejo") Consejo consejo) {
+		for (Consejo conse : listaCon.getConsejos()) {
+			if (conse.getTitulo().equals(consejo.getTitulo())) {
+				conse.setTitulo(consejo.getTitulo());
+				conse.setTexto(consejo.getTexto());
+			}
+		}
+		return "redirect:/consejos/listadoConsejos";
+	}
+	@GetMapping("/eliminar/{titulo}")
+	public String eliminarconsejo(@PathVariable(value = "titulo")String titulo){
+		for (Consejo conse : listaCon.getConsejos()) {
+			if (conse.getTitulo().equals(titulo)) {
+				listaCon.getConsejos().remove(conse);
+				break;
+			}
+		}
+		return "redirect:/consejos/listadoConsejos";
 	}
 }

@@ -11,7 +11,7 @@ import jakarta.validation.constraints.NotEmpty;
  * @model Consejo
  * @author DOrdonez, RicardoFlores, MiltonDelgado
  */
-
+@Component
 public class Consejo{
 	@NotBlank(message="Tiene que escribir un titulo")
 	private String titulo;
@@ -22,6 +22,9 @@ public Consejo(String titulo, String texto) {
 	this.titulo = titulo;
 	this.texto = texto;
 }
+
+	public Consejo() {
+	}
 
 	/**
 	 *
