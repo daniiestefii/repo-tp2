@@ -7,7 +7,7 @@ import jakarta.validation.constraints.NotBlank;
  * @model Servicio
  * @author DOrdonez, RicardoFlores, MiltonDelgado
  */
-@Component
+
 public class Servicio {
 	@NotBlank(message = "El dia no puede estar vacío")
 	private String dia;
