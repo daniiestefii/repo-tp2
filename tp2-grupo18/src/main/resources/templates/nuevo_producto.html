@@ -25,11 +25,11 @@
                         <div class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
                       
                         <label >Codigo</label>
-                        <input type="text" th:field="*{codigo}" size="26px" placeholder="Ingrese un codigo">
+                        <input type="number" th:field="*{codigo}" size="26px" placeholder="Ingrese un codigo">
                         <div class="text-danger" th:if="${#fields.hasErrors('codigo')}" th:errors="*{codigo}"></div>
                        
                         <label>Precio</label>
-                        <input type="text" th:field="*{precio}" size="29px" placeholder="Ingrese el precio">
+                        <input type="number" th:field="*{precio}" size="29px" placeholder="Ingrese el precio">
                         <div class="text-danger" th:if="${#fields.hasErrors('precio')}" th:errors="*{precio}"></div>
                         
                         <label>Categoria</label>
@@ -44,7 +44,7 @@
                         <br>
                         <label>Descuento</label>
                         
-                        <input type="text" th:field="*{descuento}" size="26px" placeholder="Ingrese el descuento">
+                        <input type="number" th:field="*{descuento}" size="26px" placeholder="Ingrese el descuento">
                         <div class="text-danger" th:if="${#fields.hasErrors('descuento')}" th:errors="*{descuento}"></div>
 
                             <input type="submit" value="guardar">
