@@ -17,7 +17,7 @@ public interface IServicioService {
     /**
      * @method  Devuelve el servicio cuyo nombre coincide con el parámetro de servicio.
      */
-    Servicio buscar(String nombre);
+    Servicio buscar(String dia);
     /**
      * @method Modifica una sucursal existente
      */
@@ -29,5 +29,5 @@ public interface IServicioService {
     /**
      * @method Devuelve un nuevo objeto servicio
      */
-    Servicio getServicio();
+    Servicio getServicios();
 }

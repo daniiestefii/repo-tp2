@@ -28,12 +28,12 @@
 	         <td th:text="${ser.nombre}"></td>
               <td>
                   <button type="button" class="btn btn-primary ">
-                      <a class="text-light" th:href="@{/servicios/modificar/}+${ser.nombre}" style="text-decoration: none">Editar</a>
+                      <a class="text-light" th:href="@{/servicios/modificar/}+${ser.dia}" style="text-decoration: none">Editar</a>
                   </button>
               </td>
               <td>
                   <button type="button" class="btn btn-danger ">
-                      <a class="text-light" th:href="@{/servicios/eliminar/}+${ser.nombre}" style="text-decoration: none">Eliminar</a>
+                      <a class="text-light" th:href="@{/servicios/eliminar/}+${ser.dia}" style="text-decoration: none">Eliminar</a>
                   </button>
               </td>
 	      </tr>

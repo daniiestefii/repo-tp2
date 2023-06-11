@@ -89,18 +89,17 @@ public class ServicioController {
 	 * para poder modificarlo
 	 *
 	 */
-	@GetMapping("/modificar/{nombre}")
-	public String getModificarServicioPage(Model model, @PathVariable(value="nombre")String nombre){
+	@GetMapping("/modificar/{dia}")
+	public String getModificarServicioPage(Model model, @PathVariable(value="dia")String dia){
 		boolean edicion = true;
-		Servicio servicioEncontrado = servicioService.buscar(nombre);
+		Servicio servicioEncontrado = servicioService.buscar(dia);
 		model.addAttribute("servicio",servicioEncontrado);
 		model.addAttribute("edicionServicio", edicion);
 		return "nuevo_servicio";
 	}
 	/**
 	 * @method tras recibir el objeto el objeto modificado este actualiza
-	 * dicho objeto que pertence a la lista. la busqueda se realiza mediante
-	 * el nombre del objeto en la lista.
+	 * dicho objeto que pertence a la lista.
 	 */
 	@PostMapping("/modificar")
 	public String modificarServicio(@Valid @ModelAttribute("servicio")Servicio servi, BindingResult result) {
@@ -108,13 +107,11 @@ public class ServicioController {
 		return "redirect:/servicios/listadoServicios";
 	}
 	/**
-	 * @method elimina un objeto dentro de la lista tomando como referencia
-	 * de identificador el nombre que viene con la peticion a la cual
-	 * este metodo responde
+	 * @method elimina un objeto dentro de la lista
 	 */
-	@GetMapping("/eliminar/{nombre}")
-	public String eliminarServicio(@PathVariable(value="nombre")String nombre) {
-		servicioService.eliminar(servicioService.buscar(nombre));
+	@GetMapping("/eliminar/{dia}")
+	public String eliminarServicio(@PathVariable(value="dia")String dia) {
+		servicioService.eliminar(servicioService.buscar(dia));
 		return "redirect:/servicios/listadoServicios";
 	}
 }
