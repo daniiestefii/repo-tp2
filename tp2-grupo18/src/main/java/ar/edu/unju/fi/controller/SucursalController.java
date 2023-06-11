@@ -7,12 +7,15 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import ar.edu.unju.fi.controller.model.Producto;
 import ar.edu.unju.fi.controller.model.Sucursal;
 import ar.edu.unju.fi.listas.ListaSucursal;
+import ar.edu.unju.fi.service.ISucursalService;
 import jakarta.validation.Valid;
 
 
@@ -22,9 +25,7 @@ import jakarta.validation.Valid;
 public class SucursalController {
 
 	@Autowired
-	private ListaSucursal listaSucu;
-	@Autowired
-	private Sucursal sucursal;
+	private ISucursalService sucursalService;
 
 	/*
 	 * Este método utiliza la anotación @GetMapping para mapear una solicitud GET a la ruta
@@ -37,7 +38,7 @@ public class SucursalController {
 	 */
 	@GetMapping("/listadoSucursales")
 	public String getSucursalPage(Model model) {
-		model.addAttribute("sucursal",listaSucu.getSucursales());
+		model.addAttribute("sucursal",sucursalService.getListaSucursal());
 		return "Sucursal";
 	}
 
@@ -50,7 +51,9 @@ public class SucursalController {
 	 */
 	@GetMapping("/nuevo")
 	public String getNuevoSucursalPage(Model model) {
-		model.addAttribute("sucursal",sucursal);
+		boolean edicion=false;
+		model.addAttribute("sucursal",sucursalService.getSucursal());
+		model.addAttribute("edicion", edicion);
 		return "nuevo_sucursal"; 
 	}
 
@@ -71,8 +74,28 @@ public class SucursalController {
 			mav.addObject("sucursal", sucu);
 			return mav;
 		}
-		listaSucu.getSucursales().add(sucu);
-		mav.addObject("sucursal",listaSucu.getSucursales());
+		sucursalService.guardar(sucu);
+		mav.addObject("sucursal",sucursalService.getListaSucursal());
 		return mav;
 	}
+	@GetMapping("/modificar/{nombre}")
+	public String getModificarSucursalPage(Model model, @PathVariable(value="nombre")String nombre){
+		boolean edicion = true;
+		Sucursal sucursalEncontrado = sucursalService.buscar(nombre);
+		model.addAttribute("sucursal",sucursalEncontrado);
+		model.addAttribute("edicion", edicion);				
+		return "nuevo_sucursal";
+	}
+	@PostMapping("/modificar")
+	public String modificarSucursal(@Valid @ModelAttribute("sucursal")Sucursal sucu, BindingResult result) {
+		sucursalService.modificar(sucu);
+		return "redirect:/sucursales/listadoSucursales";
+	}
+	
+	@GetMapping("/eliminar/{nombre}")
+	public String eliminarSucursal(@PathVariable(value="nombre")String nombre) {		
+		sucursalService.eliminar(sucursalService.buscar(nombre));
+		return "redirect:/sucursales/listadoSucursales";
+	}
+
 }

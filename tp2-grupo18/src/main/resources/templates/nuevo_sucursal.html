@@ -18,8 +18,11 @@
        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-6 col-xl-4 col-xxl-4">
         <section id="contenido">
 			<div id="formulario">
-			
-                <form th:action="@{/sucursales/guardar}" th:object="${sucursal}" method="post">
+			<h3 th:text="${edicion}?'Modificar Sucursal':'Nuevo Sucursal'"></h3>
+                <form th:action="${edicion}?@{/sucursales/modificar}:@{/sucursales/guardar}" th:object="${sucursal}" method="post">
+                        <label>Nombre</label>
+                        <input type="text" th:field="*{nombre}" size="28px" placeholder="Ingrese un nombre">
+                        <div class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
                        
                         <label>Lugar</label>
                         <input type="text" th:field="*{lugar}" size="28px" placeholder="Ingrese un lugar">
