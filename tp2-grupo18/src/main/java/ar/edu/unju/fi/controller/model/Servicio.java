@@ -8,6 +8,7 @@ import jakarta.validation.constraints.NotBlank;
  * @author DOrdonez, RicardoFlores, MiltonDelgado
  */
 
+@Component
 public class Servicio {
 	@NotBlank(message = "El dia no puede estar vacío")
 	private String dia;
@@ -20,6 +21,9 @@ public Servicio(String dia, String horario, String nombre) {
 	this.dia = dia;
 	this.horario = horario;
 	this.nombre = nombre;
+}
+public Servicio() {
+	
 }
 	/**
 	 *

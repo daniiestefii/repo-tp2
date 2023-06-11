@@ -22,7 +22,7 @@ public class ServicioController {
 
 	@Autowired
 	private ListaServicio listaSer;
-	
+	@Autowired
 	private Servicio servicio;
 
 	/*
@@ -49,7 +49,7 @@ public class ServicioController {
 	 */
 	@GetMapping("/nuevo")
 	public String getNuevoServicioPage(Model model) {
-		model.addAttribute("servicio",new Servicio("","",""));
+		model.addAttribute("servicio",servicio);
 		return "nuevo_servicio"; 
 	}
 

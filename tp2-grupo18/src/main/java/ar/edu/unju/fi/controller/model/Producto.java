@@ -7,18 +7,22 @@ import jakarta.validation.constraints.*;
  * @model Producto
  * @author DOrdonez, RicardoFlores, MiltonDelgado
  */
+@Component
+
 public class Producto {
 	@NotBlank(message = "El nombre no puede estar vacío")
 	private String nombre;
 	@NotNull(message = "El codigo no puede ser nulo")
+	@Min(value = 1, message ="el valor debe ser mayor a 0")
 	private int codigo;
 	@Positive(message = "El precio siempre debe ser positivo")
 	@NotNull(message = "No puede quedar vacio")
 	private double precio;
-	@NotBlank(message = "Las categoria no puede estar vacío")
+	@NotBlank(message = "Seleccione una opcion!")
 	private String categoria;
 	@Min(value = 0, message = "El descuento no puede ser negativo")
 	@Max(value = 100, message = "El descuento no puede ser mayor a 100")
+	@NotNull(message = "este campo no puede estar vacio")
 	private int descuento;
 	public Producto(String nombre, int codigo, double precio, String categoria, int descuento) {
 		super();
@@ -27,6 +31,9 @@ public class Producto {
 		this.precio = precio;
 		this.categoria = categoria;
 		this.descuento = descuento;
+	}
+	
+	public Producto(){
 	}
 	/**
 	 *

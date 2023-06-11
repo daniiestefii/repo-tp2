@@ -14,7 +14,7 @@ import jakarta.validation.constraints.Past;
  * @model Sucursal
  * @author DOrdonez, RicardoFlores, MiltonDelgado
  */
-
+@Component
 public class Sucursal {
 	@NotBlank(message = "El lugar no puede estar vacío")
 	private String lugar;
@@ -31,7 +31,7 @@ public class Sucursal {
 	@NotNull(message="la fecha no puede ser null")
 	@Past(message="la fecha debe ser menor a la fecha actual")
 	private LocalDate fechainicio;
-
+    
 	public Sucursal(String lugar,String telefono,String dia,String horario,String gmail
 			,LocalDate fechainicio) {
 		super();
@@ -41,6 +41,9 @@ public class Sucursal {
 		this.horario = horario;
 		this.gmail = gmail;
 		this.fechainicio = fechainicio;
+	}
+	public Sucursal() {
+		
 	}
 
 	public String getLugar() {
@@ -87,7 +90,7 @@ public class Sucursal {
 		return fechainicio;
 	}
 
-	public void setFechainicion(LocalDate fechainicio) {
+	public void setFechainicio(LocalDate fechainicio) {
 		this.fechainicio = fechainicio;
 	}
 		
