@@ -31,7 +31,8 @@ public class ConsejoServiceImp implements IConsejoService {
         boolean edicion = true;
         for (Consejo conse : listaConsejo.getConsejos()) {
             if (conse.getTitulo().equals(titulo)) {
-                consejoencontrado = conse;
+                consejoencontrado.setTexto(conse.getTexto());
+                consejoencontrado.setTitulo(conse.getTitulo());
                 break;
             }
         }
@@ -43,6 +44,7 @@ public class ConsejoServiceImp implements IConsejoService {
         for (Consejo conse : listaConsejo.getConsejos()) {
             if (conse.getTitulo().equals(consejo.getTitulo())) {
                 conse.setTexto(consejo.getTexto());
+                break;
             }
         }
 

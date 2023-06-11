@@ -19,21 +19,21 @@
 			<div id="formulario">
 			<h3 th:text="${edicionConsejo}?'Modificar consejo':'Nuevo consejo'"></h3>
                 <form th:action="${edicionConsejo}?@{/consejos/modificar}:@{/consejos/guardar}" th:object="${consejo}" method="post">
-                        
+
                         <label>TITULO</label>
-                        
+
                         <input type="text" th:field="*{titulo}" size="26px" placeholder="Ingrese su titulo">
                          <div class="text-danger" th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}"></div>
-                        
+
                         <label >TEXTO</label>
                         <textarea th:field="*{texto}"  placeholder="Ingrese su Consejo" ></textarea>
                         <div class="text-danger" th:if="${#fields.hasErrors('texto')}" th:errors="*{texto}"></div>
-                 
+
                         
-                           <p><input type="submit"  class="button" th:value="${edicion}?'Modificar':'Guardar'"></p>
+                           <input type="submit"  class="button" th:value="${edicion}?'Modificar':'Guardar'">
                          
               </form> 
-              </div> 
+              </div>
         </section>
            </div>
          </div>
