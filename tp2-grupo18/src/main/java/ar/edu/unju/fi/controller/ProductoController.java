@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.controller.model.Producto;
 import ar.edu.unju.fi.listas.ListaProducto;
+import ar.edu.unju.fi.service.IProductoService;
 import jakarta.validation.Valid;
 
 @Controller
@@ -23,10 +24,8 @@ public class ProductoController {
 	 * Inyeccion de dependencia, para utilizar el objeto de la clase
 	 * sin necesidad de instanciar**/
 	@Autowired
-	private ListaProducto listaPro;
+	private IProductoService productoService;
 	
-	@Autowired
-	private Producto producto;
 	/**
 	 * metodo getMapping para responder a una peticion /productos/
 	 * listadoProductos que muestra una pagina llamada "Productos"
@@ -36,10 +35,7 @@ public class ProductoController {
 	
 	@GetMapping("/listadoProductos")
 	public String getProductoPage(Model model) {
-		for (Producto i : listaPro.getProductos()) {
-            i.setPrecio(i.calcularDescuento());
-        }
-		model.addAttribute("producto",listaPro.getProductos());
+		model.addAttribute("producto",productoService.getListaProductos());
 		return "Productos";
 	}
 	/** 
@@ -47,7 +43,9 @@ public class ProductoController {
 	 * enviando atravez del model un objeto tipo Producto para ser utilizado**/
 	@GetMapping("/nuevo")
 	public String getNuevoProductoPage(Model model) {
-		model.addAttribute("producto", producto);
+		boolean edicion = false;
+		model.addAttribute("edicion", edicion);
+		model.addAttribute("producto", productoService.getProducto());
 		return "nuevo_producto"; 
 	}
 	/** 
@@ -64,52 +62,28 @@ public class ProductoController {
 			mav.addObject("producto",prod);
 			return mav;
 		}
-		listaPro.getProductos().add(prod);
-		mav.addObject("producto",listaPro.getProductos());
+		productoService.guardar(prod);
+		mav.addObject("producto",productoService.getListaProductos());
 		return mav;
 	}
 	@GetMapping("/modificar/{nombre}")
 	public String getModificarProductoPage(Model model, @PathVariable(value="nombre")String nombre){
 		boolean edicion = true;
-		for(Producto prod : listaPro.getProductos()) {
-			if(prod.getNombre().equals(nombre)){
-				producto.setNombre(prod.getNombre());
-				producto.setCodigo(prod.getCodigo());
-				producto.setPrecio(prod.getPrecio());
-				producto.setCategoria(prod.getCategoria());
-				producto.setDescuento(prod.getDescuento());
-				break;
-			}
-		}
-		model.addAttribute("producto", producto);
+		Producto productoEncontrado = productoService.buscar(nombre);
+		model.addAttribute("producto", productoEncontrado);
 		model.addAttribute("edicion", edicion);				
 		return "nuevo_producto";
 	}
 	@PostMapping("/modificar")
 	public String modificarProducto(@Valid @ModelAttribute("producto")Producto prod, BindingResult result) {
-		
-		for(Producto p : listaPro.getProductos()) {
-			if(p.getNombre().equals(prod.getNombre())) {
-				p.setNombre(prod.getNombre());
-				p.setCodigo(prod.getCodigo());
-				p.setPrecio(prod.getPrecio());
-				p.setCategoria(prod.getCategoria());
-				p.setDescuento(prod.getDescuento());
-				break;
-			}
-		}
+		productoService.modificar(prod);
 		return "redirect:/productos/listadoProductos";
 	}
 	
 	@GetMapping("/eliminar/{nombre}")
 	public String eliminarProducto(@PathVariable(value="nombre")String nombre) {		
 		
-		for(Producto p : listaPro.getProductos()) {
-			if(p.getNombre().equals(nombre)) {
-				listaPro.getProductos().remove(p);
-				break;
-			}
-		}
+		productoService.eliminar(productoService.buscar(nombre));
 		return "redirect:/productos/listadoProductos";
 	}
 }

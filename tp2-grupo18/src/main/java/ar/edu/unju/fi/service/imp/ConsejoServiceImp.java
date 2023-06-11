@@ -3,17 +3,17 @@ package ar.edu.unju.fi.service.imp;
 import ar.edu.unju.fi.controller.model.Consejo;
 import ar.edu.unju.fi.listas.ListaConsejo;
 import ar.edu.unju.fi.service.IConsejoService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
 public class ConsejoServiceImp implements IConsejoService {
-    @Autowired
-    private ListaConsejo listaConsejo;
-    @Autowired
-    private Consejo consejo;
-
+	    @Autowired
+	    private ListaConsejo listaConsejo;
+	    @Autowired
+	    private Consejo consejo;
 
     @Override
     public List<Consejo> getListaConsejo() {
