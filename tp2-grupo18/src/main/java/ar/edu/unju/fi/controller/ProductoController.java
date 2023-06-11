@@ -66,6 +66,14 @@ public class ProductoController {
 		mav.addObject("producto",productoService.getListaProductos());
 		return mav;
 	}
+	/**
+     * @method responde a la peticion de un boton de enlace de la pagina
+     * "Productos" donde adjunta el nombre del objeto de la lista listado.
+     * el nombre es utilizado como parametro para realizar una busqueda
+     * dentro de la lista y poder enviarlo por el model a un formulario
+     * para poder modificarlo
+     * 
+     */
 	@GetMapping("/modificar/{nombre}")
 	public String getModificarProductoPage(Model model, @PathVariable(value="nombre")String nombre){
 		boolean edicion = true;
@@ -74,12 +82,21 @@ public class ProductoController {
 		model.addAttribute("edicion", edicion);				
 		return "nuevo_producto";
 	}
+	/**
+     * @method tras recibir el objeto el objeto modificado este actualiza
+     * dicho objeto que pertence a la lista. la busqueda se realiza mediante
+     * el nombre del objeto en la lista.
+     */
 	@PostMapping("/modificar")
 	public String modificarProducto(@Valid @ModelAttribute("producto")Producto prod, BindingResult result) {
 		productoService.modificar(prod);
 		return "redirect:/productos/listadoProductos";
 	}
-	
+	/**
+     * @method elimina un objeto dentro de la lista tomando como referencia
+     * de identificador el nombre que viene con la peticion a la cual
+     * este metodo responde
+     */
 	@GetMapping("/eliminar/{nombre}")
 	public String eliminarProducto(@PathVariable(value="nombre")String nombre) {		
 		
