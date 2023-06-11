@@ -78,6 +78,14 @@ public class SucursalController {
 		mav.addObject("sucursal",sucursalService.getListaSucursal());
 		return mav;
 	}
+	/**
+     * @method responde a la peticion de un boton de enlace de la pagina
+     * "Sucursal" donde adjunta el nombre del objeto de la lista listado.
+     * el nombre es utilizado como parametro para realizar una busqueda
+     * dentro de la lista y poder enviarlo por el model a un formulario
+     * para poder modificarlo
+     * 
+     */
 	@GetMapping("/modificar/{nombre}")
 	public String getModificarSucursalPage(Model model, @PathVariable(value="nombre")String nombre){
 		boolean edicion = true;
@@ -86,12 +94,21 @@ public class SucursalController {
 		model.addAttribute("edicion", edicion);				
 		return "nuevo_sucursal";
 	}
+	/**
+     * @method tras recibir el objeto el objeto modificado este actualiza
+     * dicho objeto que pertence a la lista. la busqueda se realiza mediante
+     * el nombre del objeto en la lista.
+     */
 	@PostMapping("/modificar")
 	public String modificarSucursal(@Valid @ModelAttribute("sucursal")Sucursal sucu, BindingResult result) {
 		sucursalService.modificar(sucu);
 		return "redirect:/sucursales/listadoSucursales";
 	}
-	
+	/**
+     * @method elimina un objeto dentro de la lista tomando como referencia
+     * de identificador el nombre que viene con la peticion a la cual
+     * este metodo responde
+     */
 	@GetMapping("/eliminar/{nombre}")
 	public String eliminarSucursal(@PathVariable(value="nombre")String nombre) {		
 		sucursalService.eliminar(sucursalService.buscar(nombre));

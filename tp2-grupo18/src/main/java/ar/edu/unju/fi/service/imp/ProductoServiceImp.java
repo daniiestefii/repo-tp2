@@ -18,6 +18,11 @@ public class ProductoServiceImp implements IProductoService {
 	@Autowired
 	private Producto producto;
 	
+	/**
+     * @method Devuelve una lista de tipo Producto, pero antes de 
+     * retornar se calcula el descuento de todos los objetos producto
+     * dentro de la lista
+     */
 	@Override
 	public List<Producto> getListaProductos() {
 		for (Producto i : listaProducto.getProductos()) {
@@ -25,12 +30,19 @@ public class ProductoServiceImp implements IProductoService {
         }
 		return listaProducto.getProductos();
 	}
-
+	/**
+     * @method guarda un objeto producto que llega como parametro
+     * dentro de la listaProducto
+     */
 	@Override
 	public void guardar(@Valid Producto producto) {
 	   listaProducto.getProductos().add(producto);
 	}
-
+	/**
+     * @method busca un elemento dentro de la lista con respecto al nombre
+     * que llega como parametro en este metodo, si no se encuentra entonces
+     * retorna un valor nulo
+     */
 	@Override
 	public Producto buscar(String nombre) {
 		Producto productoEncontrado = null;
@@ -42,7 +54,10 @@ public class ProductoServiceImp implements IProductoService {
 		}
 		return productoEncontrado;
 	}
-
+	/**
+     * @method modifica un objeto Producto dentro de la listaProducto
+     * 
+     * */
 	@Override
 	public void modificar(Producto producto) {
 		for(Producto p : listaProducto.getProductos()) {
@@ -56,13 +71,17 @@ public class ProductoServiceImp implements IProductoService {
 			}
 		}
 	}
-
+	/**
+     * @method elimina un objeto producto dentro de la listaProducto
+     */
 	@Override
 	public void eliminar(Producto productoEncontrado) {
 		listaProducto.getProductos().remove(productoEncontrado);
 		
 	}
-
+	/**
+     * @method retorna un objeto producto
+     */
 	@Override
 	public Producto getProducto() {
 		return producto;
