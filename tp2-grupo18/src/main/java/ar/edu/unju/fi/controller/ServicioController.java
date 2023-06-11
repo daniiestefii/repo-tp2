@@ -1,13 +1,13 @@
 package ar.edu.unju.fi.controller;
 
+import ar.edu.unju.fi.controller.model.Sucursal;
+import ar.edu.unju.fi.service.IServicioService;
+import ar.edu.unju.fi.service.ISucursalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.controller.model.Servicio;
@@ -24,6 +24,10 @@ public class ServicioController {
 	private ListaServicio listaSer;
 	@Autowired
 	private Servicio servicio;
+
+	@Autowired
+	private IServicioService servicioService;
+
 
 	/*
 	 * Este método utiliza la anotación @GetMapping para mapear una solicitud GET a
@@ -49,6 +53,8 @@ public class ServicioController {
 	 */
 	@GetMapping("/nuevo")
 	public String getNuevoServicioPage(Model model) {
+		boolean edicion = false;
+		model.addAttribute("edicionServicio", edicion);
 		model.addAttribute("servicio",servicio);
 		return "nuevo_servicio"; 
 	}
@@ -73,5 +79,42 @@ public class ServicioController {
 		listaSer.getServicios().add(serv);
 		mav.addObject("servicio",listaSer.getServicios());
 		return mav;
+	}
+
+	/**
+	 * @method responde a la peticion de un boton de enlace de la pagina
+	 * "Sucursal" donde adjunta el nombre del objeto de la lista listado.
+	 * el nombre es utilizado como parametro para realizar una busqueda
+	 * dentro de la lista y poder enviarlo por el model a un formulario
+	 * para poder modificarlo
+	 *
+	 */
+	@GetMapping("/modificar/{nombre}")
+	public String getModificarServicioPage(Model model, @PathVariable(value="nombre")String nombre){
+		boolean edicion = true;
+		Servicio servicioEncontrado = servicioService.buscar(nombre);
+		model.addAttribute("servicio",servicioEncontrado);
+		model.addAttribute("edicionServicio", edicion);
+		return "nuevo_servicio";
+	}
+	/**
+	 * @method tras recibir el objeto el objeto modificado este actualiza
+	 * dicho objeto que pertence a la lista. la busqueda se realiza mediante
+	 * el nombre del objeto en la lista.
+	 */
+	@PostMapping("/modificar")
+	public String modificarServicio(@Valid @ModelAttribute("servicio")Servicio servi, BindingResult result) {
+		servicioService.modificar(servi);
+		return "redirect:/servicios/listadoServicios";
+	}
+	/**
+	 * @method elimina un objeto dentro de la lista tomando como referencia
+	 * de identificador el nombre que viene con la peticion a la cual
+	 * este metodo responde
+	 */
+	@GetMapping("/eliminar/{nombre}")
+	public String eliminarServicio(@PathVariable(value="nombre")String nombre) {
+		servicioService.eliminar(servicioService.buscar(nombre));
+		return "redirect:/servicios/listadoServicios";
 	}
 }

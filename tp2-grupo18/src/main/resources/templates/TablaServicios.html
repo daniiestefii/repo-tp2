@@ -23,9 +23,19 @@
 	         <th> Nombre </th>
 	      </tr>
 	      <tr th:each="ser:${servicio}">
-	         <td th:text="${ser.dia}">
-	         <td class="d-none d-sm-table-cell" th:text="${ser.horario}">
-	         <td th:text="${ser.nombre}">
+	         <td th:text="${ser.dia}"></td>
+	         <td class="d-none d-sm-table-cell" th:text="${ser.horario}"></td>
+	         <td th:text="${ser.nombre}"></td>
+              <td>
+                  <button type="button" class="btn btn-primary ">
+                      <a class="text-light" th:href="@{/servicios/modificar/}+${ser.nombre}" style="text-decoration: none">Editar</a>
+                  </button>
+              </td>
+              <td>
+                  <button type="button" class="btn btn-danger ">
+                      <a class="text-light" th:href="@{/servicios/eliminar/}+${ser.nombre}" style="text-decoration: none">Eliminar</a>
+                  </button>
+              </td>
 	      </tr>
    </table>
         <button type="button" class="btn btn-dark ">
