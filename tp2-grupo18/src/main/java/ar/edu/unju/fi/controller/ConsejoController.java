@@ -44,7 +44,7 @@ public class ConsejoController {
 	@GetMapping("/nuevo")
 	public String getNuevoConsejoPage(Model model) {
 		boolean edicion = false;
-		model.addAttribute("consejo", new Consejo("", ""));
+		model.addAttribute("consejo", consejo);
 		model.addAttribute("edicionConsejo", edicion);
 		return "nuevo_consejo";
 	}

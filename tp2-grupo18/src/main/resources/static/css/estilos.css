@@ -362,3 +362,63 @@ td {
 	position: relative;
      z-index: 1;
 }
+
+
+/* estilos para algunos div*/
+.my-div {
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  color: #666;
+  margin-bottom: 20px;
+  font-family: Arial, sans-serif;
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            
+            border: 2px solid #FF0000; /* Establece el grosor y el estilo del borde */
+            border-radius: 10px; /* Agrega esquinas redondeadas al borde */
+            padding: 10px; /* Agrega un espacio interno entre el contenido y el borde */
+            background-color: #F0F0F0; /* Establece el color de fondo del div */
+}
+
+.my-div h2 {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.my-div p {
+  color: #666;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.my-div a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.my-div a:hover {
+  text-decoration: underline;
+}
+
+.titulo-centrado {
+            text-align: center;
+            margin-top: 50px;
+            margin-bottom: 30px;
+            color: #333; /* Color del texto */
+            font-size: 24px; /* Tamaño de fuente */
+            text-transform: uppercase; /* Transforma el texto a mayúsculas */
+            border-bottom: 2px solid #333; /* Borde inferior de 2px de grosor y color #333 */
+            padding-bottom: 10px; /* Espacio entre el texto y el borde inferior */
+        }
+        
+        .highlighted-text > *:nth-child(odd) {
+            color:#b47141; /* Color de texto para filas impares */
+        }
+        

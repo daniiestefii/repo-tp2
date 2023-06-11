@@ -1,6 +1,5 @@
 package ar.edu.unju.fi.controller;
 
-import java.time.LocalDate;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,7 +23,7 @@ public class SucursalController {
 
 	@Autowired
 	private ListaSucursal listaSucu;
-	
+	@Autowired
 	private Sucursal sucursal;
 
 	/*
@@ -51,7 +50,7 @@ public class SucursalController {
 	 */
 	@GetMapping("/nuevo")
 	public String getNuevoSucursalPage(Model model) {
-		model.addAttribute("sucursal",new Sucursal("","","","","",LocalDate.of(2022,11, 11)));
+		model.addAttribute("sucursal",sucursal);
 		return "nuevo_sucursal"; 
 	}
 
