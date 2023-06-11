@@ -17,31 +17,44 @@
     <nav th:replace="layouts/nav :: nav">
     </nav>
 	
-<section id="cuerpo">
-
+	<div class="container-fluid">   
+       <div class="row justify-content-center">
+     <section id="cuerpo">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">  
+     <div class="table-responsive">
      <table class="table table-success table-striped-columns border-dark">
             <tr id="colorbarras">
+             <th> NOMBRE </th>
 	         <th> LUGAR </th>
 	         <th>  TELEFONO </th>
-	         <th class="d-none d-xl-table-cell"> DIAS </th>
+	         <th > DIAS </th>
 	         <th> HORARIOS </th>
-	         <th class="d-none d-lg-table-cell"> E-MAIL </th>
-	         <th class="d-none d-lg-table-cell"> FECHA INICIO </th>
+	         <th > E-MAIL </th>
+	         <th > FECHA INICIO </th>
+	         <th> OPCIONES </th>
 	      </tr>
 	      <tr th:each="sucu:${sucursal}">
+	         <td th:text="${sucu.nombre}">
 	         <td th:text="${sucu.lugar}">
 	         <td th:text="${sucu.telefono}">
-	         <td class="d-none d-xl-table-cell" th:text="${sucu.dia}">
+	         <td th:text="${sucu.dia}">
 	         <td th:text="${sucu.horario}">
-	         <td class="d-none d-lg-table-cell" th:text="${sucu.gmail}">
-	         <td class="d-none d-lg-table-cell" th:text="${sucu.fechainicio}">
+	         <td th:text="${sucu.gmail}">
+	         <td th:text="${sucu.fechainicio}">
+	         <td>
+	           <a th:href="@{/sucursales/modificar/}+${sucu.nombre}">Editar</a>
+	           <a th:href="@{/sucursales/eliminar/}+${sucu.nombre}">Eliminar</a>
+	         </td>
 	      </tr>
    </table>
+   </div>
     <button type="button" class="btn btn-dark ">
         <a class="text-light" th:href="@{/sucursales/nuevo}" style="text-decoration: none">Agregar</a>
     </button>
-
+    </div>
 </section>
+</div>
+  </div>
  <footer th:replace="layouts/footer :: footer">       
  </footer>
     <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
