@@ -14,7 +14,6 @@ import jakarta.validation.Valid;
 @Controller
 @RequestMapping("/consejos")
 public class ConsejoController {
-
 	@Autowired
 	private Consejo consejo;
 
@@ -69,31 +68,39 @@ public class ConsejoController {
 		mav.addObject("consejo", consejoService.getListaConsejo());
 		return mav;
 	}
-
+	/**
+	 * @method responde a la peticion de un boton de enlace de la pagina
+	 * "Consejo" donde adjunta el titulo del objeto de la lista listado.
+	 * el titulo es utilizado como parametro para realizar una busqueda
+	 * dentro de la lista y poder enviarlo por el model a un formulario
+	 * para poder modificarlo
+	 *
+	 */
 	@GetMapping("/modificar/{titulo}")
 	public String getModificarConsejo(Model model, @PathVariable(value = "titulo") String titulo) {
 		Consejo consejoencontrado = new Consejo();
 		boolean edicion = true;
-		consejoencontrado = consejoService.getBy(titulo);
+		consejoencontrado = consejoService.buscar(titulo);
 		model.addAttribute("consejo", consejoencontrado);
 		model.addAttribute("edicionConsejo", edicion);
 		return "nuevo_consejo";
 
 	}
-
+	/**
+	 * @method tras recibir el objeto, el objeto modificado este actualiza
+	 * dicho objeto que pertence a la lista.
+	 */
 	@PostMapping("/modificar")
 	public String modificarConsejo(@ModelAttribute("consejo") Consejo consejo) {
 		consejoService.modificar(consejo);
 		return "redirect:/consejos/listadoConsejos";
 	}
+	/**
+	 * @method elimina un objeto dentro de la lista
+	 */
 	@GetMapping("/eliminar/{titulo}")
-	public String eliminarconsejo(@PathVariable(value = "titulo")String titulo){
-		for (Consejo conse : consejoService.getListaConsejo()) {
-			if (conse.getTitulo().equals(titulo)) {
-				consejoService.eliminar(conse);
-				break;
-			}
-		}
+	public String eliminarConsejo(@PathVariable(value="titulo")String titulo) {
+		consejoService.eliminar(consejoService.buscar(titulo));
 		return "redirect:/consejos/listadoConsejos";
 	}
 }

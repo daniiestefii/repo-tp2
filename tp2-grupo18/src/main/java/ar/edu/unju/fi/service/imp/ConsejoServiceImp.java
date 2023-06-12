@@ -1,6 +1,7 @@
 package ar.edu.unju.fi.service.imp;
 
 import ar.edu.unju.fi.controller.model.Consejo;
+import ar.edu.unju.fi.controller.model.Sucursal;
 import ar.edu.unju.fi.listas.ListaConsejo;
 import ar.edu.unju.fi.service.IConsejoService;
 
@@ -26,13 +27,11 @@ public class ConsejoServiceImp implements IConsejoService {
     }
 
     @Override
-    public Consejo getBy(String titulo) {
-        Consejo consejoencontrado = new Consejo();
-        boolean edicion = true;
+    public Consejo buscar(String titulo) {
+        Consejo consejoencontrado = null;
         for (Consejo conse : listaConsejo.getConsejos()) {
             if (conse.getTitulo().equals(titulo)) {
-                consejoencontrado.setTexto(conse.getTexto());
-                consejoencontrado.setTitulo(conse.getTitulo());
+                consejoencontrado = conse;
                 break;
             }
         }
@@ -47,7 +46,6 @@ public class ConsejoServiceImp implements IConsejoService {
                 break;
             }
         }
-
     }
 
     @Override
@@ -56,7 +54,7 @@ public class ConsejoServiceImp implements IConsejoService {
     }
 
     @Override
-    public Consejo getConsejo() {
+    public Consejo getConsejos() {
         return consejo;
     }
 }

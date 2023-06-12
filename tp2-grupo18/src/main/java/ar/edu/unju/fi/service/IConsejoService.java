@@ -23,7 +23,7 @@ public interface IConsejoService {
     /**
      * @method  Devuelve el consejo cuyo título coincide con el parámetro titulo.
      */
-    Consejo getBy(String titulo);
+    Consejo buscar(String titulo);
 
     /**
      * @method Modifica un consejo existente
@@ -38,6 +38,6 @@ public interface IConsejoService {
     /**
      * @method Devuelve un nuevo objeto Consejo
      */
-    Consejo getConsejo();
+    Consejo getConsejos();
 
 }

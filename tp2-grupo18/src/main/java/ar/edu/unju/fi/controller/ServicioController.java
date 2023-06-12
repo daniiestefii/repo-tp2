@@ -1,8 +1,6 @@
 package ar.edu.unju.fi.controller;
 
-import ar.edu.unju.fi.controller.model.Sucursal;
 import ar.edu.unju.fi.service.IServicioService;
-import ar.edu.unju.fi.service.ISucursalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,15 +19,13 @@ import jakarta.validation.Valid;
 public class ServicioController {
 
 	@Autowired
-	private ListaServicio listaSer;
-	@Autowired
 	private Servicio servicio;
 
 	@Autowired
 	private IServicioService servicioService;
 
 
-	/*
+	/**
 	 * Este método utiliza la anotación @GetMapping para mapear una solicitud GET a
 	 * la ruta "/listadoServicios".
 	 * Devuelve la vista "TablaServicios" con un modelo que contiene una lista de
@@ -40,11 +36,11 @@ public class ServicioController {
 	 */
 	@GetMapping("/listadoServicios")
 	public String getServicioPage(Model model) {
-		model.addAttribute("servicio",listaSer.getServicios());
+		model.addAttribute("servicio",servicioService.getListaServicio());
 		return "TablaServicios";
 	}
 
-	/*
+	/**
 	 * Este método utiliza la anotación @GetMapping para mapear una solicitud GET a la ruta "/nuevo".
 	 * Devuelve la vista "nuevo_servicio" con un modelo que contiene un objeto "servicio".
 	 *
@@ -59,7 +55,7 @@ public class ServicioController {
 		return "nuevo_servicio"; 
 	}
 
-	/*
+	/**
 	 * Este método utiliza la anotación @PostMapping para mapear una solicitud POST a la ruta "/guardar".
 	 * Agrega un objeto "serv" a una lista de servicios en un objeto "listaSer".
 	 * Devuelve la vista "TablaServicios" con un modelo que contiene la lista actualizada de servicios.
@@ -76,14 +72,14 @@ public class ServicioController {
 			mav.addObject("servicio",serv);
 			return mav;
 		}
-		listaSer.getServicios().add(serv);
-		mav.addObject("servicio",listaSer.getServicios());
+		servicioService.guardar(serv);
+		mav.addObject("servicio",servicioService.getListaServicio());
 		return mav;
 	}
 
 	/**
 	 * @method responde a la peticion de un boton de enlace de la pagina
-	 * "Sucursal" donde adjunta el nombre del objeto de la lista listado.
+	 * "Servicio" donde adjunta el nombre del objeto de la lista listado.
 	 * el nombre es utilizado como parametro para realizar una busqueda
 	 * dentro de la lista y poder enviarlo por el model a un formulario
 	 * para poder modificarlo
@@ -98,7 +94,7 @@ public class ServicioController {
 		return "nuevo_servicio";
 	}
 	/**
-	 * @method tras recibir el objeto el objeto modificado este actualiza
+	 * @method tras recibir el objeto, el objeto modificado este actualiza
 	 * dicho objeto que pertence a la lista.
 	 */
 	@PostMapping("/modificar")
