@@ -13,14 +13,15 @@
     <header th:replace="layouts/header :: header"></header>
     <nav th:replace="layouts/nav :: nav">
     </nav>
-   
-   <section id="tabla">
-    <div class="tabla2">
+
+   <section id="cuerpo" >
+    <div class="tabla2 ">
     <table  class="table table-success table-striped-columns border-dark">
             <tr >
-	         <th> Dia </th>
-	         <th class="d-none d-sm-table-cell" > Horario </th>
-	         <th> Nombre </th>
+	            <th> Dia </th>
+	            <th class="d-none d-sm-table-cell" > Horario </th>
+	            <th> Nombre </th>
+                <th> Opciones </th>
 	      </tr>
 	      <tr th:each="ser:${servicio}">
 	         <td th:text="${ser.dia}"></td>
@@ -30,8 +31,6 @@
                   <button type="button" class="btn btn-primary ">
                       <a class="text-light" th:href="@{/servicios/modificar/}+${ser.dia}" style="text-decoration: none">Editar</a>
                   </button>
-              </td>
-              <td>
                   <button type="button" class="btn btn-danger ">
                       <a class="text-light" th:href="@{/servicios/eliminar/}+${ser.dia}" style="text-decoration: none">Eliminar</a>
                   </button>
@@ -44,7 +43,7 @@
 
    </div>
    </section>
-    <footer th:replace="layouts/footer :: footer">       
+    <footer th:replace="layouts/footer :: footer">
     </footer>
     <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>
