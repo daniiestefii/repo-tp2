@@ -1,10 +1,9 @@
-package ar.edu.unju.fi.controller.model;
+package ar.edu.unju.fi.controller.entity;
 
 import org.springframework.stereotype.Component;
 
 
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
 
 
 /**

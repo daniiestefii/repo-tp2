@@ -7,7 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import ar.edu.unju.fi.controller.model.Consejo;
+import ar.edu.unju.fi.controller.entity.Consejo;
 import jakarta.validation.Valid;
 
 

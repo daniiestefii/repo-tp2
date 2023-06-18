@@ -5,7 +5,7 @@ import jakarta.validation.Valid;
 
 import java.util.List;
 
-import ar.edu.unju.fi.controller.model.Sucursal;
+import ar.edu.unju.fi.controller.entity.Sucursal;
 public interface ISucursalService {
 
 	/**

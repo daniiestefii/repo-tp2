@@ -1,6 +1,6 @@
 package ar.edu.unju.fi.service;
 
-import ar.edu.unju.fi.controller.model.Consejo;
+import ar.edu.unju.fi.controller.entity.Consejo;
 import jakarta.validation.Valid;
 
 import java.util.List;

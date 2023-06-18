@@ -1,6 +1,6 @@
 package ar.edu.unju.fi.service.imp;
 
-import ar.edu.unju.fi.controller.model.Servicio;
+import ar.edu.unju.fi.controller.entity.Servicio;
 import ar.edu.unju.fi.listas.ListaServicio;
 import ar.edu.unju.fi.service.IServicioService;
 import org.springframework.beans.factory.annotation.Autowired;

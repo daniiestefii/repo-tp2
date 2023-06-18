@@ -1,7 +1,6 @@
 package ar.edu.unju.fi.service.imp;
 
-import ar.edu.unju.fi.controller.model.Consejo;
-import ar.edu.unju.fi.controller.model.Sucursal;
+import ar.edu.unju.fi.controller.entity.Consejo;
 import ar.edu.unju.fi.listas.ListaConsejo;
 import ar.edu.unju.fi.service.IConsejoService;
 

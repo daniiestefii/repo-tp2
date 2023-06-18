@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import ar.edu.unju.fi.controller.model.Sucursal;
+import ar.edu.unju.fi.controller.entity.Sucursal;
 
 @Component
 public class ListaSucursal{
