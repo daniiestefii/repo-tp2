@@ -11,9 +11,9 @@ public class Provincia {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name ="provi_id")
     private Long id;
-    @Column(name = "provi_nombre")
+    @Column(name = "provi_nombre",nullable = false)
     private String nombre;
-    @Column(name = "provi_estado")
+    @Column(name = "provi_estado",nullable = false)
     private Boolean estado;
 
 
