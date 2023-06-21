@@ -15,6 +15,7 @@ public class ListaProducto {
 	 * Esta lista de productos contiene objetos de la clase "Producto".
 	 */
    
+   
    public ListaProducto() {
 	   productos = new ArrayList<Producto>();
 	   productos.add(new Producto(1,"Collar para perro",3213,5000,"Vestimenta",20,true));
