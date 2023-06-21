@@ -15,6 +15,7 @@ import jakarta.validation.constraints.*;
  */
 @Component
 @Entity
+
 @Table(name="Producto")
 public class Producto {
 	@Id

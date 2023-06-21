@@ -17,6 +17,7 @@ import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping("/productos")
+
 public class ProductoController {
     
 	/**
