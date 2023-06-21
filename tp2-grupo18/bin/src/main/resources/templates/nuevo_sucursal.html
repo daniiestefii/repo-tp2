@@ -8,6 +8,8 @@
    <link rel="stylesheet" th:href="@{/css/estilos.css}">
 </head>
 <body id="bodyform">
+<!--Interfas que muestra el formulario de alta de sucursales-->
+
    <header th:replace="layouts/header :: header"></header>
     <nav th:replace="layouts/nav :: nav">
         </nav>
@@ -16,32 +18,38 @@
        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-6 col-xl-4 col-xxl-4">
         <section id="contenido">
 			<div id="formulario">
-			
-                <form th:action="@{/sucursales/guardar}" th:object="${sucursal}" method="post">
-                       <p>
-                        <label>lugar</label>
-                        <input type="text" name="lugar" 
-                        size="28px" required placeholder="Ingrese un lugar">
-                       </p>
-                       <p>
+			<h3 th:text="${edicion}?'Modificar Sucursal':'Nuevo Sucursal'"></h3>
+                <form th:action="${edicion}?@{/sucursales/modificar}:@{/sucursales/guardar}" th:object="${sucursal}" method="post">
+                        <label>Nombre</label>
+                        <input type="text" th:field="*{nombre}" size="28px" placeholder="Ingrese un nombre">
+                        <div class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
+                       
+                        <label>Lugar</label>
+                        <input type="text" th:field="*{lugar}" size="28px" placeholder="Ingrese un lugar">
+                        <div class="text-danger" th:if="${#fields.hasErrors('lugar')}" th:errors="*{lugar}"></div>
+                       
                         <label >telefono</label>
-                        <input type="text" name="telefono" size="26px" required  placeholder="Ingrese un telefono" >
-                       </p>
-                       <p>
-                        <label>dias</label>
-                        <input type="text" name="dia" size="30px" required placeholder="Ingrese dias lunes a viernes">
-                        </p>
-                        <p>
-                        <label>horario hh a hh </label>
-                        <input type="text" name="horario" size="32px" required placeholder="Ingrese un horario">
-                        </p>
-                        <p>
-                        <label> correo </label>
-                        <input type="text" name="gmail" size="30px" required placeholder="Ingrese un correo">
-                        </p>
-                        <p>  
+                        <input type="text" th:field="*{telefono}" size="26px" placeholder="Ingrese un telefono">
+                        <div class="text-danger" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></div>
+                       
+                        <label>Dias</label>
+                        <input type="text" th:field="*{dia}" size="30px" placeholder="Ingrese dias lunes a viernes">
+                        <div class="text-danger" th:if="${#fields.hasErrors('dia')}" th:errors="*{dia}"></div>
+                       
+                        <label>Horario hh a hh </label>
+                        <input type="text" th:field="*{horario}" size="32px" placeholder="Ingrese un horario">
+                        <div class="text-danger" th:if="${#fields.hasErrors('horario')}" th:errors="*{horario}"></div>
+                        
+                        <label> Correo </label>
+                        <input type="text" th:field="*{gmail}" size="30px" placeholder="Ingrese un correo">
+                        <div class="text-danger" th:if="${#fields.hasErrors('gmail')}" th:errors="*{gmail}"></div>
+                        
+                        <label> Fecha Inicio </label>
+                        <input type="date" th:field="*{fechainicio}" size="30px" placeholder="Ingrese una fecha">
+                        <div class="text-danger" th:if="${#fields.hasErrors('fechainicio')}" th:errors="*{fechainicio}"></div>
+                       
                             <input type="submit" value="guardar">
-                        </p>  
+                        
               </form> 
               </div> 
         </section>

@@ -17,9 +17,9 @@ public class ListaProducto {
    
    public ListaProducto() {
 	   productos = new ArrayList<Producto>();
-	   productos.add(new Producto("Collar para perro",3213,5000,"Vestimenta",20));
-	   productos.add(new Producto("Collar isabelino",4546,2600,"Vestimenta",10));
-	   productos.add(new Producto("Cepillo de doble cerda",890,120,"Cuidado",0));
+	   productos.add(new Producto(1,"Collar para perro",3213,5000,"Vestimenta",20,true));
+	   productos.add(new Producto(2,"Collar isabelino",4546,2600,"Vestimenta",10,true));
+	   productos.add(new Producto(3,"Cepillo de doble cerda",890,120,"Cuidado",0,true));
    }
 
 public List<Producto> getProductos() {

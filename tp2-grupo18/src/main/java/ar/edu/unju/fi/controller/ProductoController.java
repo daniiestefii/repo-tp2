@@ -1,6 +1,6 @@
 package ar.edu.unju.fi.controller;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -18,11 +18,13 @@ import jakarta.validation.Valid;
 @Controller
 @RequestMapping("/productos")
 public class ProductoController {
-   
-	/** 
+    
+	/**
 	 * Inyeccion de dependencia, para utilizar el objeto de la clase
-	 * sin necesidad de instanciar**/
+	 * sin necesidad de instanciar
+	 * **/
 	@Autowired
+	//@Qualifier("IProductoService")
 	private IProductoService productoService;
 	
 	/**
@@ -33,7 +35,7 @@ public class ProductoController {
 	 * de la lista antes de enviarse **/
 	
 	@GetMapping("/listadoProductos")
-	public String getProductoPage(Model model) {
+	public String getProductoPage(Model model){
 		model.addAttribute("producto",productoService.getListaProductos());
 		return "Productos";
 	}
@@ -47,14 +49,16 @@ public class ProductoController {
 		model.addAttribute("producto", productoService.getProducto());
 		return "nuevo_producto"; 
 	}
+	
 	/** 
 	 * metodo postMapping obtiene un objeto de tipo producto para luego
 	 * asignarlo dentro de la listaPro para su actualizacion y ser mostrado
 	 * en la pagina "Producto",antes de eso tambien se obtienen los errores ocurridos
 	 * y si estos ocurrieron al momento de querer mandar un objeto, se volvera a 
 	 * solicitar el ingreso de el objeto (por lo que no se cambia de pagina)**/
+	
 	@PostMapping("/guardar")
-	public ModelAndView getGuardarProducto(@Valid @ModelAttribute("producto")Producto prod, BindingResult result) {
+	public ModelAndView getGuardarProducto(@Valid @ModelAttribute("producto")Producto prod, BindingResult result){
 		ModelAndView mav = new ModelAndView("Productos");
 		if(result.hasErrors()){
 			mav.setViewName("nuevo_producto");
@@ -65,16 +69,16 @@ public class ProductoController {
 		mav.addObject("producto",productoService.getListaProductos());
 		return mav;
 	}
+	
 	/**
      * @method responde a la peticion de un boton de enlace de la pagina
      * "Productos" donde adjunta el nombre del objeto de la lista listado.
      * el nombre es utilizado como parametro para realizar una busqueda
      * dentro de la lista y poder enviarlo por el model a un formulario
-     * para poder modificarlo
-     * 
+     * para poder modificarlo 
      */
 	@GetMapping("/modificar/{nombre}")
-	public String getModificarProductoPage(Model model, @PathVariable(value="nombre")String nombre){
+	public String getModificarProductoPage(Model model, @PathVariable(value="nombre")long nombre){
 		boolean edicion = true;
 		Producto productoEncontrado = productoService.buscar(nombre);
 		model.addAttribute("producto", productoEncontrado);
@@ -88,6 +92,7 @@ public class ProductoController {
      */
 	@PostMapping("/modificar")
 	public String modificarProducto(@Valid @ModelAttribute("producto")Producto prod, BindingResult result) {
+		
 		productoService.modificar(prod);
 		return "redirect:/productos/listadoProductos";
 	}
@@ -97,8 +102,7 @@ public class ProductoController {
      * este metodo responde
      */
 	@GetMapping("/eliminar/{nombre}")
-	public String eliminarProducto(@PathVariable(value="nombre")String nombre) {		
-		
+	public String eliminarProducto(@PathVariable(value="nombre")long nombre){		
 		productoService.eliminar(productoService.buscar(nombre));
 		return "redirect:/productos/listadoProductos";
 	}

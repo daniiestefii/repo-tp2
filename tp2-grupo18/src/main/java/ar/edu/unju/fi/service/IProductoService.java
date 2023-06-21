@@ -4,6 +4,9 @@ import ar.edu.unju.fi.controller.entity.Producto;
 import jakarta.validation.Valid;
 
 import java.util.List;
+
+
+
 public interface IProductoService {
 	/**
      * @method Devuelve una lista de todos los Productos
@@ -16,7 +19,7 @@ public interface IProductoService {
 	/**
      * @method  Devuelve el Producto cuyo nombre coincide con el parámetro nombre.
      */
-	Producto buscar(String nombre);
+	Producto buscar(long id);
 	/**
      * @method Modifica un Producto existente
      */

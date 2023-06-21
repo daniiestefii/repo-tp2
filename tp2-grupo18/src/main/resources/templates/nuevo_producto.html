@@ -20,6 +20,8 @@
 			<h3 th:text="${edicion}?'Modificar Producto':'Nuevo producto'"></h3>
                 <form th:action="${edicion}?@{/productos/modificar}:@{/productos/guardar}" th:object="${producto}" method="post">
                        
+                       <input th:field="*{id}" hidden>
+                       <input th:field="*{estado}" hidden>
                         <label>Nombre</label>
                         <input type="text" th:field="*{nombre}" size="26px" placeholder="Ingrese un nombre">
                         <div class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
