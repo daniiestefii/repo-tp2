@@ -7,14 +7,13 @@
     <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
     <link rel="stylesheet" th:href="@{/css/estilos.css}">
 </head>
-
 <body>
 <!--Interfas que muestra el listado de productos-->
-
     <header th:replace="layouts/header :: header">
     </header>
     <nav th:replace="layouts/nav :: nav">
         </nav>
+        
     <div class="container-fluid">
     <div class="row justify-content-center">
     <h2 class="titulo-centrado">PRODUCTOS</h2>
@@ -24,15 +23,17 @@
       <div > CODIGO:</div>
       <div  th:text="${pro.codigo}" ></div>
       <div > PRECIO:</div>
-      <div  th:text="${pro.precio}" ></div>
+      <div  th:text="${pro.precio + '$'}" ></div>
       <div > CATEGORIA:</div>
       <div  th:text="${pro.categoria}" ></div>
       <div > DESCUENTO:</div>
-      <div  th:text="${pro.descuento}" ></div>
+      <div  th:text="${pro.descuento + '%'}" ></div>
+      <div> PRECIO CON DESCUENTO: </div>
+      <div th:text="${ ( pro.precio - ((pro.descuento * pro.precio) div 100) ) + '$'}"></div>
       <div > OPCIONES:</div>
       <div>
-         <a th:href="@{/productos/modificar/}+${pro.nombre}">Editar</a>
-	     <a th:href="@{/productos/eliminar/}+${pro.nombre}">Eliminar</a>
+         <a th:href="@{/productos/modificar/}+${pro.id}">Editar</a>
+	     <a th:href="@{/productos/eliminar/}+${pro.id}">Eliminar</a>
       </div>
     </div>
     <button type="button" class="btn btn-dark titulo-centrado">
@@ -40,7 +41,6 @@
 		 </button>
     </div>
     </div>
- 
     <footer th:replace="layouts/footer :: footer"></footer>  
 <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>

@@ -7,48 +7,34 @@
 		<link rel="stylesheet" th:href="@{css/estilos.css}">
 	</head>
 	<body>
-         <nav th:fragment="nav" id="menu" class="navbar navbar-expand-lg bg-secondary p-3">
-
-             <div class="container-fluid">
-                     <a class="navbar-brand" th:href="@{/noticias/listadoNoticias}">
-                         <span class="text-danger fw-bold">Inicio</span> </a>
-                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                     <span class="navbar-toggler-icon"></span>
-                 </button>
-                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-
-                         <li class="nav-item">
-
-
-                         </li>
-                         <li class="nav-item">
-                             <a th:href="@{/productos/listadoProductos}">Productos</a>
-
-                         </li>
-                         <li class="nav-item">
-                             <a th:href="@{/consejos/listadoConsejos}">Consejos</a>
-
-                         </li>
-                         <li class="nav-item">
-                             <a th:href="@{/servicios/listadoServicios}">Servicios</a>
-
-                         </li>
-                         <li class="nav-item">
-                             <a th:href="@{/sucursales/listadoSucursales}">Surcursal</a>
-
-                         </li>
-                         <li class="nav-item">
-                             <a th:href="@{/formulario}">Contactanos</a>
-
-                         </li>
-                     </ul>
-
-                 </div>
-             </div>
-         </nav>
-
+	    <!--preparando layouts de nav-->
+	     <nav th:fragment="nav" id="menu">
+	     <!-- usando container row y cols para cada elemento que sera un link a otra pagina-->
+	       <div class="container-fluid">
+	        <div class="row justify-content-center">
+	        <!--cada elemento cambia su posicion con respecto al tamaño de la pantalla-->
+	         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-2 col-xxl-2 menucont">  
+                <a th:href="@{/noticias/listadoNoticias}">Inicio</a>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-2 col-xxl-2 menucont">
+                <a th:href="@{/productos/listadoProductos}">Productos</a>
+               </div>
+              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-2 col-xxl-2 menucont">
+                <a th:href="@{/consejos/listadoConsejos}">Consejos</a>
+               </div>
+              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-2 col-xxl-2 menucont">  
+                <a th:href="@{/servicios/listadoServicios}">Servicios</a>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-2 col-xxl-2 menucont">
+                <a th:href="@{/sucursales/listadoSucursales}">Surcursal</a>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-2 col-xxl-2 menucont"> 
+                <a th:href="@{/formulario}">Contactanos</a>
+              </div>
+            </div>
+           </div>
+        </nav>
+        <!--Script de bootstrap-->
         <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 	</body>
 </html>

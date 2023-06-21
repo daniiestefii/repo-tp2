@@ -15,20 +15,19 @@
        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-6 col-xl-4 col-xxl-4">
         <section id="contenido">
 		  <div id="formulario">
-                <form th:action="@{/noticias/guardar}" th:object="${noticia}" method="post">
-                       <p>
+		  <h3 th:text="${edicion}?'Modificar Noticia':'Nueva Noticia'"></h3>
+                <form th:action="${edicion}?@{/noticias/modificar}:@{/noticias/guardar}" th:object="${noticia}" method="post">
+                       
                         <label>TITULO</label>
-                        <input type="text" name="titulo" 
-                        size="26px" required placeholder="Ingrese su titulo">
-                       </p>
-                       <p>
+                        <input type="text" th:field="*{titulo}" size="26px" placeholder="Ingrese su titulo">
+                        <div class="text-danger" th:if="${#fields.hasErrors('titulo')}"></div>
+                      
                         <label >TEXTO</label>
-                        <textarea name="texto" required  placeholder="Ingrese su noticia" >
-                        </textarea>
-                       </p>
-                       <p>  
-                            <input type="submit" value="guardar">
-                       </p>  
+                        <textarea th:field="*{texto}" placeholder="Ingrese su noticia" ></textarea>
+                        <div class="text-danger" th:if="${#fields.hasErrors('texto')}" th:errors="*{texto}"></div>
+                      
+                            <input type="submit" th:value="${edicion}?'modificar':'guardar'">
+                       
               </form> 
             </div> 
         </section>

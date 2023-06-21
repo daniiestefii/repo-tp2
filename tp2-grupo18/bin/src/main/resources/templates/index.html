@@ -10,13 +10,15 @@
 </head>
 <body>
     
-      
+      <!--layouts-->
          <header th:replace="layouts/header :: header"></header>
        
      
         <nav th:replace="layouts/nav :: nav"></nav>
+        <!--uso de container,rows y cols-->
     <div class="container-fluid">   
        <div class="row justify-content-center">
+       <!--control de los consejos ingresados para cambiar de tamaño respecto a la pantalla-->
        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 col-xxl-8">
         <section id="articulos">
             <div class="card">
@@ -25,6 +27,10 @@
 	      <tr th:each="noti:${noticia}">
 	         <td th:text="${noti.titulo}">
 	         <td th:text="${noti.texto}"></td>
+	          <td> 
+	            <a th:href="@{/noticias/modificar/}+${noti.titulo}">Editar</a>
+	            <a th:href="@{/noticias/eliminar/}+${noti.titulo}">Eliminar</a>
+	         </td>
 	      </tr>
 	  </table>
 	    </div>
@@ -32,7 +38,7 @@
 	  </div>
 	  </section>
 	  </div>
-	  
+	  <!--columna que cambia de tamaño y posicion respecto al tamaño de la pantalla-->
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4">
         <aside id="info">  
           <img src="../images/inicio1.jpeg" >
@@ -41,7 +47,7 @@
        </div>
      </div>
       </div>
-      
+      <!--layouts-->
       <footer th:replace="layouts/footer :: footer"></footer>
     <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>

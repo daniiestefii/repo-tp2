@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Entity
 @Table(name="Provincias")
+
 public class Provincia {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

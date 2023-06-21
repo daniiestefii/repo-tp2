@@ -8,6 +8,7 @@
    <link rel="stylesheet" th:href="@{/css/estilos.css}">
 </head>
 <body id="bodyform">
+<!--Interfas que muestra el formulario de alta de consejos-->
    <header th:replace="layouts/header :: header"></header>
     <nav th:replace="layouts/nav :: nav">
         </nav>
@@ -16,30 +17,29 @@
          <div class="col-xs-12 col-sm-12 col-md-8 col-lg-6 col-xl-4 col-xxl-4">
         <section id="contenido">
 			<div id="formulario">
-			
-                <form th:action="@{/consejos/guardar}" th:object="${consejo}" method="post">
-                       <p>
+			<h3 th:text="${edicionConsejo}?'Modificar consejo':'Nuevo consejo'"></h3>
+                <form th:action="${edicionConsejo}?@{/consejos/modificar}:@{/consejos/guardar}" th:object="${consejo}" method="post">
+
                         <label>TITULO</label>
-                        <input type="text" name="titulo" 
-                        size="26px" required placeholder="Ingrese su titulo">
-                       </p>
-                       <p>
+
+                        <input type="text" th:field="*{titulo}" size="26px" placeholder="Ingrese su titulo">
+                         <div class="text-danger" th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}"></div>
+
                         <label >TEXTO</label>
-                        <textarea name="texto" required  placeholder="Ingrese su Consejo" >
-                        </textarea>
-                 
-                       </p>
-                        <p>  
-                            <input type="submit" value="guardar">
-                        </p>  
+                        <textarea th:field="*{texto}"  placeholder="Ingrese su Consejo" ></textarea>
+                        <div class="text-danger" th:if="${#fields.hasErrors('texto')}" th:errors="*{texto}"></div>
+
+                        
+                           <input type="submit"  class="button" th:value="${edicionConsejo}?'Modificar':'Guardar'">
+                         
               </form> 
-              </div> 
+              </div>
         </section>
            </div>
          </div>
         </div>
         <footer th:replace="layouts/footer :: footer">       
         </footer>
-        <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+        <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.bundle.js}"></script>
 </body>
 </html>
