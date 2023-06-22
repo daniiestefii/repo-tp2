@@ -66,6 +66,7 @@ public class ServicioServiceImp implements IServicioService {
     }
     
       public List<Servicio> getListaServicioFiltrados(String dia) { 
-    	return listaServicio.findByDia(dia);
+    	  
+    	  return listaServicio.findByDiaAndEstado(dia,true);
     }
 }

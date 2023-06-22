@@ -69,6 +69,6 @@ public class ProductoServiceImp implements IProductoService {
 		return producto;
 	}
 	public List<Producto> getListaProductosFiltrados(String categoria) {
-		return listaProducto.findByCategoria(categoria);
+		return listaProducto.findByCategoriaAndEstado(categoria,true);
 	} 
 }

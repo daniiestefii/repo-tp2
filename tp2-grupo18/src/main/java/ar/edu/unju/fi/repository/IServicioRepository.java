@@ -9,5 +9,5 @@ import ar.edu.unju.fi.controller.entity.Servicio;
 @Repository
 public interface IServicioRepository extends CrudRepository<Servicio,Long>{
      public List<Servicio> findByEstado(boolean estado);
-     public List<Servicio> findByDia(String dia);
+     public List<Servicio> findByDiaAndEstado(String dia, boolean estado);
 }

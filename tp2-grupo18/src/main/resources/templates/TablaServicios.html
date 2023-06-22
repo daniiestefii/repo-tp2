@@ -13,19 +13,22 @@
     <header th:replace="layouts/header :: header"></header>
     <nav th:replace="layouts/nav :: nav">
     </nav>
-
+ <div class="container-fluid">
+  <div class="row justify-content-center">
    <section id="cuerpo" >
     <div class="tabla2 ">
-    <table  class="table table-success table-striped-columns border-dark">
-            <tr >
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+    <div class="table-responsive">
+    <table>
+            <tr>
 	            <th> Dia </th>
-	            <th class="d-none d-sm-table-cell" > Horario </th>
+	            <th > Horario </th>
 	            <th> Nombre </th>
                 <th> Opciones </th>
 	      </tr>
 	      <tr th:each="ser:${servicio}">
 	         <td th:text="${ser.dia}"></td>
-	         <td class="d-none d-sm-table-cell" th:text="${ser.horario}"></td>
+	         <td th:text="${ser.horario}"></td>
 	         <td th:text="${ser.nombre}"></td>
               <td>
                   <button type="button" class="btn btn-primary ">
@@ -37,12 +40,35 @@
               </td>
 	      </tr>
    </table>
+   </div>
+   </div>
         <button type="button" class="btn btn-dark ">
             <a class="text-light" th:href="@{/servicios/nuevo}" style="text-decoration: none">Agregar</a>
         </button>
 
    </div>
    </section>
+   </div>
+   
+   
+   <div class="row justify-content-center">
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-3">
+       <form class="custom-form" th:action="@{/servicios/filtradoServicios}" method="get">
+         <select name="dia">
+              <option value="Lunes">Lunes</option>
+			  <option value="Martes">Martes</option>
+			  <option value="Miercoles">Miercoles</option>
+			  <option value="Jueves">Jueves</option>
+			  <option value="Viernes">Viernes</option>
+			  <option value="Sabado">Sabado</option>
+		</select>
+		<input type="submit" th:value="'Filtrar Por Dia'">
+       </form>
+      </div>
+      </div>
+      
+    </div>
+      <br>
     <footer th:replace="layouts/footer :: footer">
     </footer>
     <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>

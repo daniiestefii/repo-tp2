@@ -27,6 +27,7 @@ public class Servicio {
 	@Column(name ="Serv_dia", nullable=false)
 	private String dia;
 	@NotBlank(message = "El horario no puede estar vacío")
+	@Column(name ="Serv_horario", nullable=false)
 	private String horario;
 	@NotBlank(message = "El nombre no puede estar vacío")
 	@Column(name ="Serv_nombre", nullable=false)
