@@ -17,25 +17,32 @@
          <div class="col-xs-12 col-sm-12 col-md-8 col-lg-6 col-xl-4 col-xxl-4">
         <section id="contenido">
 			<div id="formulario">
-
                 <h3 th:text="${edicionServicio}?'Modificar servicio':'Nuevo servicio'"></h3>
                 <form th:action="${edicionServicio}?@{/servicios/modificar}:@{/servicios/guardar}" th:object="${servicio}" method="post">
-
-                <p>
+                        <input th:field="*{id}" hidden>
+                        <input th:field="*{estado}" hidden>
+                       
                         <label>Dia</label>
-                        <input type="text" th:field="*{dia}" size="30px" placeholder="Ingrese el dia">
+                
+                        <br>
+                        <select th:field="*{dia}">
+							    <option value="Lunes">lunes</option>
+							    <option value="Martes">Martes</option>
+							    <option value="Miercoles">Miercoles</option>
+							    <option value="Jueves">Jueves</option>
+							    <option value="Viernes">Viernes</option>
+							    <option value="Sabado">Sabado</option>
+						 </select>
                         <div class="text-danger" th:if="${#fields.hasErrors('dia')}" th:errors="*{dia}"></div>
-                       </p>
-                       <p>
+                        <br>
                         <label >Horario hh a hh</label>
                         <input type="text" th:field="*{horario}" size="26px" placeholder="Ingrese un horario" >
                         <div class="text-danger" th:if="${#fields.hasErrors('horario')}" th:errors="*{horario}"></div>
-                       </p>
-                       <p>
+ 
                         <label>Nombre</label>
                         <input type="text" th:field="*{nombre}" size="26px" placeholder="Ingrese un nombre">
                         <div class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
-                        </p>
+    
                     <input type="submit"  class="button" th:value="${edicionServicio}?'Modificar':'Guardar'">
               </form> 
               </div> 

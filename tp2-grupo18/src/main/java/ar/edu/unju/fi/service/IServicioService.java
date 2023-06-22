@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface IServicioService {
     /**
-     * @method Devuelve una lista de todos las servicios
+     * @method Devuelve una lista de todos los servicios
      */
     List<Servicio> getListaServicio();
     /**
@@ -17,9 +17,9 @@ public interface IServicioService {
     /**
      * @method  Devuelve el servicio cuyo nombre coincide con el parámetro de servicio.
      */
-    Servicio buscar(String dia);
+    Servicio buscar(Long id);
     /**
-     * @method Modifica una sucursal existente
+     * @method Modifica un Servicio existente
      */
     void modificar(Servicio servicio);
     /**
@@ -30,4 +30,6 @@ public interface IServicioService {
      * @method Devuelve un nuevo objeto servicio
      */
     Servicio getServicios();
+    
+    List<Servicio> getListaServicioFiltrados(String dia);
 }

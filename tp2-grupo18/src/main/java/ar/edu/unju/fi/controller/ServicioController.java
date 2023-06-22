@@ -84,10 +84,10 @@ public class ServicioController {
 	 * para poder modificarlo
 	 *
 	 */
-	@GetMapping("/modificar/{dia}")
-	public String getModificarServicioPage(Model model, @PathVariable(value="dia")String dia){
+	@GetMapping("/modificar/{id}")
+	public String getModificarServicioPage(Model model, @PathVariable(value="id")Long id){
 		boolean edicion = true;
-		Servicio servicioEncontrado = servicioService.buscar(dia);
+		Servicio servicioEncontrado = servicioService.buscar(id);
 		model.addAttribute("servicio",servicioEncontrado);
 		model.addAttribute("edicionServicio", edicion);
 		return "nuevo_servicio";
@@ -104,9 +104,9 @@ public class ServicioController {
 	/**
 	 * @method elimina un objeto dentro de la lista
 	 */
-	@GetMapping("/eliminar/{dia}")
-	public String eliminarServicio(@PathVariable(value="dia")String dia) {
-		servicioService.eliminar(servicioService.buscar(dia));
+	@GetMapping("/eliminar/{id}")
+	public String eliminarServicio(@PathVariable(value="id")Long id) {
+		servicioService.eliminar(servicioService.buscar(id));
 		return "redirect:/servicios/listadoServicios";
 	}
 }
