@@ -36,11 +36,26 @@
 	     <a th:href="@{/productos/eliminar/}+${pro.id}">Eliminar</a>
       </div>
     </div>
+    <div>
+    </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-3">
+       <form class="custom-form" th:action="@{/productos/filtradoProductos}" method="get">
+         <select name="categoria">
+              <option value="Alimento">Alimento</option>
+			  <option value="Higiene">Higiene</option>
+			  <option value="Accesorios">Accesorios</option>
+			  <option value="Vestimenta">Vestimenta</option>
+		</select>
+		<input type="submit" th:value="'Filtrar Por Categoria'">
+       </form>
+      </div>
+      </div>
+    </div>
     <button type="button" class="btn btn-dark titulo-centrado">
 			 <a class="text-light" th:href="@{/productos/nuevo}" style="text-decoration: none">Agregar</a>
 		 </button>
-    </div>
-    </div>
     <footer th:replace="layouts/footer :: footer"></footer>  
 <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>

@@ -20,6 +20,8 @@ public class ConsejoController {
 	@Autowired
 	private IConsejoService consejoService;
 
+	
+	
 	/**
 	 * Este método utiliza la anotación @GetMapping para mapear una solicitud GET a la ruta "/listadoConsejos".
 	 * Devuelve la vista "ConsejodeSalud" con un modelo que contiene una lista de consejos.

@@ -1,0 +1,3 @@
+INSERT INTO producto(Prod_name, Prod_codigo, Prod_precio, Prod_categoria, Prod_descuento, Prod_estado ) VALUES ('Collar para perro', 3213, 5000, 'Vestimenta', 20, 1);
+INSERT INTO producto(Prod_name, Prod_codigo, Prod_precio, Prod_categoria, Prod_descuento, Prod_estado ) VALUES ('Collar isabelino',4546,2600,'Vestimenta',10,1);
+INSERT INTO producto(Prod_name, Prod_codigo, Prod_precio, Prod_categoria, Prod_descuento, Prod_estado ) VALUES ('Cepillo de doble cerda',890,120,'Higiene',0,1);
