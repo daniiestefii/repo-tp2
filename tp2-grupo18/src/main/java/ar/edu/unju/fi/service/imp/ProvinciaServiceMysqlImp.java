@@ -12,6 +12,8 @@ public class ProvinciaServiceMysqlImp implements IProvinciaService {
 
     @Autowired
     private IProvinciaRepository provinciaRepository;
+    @Autowired
+    private Provincia provincia;
     @Override
     public List<Provincia> getListaProvincia() {
         return provinciaRepository.findByEstado(true);
@@ -40,6 +42,6 @@ public class ProvinciaServiceMysqlImp implements IProvinciaService {
 
     @Override
     public Provincia getProvincia() {
-        return null;
+        return provincia;
     }
 }
