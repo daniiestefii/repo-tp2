@@ -24,6 +24,12 @@ public class ServicioController {
 	private IServicioService servicioService;
 
 
+	
+	@GetMapping("/filtradoServicios")
+	public String getfiltradoServicioPage(@RequestParam("dia") String dia ,Model model) {
+		model.addAttribute("servicio", servicioService.getListaServicioFiltrados(dia));
+		return "TablaServicios";
+	}
 	/**
 	 * Este método utiliza la anotación @GetMapping para mapear una solicitud GET a
 	 * la ruta "/listadoServicios".
