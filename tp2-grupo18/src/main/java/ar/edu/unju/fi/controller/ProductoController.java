@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.controller.entity.Producto;
@@ -28,6 +29,12 @@ public class ProductoController {
 	//@Qualifier("IProductoService")
 	private IProductoService productoService;
 	
+	
+	@GetMapping("/filtradoProductos")
+	public String getfiltradoProductoPage(@RequestParam("categoria") String categoria ,Model model) {
+		model.addAttribute("producto", productoService.getListaProductosFiltrados(categoria));
+		return "Productos";
+	}
 	/**
 	 * metodo getMapping para responder a una peticion /productos/
 	 * listadoProductos que muestra una pagina llamada "Productos"

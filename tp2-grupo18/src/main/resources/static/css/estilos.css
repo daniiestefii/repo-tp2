@@ -422,3 +422,84 @@ td {
             color:#b47141; /* Color de texto para filas impares */
         }
         
+        
+/* Estilos para el formulario filtrar */
+.custom-form form {
+  width: 300px;
+  margin: 0 auto;
+}
+
+.custom-form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.custom-form input[type="text"],
+.custom-form select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+.custom-form input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Estilos para el elemento select */
+.custom-form .custom-select {
+  position: relative;
+  display: inline-block;
+}
+
+.custom-form .custom-select select {
+  display: none;
+}
+
+.custom-form .select-selected {
+  background-color: #4CAF50;
+  color: white;
+  padding: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.custom-form .select-selected:after {
+  content: '';
+  position: absolute;
+  top: 14px;
+  right: 10px;
+  border: 6px solid transparent;
+  border-color: white transparent transparent transparent;
+}
+
+.custom-form .select-items div {
+  color: black;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.custom-form .select-items div:hover {
+  background-color: #ccc;
+}
+
+.custom-form .select-hide {
+  display: none;
+}
+
+.custom-form .select-items {
+  position: absolute;
+  background-color: #f9f9f9;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}

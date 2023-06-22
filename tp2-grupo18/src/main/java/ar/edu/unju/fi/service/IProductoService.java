@@ -34,4 +34,6 @@ public interface IProductoService {
      */
 	Producto getProducto();
 	
+	List<Producto> getListaProductosFiltrados(String categoria);
+	
 }
