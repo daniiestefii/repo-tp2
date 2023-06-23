@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
+import ar.edu.unju.fi.controller.entity.Categoria;
 import ar.edu.unju.fi.controller.entity.Producto;
 import ar.edu.unju.fi.listas.ListaProducto;
 import ar.edu.unju.fi.repository.IProductoRepository;
@@ -68,7 +68,7 @@ public class ProductoServiceImp implements IProductoService {
 	public Producto getProducto() {
 		return producto;
 	}
-	public List<Producto> getListaProductosFiltrados(String categoria) {
-		return listaProducto.findByCategoriaAndEstado(categoria,true);
+	public List<Producto> getListaProductosFiltrados(Categoria categoria, boolean estado) {
+		return listaProducto.findByCategoriaAndEstado(categoria,estado);
 	} 
 }

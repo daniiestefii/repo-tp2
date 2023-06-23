@@ -38,10 +38,7 @@
                         <label>Categoria</label>
                         <br>
                           <select th:field="*{categoria}">
-							    <option value="Alimento">Alimento</option>
-							    <option value="Higiene">Higiene</option>
-							    <option value="Accesorios">Accesorios</option>
-							    <option value="Vestimenta">Vestimenta</option>
+							    <option th:each="categoria : ${categorias}" th:text="${categoria.nombre}" th:value="${categoria.id}"></option>
 						 </select>
                         <div class="text-danger" th:if="${#fields.hasErrors('categoria')}" th:errors="*{categoria}"></div>
                         <br>

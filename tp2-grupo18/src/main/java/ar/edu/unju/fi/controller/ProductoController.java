@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import ar.edu.unju.fi.controller.entity.Categoria;
 import ar.edu.unju.fi.controller.entity.Producto;
+import ar.edu.unju.fi.service.ICategoriaService;
 import ar.edu.unju.fi.service.IProductoService;
 import jakarta.validation.Valid;
 
@@ -25,26 +27,34 @@ public class ProductoController {
 	 * Inyeccion de dependencia, para utilizar el objeto de la clase
 	 * sin necesidad de instanciar
 	 * **/
+	
 	@Autowired
 	//@Qualifier("IProductoService")
 	private IProductoService productoService;
-	
+	@Autowired
+	private ICategoriaService categoriaService;
 	
 	@GetMapping("/filtradoProductos")
-	public String getfiltradoProductoPage(@RequestParam("categoria") String categoria ,Model model) {
-		model.addAttribute("producto", productoService.getListaProductosFiltrados(categoria));
+	public String getfiltradoProductoPage(@RequestParam("categoria") Categoria categoria ,Model model) {
+		model.addAttribute("producto", productoService.getListaProductosFiltrados(categoria,true));
+		model.addAttribute("categorias",categoriaService.getListaCategoria());
 		return "Productos";
 	}
+	
 	/**
+	 * 
 	 * metodo getMapping para responder a una peticion /productos/
 	 * listadoProductos que muestra una pagina llamada "Productos"
 	 * antes de cargar la lista de productos al model y este ser usado
 	 * en la pagina de return, calcula el descuento de todos los objetos
-	 * de la lista antes de enviarse **/
+	 * de la lista antes de enviarse
+	 *  
+	 * **/
 	
 	@GetMapping("/listadoProductos")
 	public String getProductoPage(Model model){
 		model.addAttribute("producto",productoService.getListaProductos());
+		model.addAttribute("categorias",categoriaService.getListaCategoria());
 		return "Productos";
 	}
 	/** 
@@ -55,15 +65,18 @@ public class ProductoController {
 		boolean edicion = false;
 		model.addAttribute("edicion", edicion);
 		model.addAttribute("producto", productoService.getProducto());
-		return "nuevo_producto"; 
+		model.addAttribute("categorias", categoriaService.getListaCategoria());
+		return "nuevo_producto";	
 	}
-	
-	/** 
+	/**
+	 *  
 	 * metodo postMapping obtiene un objeto de tipo producto para luego
 	 * asignarlo dentro de la listaPro para su actualizacion y ser mostrado
 	 * en la pagina "Producto",antes de eso tambien se obtienen los errores ocurridos
 	 * y si estos ocurrieron al momento de querer mandar un objeto, se volvera a 
-	 * solicitar el ingreso de el objeto (por lo que no se cambia de pagina)**/
+	 * solicitar el ingreso de el objeto (por lo que no se cambia de pagina)
+	 * 
+	 * **/
 	
 	@PostMapping("/guardar")
 	public ModelAndView getGuardarProducto(@Valid @ModelAttribute("producto")Producto prod, BindingResult result){
@@ -90,7 +103,8 @@ public class ProductoController {
 		boolean edicion = true;
 		Producto productoEncontrado = productoService.buscar(nombre);
 		model.addAttribute("producto", productoEncontrado);
-		model.addAttribute("edicion", edicion);				
+		model.addAttribute("edicion", edicion);	
+		model.addAttribute("categorias", categoriaService.getListaCategoria());
 		return "nuevo_producto";
 	}
 	/**

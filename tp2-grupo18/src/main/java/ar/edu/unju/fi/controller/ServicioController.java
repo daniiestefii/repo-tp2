@@ -1,5 +1,6 @@
 package ar.edu.unju.fi.controller;
 
+import ar.edu.unju.fi.service.IEmpleadoService;
 import ar.edu.unju.fi.service.IServicioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,7 +23,9 @@ public class ServicioController {
 
 	@Autowired
 	private IServicioService servicioService;
-
+     
+	@Autowired
+	private IEmpleadoService empleadoService;
 
 	
 	@GetMapping("/filtradoServicios")
@@ -57,6 +60,7 @@ public class ServicioController {
 		boolean edicion = false;
 		model.addAttribute("edicionServicio", edicion);
 		model.addAttribute("servicio",servicio);
+		model.addAttribute("empleados", empleadoService.getListaEmpleado());
 		return "nuevo_servicio"; 
 	}
 
@@ -96,6 +100,7 @@ public class ServicioController {
 		Servicio servicioEncontrado = servicioService.buscar(id);
 		model.addAttribute("servicio",servicioEncontrado);
 		model.addAttribute("edicionServicio", edicion);
+		model.addAttribute("empleados", empleadoService.getListaEmpleado());
 		return "nuevo_servicio";
 	}
 	/**

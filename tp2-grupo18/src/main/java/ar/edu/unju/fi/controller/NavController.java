@@ -16,4 +16,9 @@ public class NavController {
 	    
 		return "Formulario";
 	}
+	
+	@GetMapping("/gestionDatos")
+	public String getGestionDatos(){
+		return "GestionDatos";
+	}
 }

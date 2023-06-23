@@ -14,7 +14,7 @@ public class Noticia {
 	private String titulo;
 	@NotBlank(message = "El texto no puede estar vacío")
    private String texto;
-public Noticia(String titulo, String texto) {
+public Noticia(String titulo, String texto){
 	super();
 	this.titulo = titulo;
 	this.texto = texto;
@@ -23,6 +23,7 @@ public Noticia(String titulo, String texto) {
 	 *
 	 * @Get
 	 * @Set
+	 * 
 	 */
   public Noticia() {
 	  
