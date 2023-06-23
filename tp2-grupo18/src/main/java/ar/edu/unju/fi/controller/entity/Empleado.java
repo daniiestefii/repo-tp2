@@ -1,6 +1,9 @@
 package ar.edu.unju.fi.controller.entity;
 
 import jakarta.persistence.*;
+
+import java.util.List;
+
 import org.springframework.stereotype.Component;
 
 @Component
@@ -17,15 +20,18 @@ public class Empleado{
     private String apellido;
     @Column(name = "Emple_dni",nullable = false)
     private int dni;
+    @OneToMany(mappedBy = "empleado")
+    private List<Servicio> servicio;
     @Column(name = "Emple_estado",nullable = false)
     private Boolean estado;
+    
 
-
-    public Empleado(Long id ,String nombre,String apellido, int dni,boolean estado) {
+    public Empleado(Long id ,String nombre,String apellido, int dni,List<Servicio> servicio,boolean estado) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
+        this.servicio = servicio;
         this.estado = estado;
         
     }
@@ -56,6 +62,13 @@ public class Empleado{
 	public void setDni(int dni) {
 		this.dni = dni;
 	}
+	public List<Servicio> getServicio(){
+		return servicio;
+	}
+	public void setServicio(List<Servicio> servicio){
+		this.servicio = servicio;
+	}
+	
 	public Boolean getEstado() {
 		return estado;
 	}

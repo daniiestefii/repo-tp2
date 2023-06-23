@@ -38,11 +38,12 @@
                         <label >Horario hh a hh</label>
                         <input type="text" th:field="*{horario}" size="26px" placeholder="Ingrese un horario" >
                         <div class="text-danger" th:if="${#fields.hasErrors('horario')}" th:errors="*{horario}"></div>
- 
-                        <label>Nombre</label>
-                        <input type="text" th:field="*{nombre}" size="26px" placeholder="Ingrese un nombre">
-                        <div class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
-    
+                        <label > Empleado</label>
+                        <br>
+                          <select th:field="*{empleado}">
+							    <option th:each="emple : ${empleados}" th:text="${emple.nombre + ' ' +emple.apellido + ' ' + emple.dni}" th:value="${emple.id}"></option>
+						 </select>
+                        <div class="text-danger" th:if="${#fields.hasErrors('horario')}" th:errors="*{horario}"></div>
                     <input type="submit"  class="button" th:value="${edicionServicio}?'Modificar':'Guardar'">
               </form> 
               </div> 

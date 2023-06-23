@@ -1,5 +1,6 @@
 package ar.edu.unju.fi.service.imp;
 
+import ar.edu.unju.fi.controller.entity.Empleado;
 import ar.edu.unju.fi.controller.entity.Servicio;
 import ar.edu.unju.fi.listas.ListaServicio;
 import ar.edu.unju.fi.repository.IServicioRepository;

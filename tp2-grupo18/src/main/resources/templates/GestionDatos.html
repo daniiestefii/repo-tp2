@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Formulario</title>
+    <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+   <link rel="stylesheet" th:href="@{css/estilos.css}">
+</head>
+<body id="bodyform">
+<!--layouts-->
+   <header th:replace="layouts/header :: header"></header>
+    <nav th:replace="layouts/nav :: nav">
+        </nav>
+    <!--uso de container, rows y cols-->    
+     <div class="container-fluid">
+      <div class="row justify-content-center">
+       <div class="col-xs-12 col-sm-12 col-md-8 col-lg-6 col-xl-4 col-xxl-4">
+         
+       </div>
+      </div>
+     </div>
+        <!--layouts-->
+        <footer th:replace="layouts/footer :: footer">       
+        </footer>
+        <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>

@@ -1,5 +1,6 @@
 package ar.edu.unju.fi.service;
 
+import ar.edu.unju.fi.controller.entity.Categoria;
 import ar.edu.unju.fi.controller.entity.Producto;
 import jakarta.validation.Valid;
 
@@ -34,6 +35,6 @@ public interface IProductoService {
      */
 	Producto getProducto();
 	
-	List<Producto> getListaProductosFiltrados(String categoria);
+	List<Producto> getListaProductosFiltrados(Categoria categoria, boolean estado);
 	
 }

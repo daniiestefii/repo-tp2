@@ -7,6 +7,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 /**
@@ -29,17 +32,17 @@ public class Servicio {
 	@NotBlank(message = "El horario no puede estar vacío")
 	@Column(name ="Serv_horario", nullable=false)
 	private String horario;
-	@NotBlank(message = "El nombre no puede estar vacío")
-	@Column(name ="Serv_nombre", nullable=false)
-    private String nombre;
+	@ManyToOne
+    @JoinColumn(name = "Emple_id")
+	private Empleado empleado;
 	@Column(name ="Serv_estado", nullable=false)
 	private boolean estado;
-public Servicio(Long id,String dia, String horario, String nombre,boolean estado) {
+public Servicio(Long id,String dia, String horario,Empleado empleado,boolean estado) {
 	super();
 	this.id =  id;
 	this.dia = dia;
 	this.horario = horario;
-	this.nombre = nombre;
+	this.empleado = empleado;
 	this.estado = estado;
 }
 public Servicio() {
@@ -68,11 +71,12 @@ public String getHorario() {
 public void setHorario(String horario) {
 	this.horario = horario;
 }
-public String getNombre() {
-	return nombre;
+
+public Empleado getEmpleado() {
+	return empleado;
 }
-public void setNombre(String nombre) {
-	this.nombre = nombre;
+public void setEmpleado(Empleado empleado) {
+	this.empleado = empleado;
 }
 public boolean isEstado() {
 	return estado;
@@ -80,6 +84,7 @@ public boolean isEstado() {
 public void setEstado(boolean estado) {
 	this.estado = estado;
 }
+
 
 
     

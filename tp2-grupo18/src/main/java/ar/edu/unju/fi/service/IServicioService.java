@@ -1,5 +1,6 @@
 package ar.edu.unju.fi.service;
 
+import ar.edu.unju.fi.controller.entity.Empleado;
 import ar.edu.unju.fi.controller.entity.Servicio;
 import jakarta.validation.Valid;
 

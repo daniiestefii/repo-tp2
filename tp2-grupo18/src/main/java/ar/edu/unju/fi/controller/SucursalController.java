@@ -24,7 +24,8 @@ public class SucursalController {
 
 	@Autowired
 	private ISucursalService sucursalService;
-
+	
+	
 	/*
 	 * Este método utiliza la anotación @GetMapping para mapear una solicitud GET a la ruta
 	 * "/listadoSucursales".
@@ -39,7 +40,6 @@ public class SucursalController {
 		model.addAttribute("sucursal",sucursalService.getListaSucursal());
 		return "Sucursal";
 	}
-
 	/*
 	 * Este método utiliza la anotación @GetMapping para mapear una solicitud GET a la ruta "/nuevo".
 	 * Devuelve la vista "nuevo_sucursal" con un modelo que contiene un objeto "sucursal".

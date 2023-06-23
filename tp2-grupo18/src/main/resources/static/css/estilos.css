@@ -43,18 +43,20 @@ body{
     background: rgb(66, 75, 43);
 }
 .menucont{
-  display: inline-block;
   
   
-  background-color: #cca630 ;
+  background-color: #cca630;
   color: #333;
-  
   font-family: 'Lobster', cursive;
   font-size: 24px;
   color: #ff0066;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   text-transform: uppercase;
   text-align: center;
+
+}
+.menucont a{
+	margin-top: 50px;
 }
 
 #menu ul{

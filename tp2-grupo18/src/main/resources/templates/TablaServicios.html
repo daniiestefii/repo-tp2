@@ -29,7 +29,7 @@
 	      <tr th:each="ser:${servicio}">
 	         <td th:text="${ser.dia}"></td>
 	         <td th:text="${ser.horario}"></td>
-	         <td th:text="${ser.nombre}"></td>
+	         <td th:text="${(ser.empleado.nombre) + ' ' +(ser.empleado.apellido) }"></td>
               <td>
                   <button type="button" class="btn btn-primary ">
                       <a class="text-light" th:href="@{/servicios/modificar/}+${ser.id}" style="text-decoration: none">Editar</a>

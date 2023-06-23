@@ -7,11 +7,13 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.*;
 /**
  * @model Producto
- * @author DOrdonez, RicardoFlores, MiltonDelgado
+ * @author DOrdonez, RicardoFlores, MiltonDelgado 
  */
 @Component
 @Entity
@@ -33,9 +35,9 @@ public class Producto {
 	@NotNull(message = "No puede quedar vacio")
 	@Column(name="Prod_precio",nullable = false)
 	private double precio;
-	@NotBlank(message = "Seleccione una opcion!")
-	@Column(name="Prod_categoria",nullable = false)
-	private String categoria;
+	@ManyToOne
+	@JoinColumn(name="cate_id",nullable = false)
+	private Categoria categoria;
 	@Min(value = 0, message = "El descuento no puede ser negativo")
 	@Max(value = 100, message = "El descuento no puede ser mayor a 100")
 	@NotNull(message = "este campo no puede estar vacio")
@@ -45,7 +47,7 @@ public class Producto {
 	private boolean estado;
 	
 	
-	  public Producto(long id,String nombre,int codigo,double precio,String categoria,int descuento, boolean estado) {
+	  public Producto(long id,String nombre,int codigo,double precio,Categoria categoria,int descuento, boolean estado) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -57,7 +59,6 @@ public class Producto {
 	}
 	  
 	  public Producto() {
-		  
 	  }
 	  
 
@@ -102,12 +103,12 @@ public class Producto {
 	}
 
 
-	public String getCategoria() {
+	public Categoria getCategoria() {
 		return categoria;
 	}
 
 
-	public void setCategoria(String categoria) {
+	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
 
