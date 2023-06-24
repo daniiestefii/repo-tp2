@@ -29,7 +29,7 @@ public class ProvinciaController{
 	
 	@GetMapping("/listadoProvincia")
 	public String getProvinciaPage(Model model){
-		model.addAttribute("provincia",provinciaService.getListaProvincia());
+		model.addAttribute("provincia",provinciaService.getListaProvincias());
 		return "redirect:/gestionDatos";
 	}
 	

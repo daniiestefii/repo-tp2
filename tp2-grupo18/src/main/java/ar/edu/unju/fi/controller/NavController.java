@@ -58,12 +58,12 @@ public class NavController {
 	public String getGestionDatos(Model model){
 		model.addAttribute("producto", productoService.getListaProductos());
 		model.addAttribute("servicio", servicioService.getListaServicio());
-		model.addAttribute("sucursal", sucursalService.getListaSucursal());
+		model.addAttribute("sucursal", sucursalService.getListaSucursales());
 		model.addAttribute("noticia", noticiaService.getListaNoticias());
-		model.addAttribute("consejo", consejoService.getListaConsejo());
+		model.addAttribute("consejo", consejoService.getListaConsejos());
 		model.addAttribute("categoria", categoriaService.getListaCategoria());
 		model.addAttribute("empleado", empleadoService.getListaEmpleado());
-		model.addAttribute("provincia", provinciaService.getListaProvincia());
+		model.addAttribute("provincia", provinciaService.getListaProvincias());
 		return "GestionDatos";
 	}
 }

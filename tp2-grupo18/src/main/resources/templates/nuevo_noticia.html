@@ -21,7 +21,7 @@
                         <input th:field="*{estado}" hidden>
                         <label>TITULO</label>
                         <input type="text" th:field="*{titulo}" size="26px" placeholder="Ingrese su titulo">
-                        <div class="text-danger" th:if="${#fields.hasErrors('titulo')}"></div>
+                        <div class="text-danger" th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}"></div>
                       
                         <label >TEXTO</label>
                         <textarea th:field="*{texto}" placeholder="Ingrese su noticia" ></textarea>

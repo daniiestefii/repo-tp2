@@ -47,7 +47,7 @@
                         <input type="number" th:field="*{descuento}" size="26px" placeholder="Ingrese el descuento">
                         <div class="text-danger" th:if="${#fields.hasErrors('descuento')}" th:errors="*{descuento}"></div>
 
-                            <input type="submit" type="submit" th:value="${edicion}?'modificar':'guardar'">
+                            <input type="submit" th:value="${edicion}?'modificar':'guardar'">
                           
               </form> 
               </div> 

@@ -65,8 +65,8 @@
             <div th:text="${sucu.telefono}"> </div>
             <div> OPCIONES: </div>
             <div>
-	            <a th:href="@{/sucursales/modificar/}+${sucu.nombre}">Editar</a>
-		        <a th:href="@{/sucursales/eliminar/}+${sucu.nombre}">Eliminar</a>
+	            <a th:href="@{/sucursales/modificar/}+${sucu.id}">Editar</a>
+		        <a th:href="@{/sucursales/eliminar/}+${sucu.id}">Eliminar</a>
 	       </div>
 	  </div>
 	   </div>
@@ -99,8 +99,8 @@
             <div th:text="${conse.titulo}" ></div>
             <div> OPCIONES: </div>
             <div>
-	            <a th:href="@{/consejos/modificar/}+${conse.titulo}">Editar</a>
-		        <a th:href="@{/consejos/eliminar/}+${conse.titulo}">Eliminar</a>
+	            <a th:href="@{/consejos/modificar/}+${conse.id}">Editar</a>
+		        <a th:href="@{/consejos/eliminar/}+${conse.id}">Eliminar</a>
 	       </div>
 	  </div>
 	   </div>

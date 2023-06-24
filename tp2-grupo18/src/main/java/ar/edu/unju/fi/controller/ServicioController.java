@@ -79,6 +79,7 @@ public class ServicioController {
 		if(result.hasErrors()) {
 			mav.setViewName("nuevo_servicio");
 			mav.addObject("servicio",serv);
+		    mav.addObject("empleados", empleadoService.getListaEmpleado());
 			return mav;
 		}
 		servicioService.guardar(serv);

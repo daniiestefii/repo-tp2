@@ -20,8 +20,7 @@
                 <div id="formulario">
                     <h3 th:text="${edicionConsejo}?'Modificar un Consejo':'Nueva consejo'"></h3>
                     <form th:action="${edicionConsejo}?@{/consejos/modificar}:@{/consejos/guardar}" th:object="${consejo}" method="post">
-
-                        <input th:field="*{id}" hidden>
+                         <input th:field="*{id}" hidden>
                         <input th:field="*{estado}" hidden>
                         <label>TITULO</label>
                         <input type="text" th:field="*{titulo}" size="25px" placeholder="Ingrese un titulo">
