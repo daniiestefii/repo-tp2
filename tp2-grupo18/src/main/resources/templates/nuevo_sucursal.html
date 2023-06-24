@@ -31,8 +31,6 @@
                         <input type="text" th:field="*{lugar}" size="25px" placeholder="Ingrese un lugar">
                         <div class="text-danger" th:if="${#fields.hasErrors('lugar')}" th:errors="*{lugar}"></div>
 
-
-
                         <label >Télefono</label>
                         <input type="number" th:field="*{telefono}" size="25px" placeholder="Ingrese un telefono" maxlength="10" minlength="6">
                         <div class="text-danger" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></div>

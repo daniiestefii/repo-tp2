@@ -1,5 +1,6 @@
 package ar.edu.unju.fi.controller.entity;
 
+import jakarta.persistence.*;
 import org.springframework.stereotype.Component;
 
 
@@ -11,16 +12,30 @@ import jakarta.validation.constraints.NotBlank;
  * @author DOrdonez, RicardoFlores, MiltonDelgado
  */
 @Component
+@Entity
+@Table(name="Consejo")
 public class Consejo{
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name ="conse_id",nullable = false)
+	private long id;
 	@NotBlank(message="Tiene que escribir un titulo")
+	@Column(name ="conse_titulo",nullable = false)
 	private String titulo;
 	@NotBlank(message="Tine que escribir un texto")
-   private String texto;
-public Consejo(String titulo, String texto) {
-	super();
-	this.titulo = titulo;
-	this.texto = texto;
-}
+	@Column(name ="conse_texto",nullable = false)
+    private String texto;
+
+	@Column(name="conse_estado",nullable = false)
+	private boolean estado;
+
+	public Consejo(long id, String titulo, String texto, boolean estado) {
+		this.id = id;
+		this.titulo = titulo;
+		this.texto = texto;
+		this.estado = estado;
+	}
 
 	public Consejo() {
 	}
@@ -31,17 +46,28 @@ public Consejo(String titulo, String texto) {
 	 * @Set
 	 */
 
-
-public String getTitulo() {
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+	public String getTitulo() {
 	return titulo;
 }
-public void setTitulo(String titulo) {
+    public void setTitulo(String titulo) {
 	this.titulo = titulo;
 }
-public String getTexto() {
+    public String getTexto() {
 	return texto;
 }
-public void setTexto(String texto) {
+    public void setTexto(String texto) {
 	this.texto = texto;
 }
+	public boolean isEstado() {
+		return estado;
+	}
+	public void setEstado(boolean estado) {
+		this.estado = estado;
+	}
 }
