@@ -3,6 +3,7 @@ package ar.edu.unju.fi.service.imp;
 import ar.edu.unju.fi.controller.entity.Provincia;
 import ar.edu.unju.fi.repository.IProvinciaRepository;
 import ar.edu.unju.fi.service.IProvinciaService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +19,7 @@ public class ProvinciaServiceImp implements IProvinciaService {
     public List<Provincia> getListaProvincias() {return provinciaRepository.findByEstado(true);}
 
     @Override
-    public void guardar(Provincia provincia) { provinciaRepository.save(provincia);}
+    public void guardar(@Valid Provincia provincia) { provinciaRepository.save(provincia);}
 
     @Override
     public Provincia buscar(Long id) {return provinciaRepository.findById(id).get();}

@@ -31,7 +31,7 @@ public class ConsejoController {
 	 **/
 	@GetMapping("/listadoConsejos")
 	public String getConsejoPage(Model model) {
-		model.addAttribute("consejo", consejoService.getListaConsejo());
+		model.addAttribute("consejo", consejoService.getListaConsejos());
 		return "ConsejodeSalud";
 	}
 
@@ -67,7 +67,7 @@ public class ConsejoController {
 			return mav;
 		}
 		consejoService.guardar(cons);
-		mav.addObject("consejo", consejoService.getListaConsejo());
+		mav.addObject("consejo", consejoService.getListaConsejos());
 		return mav;
 	}
 	/**
@@ -79,7 +79,7 @@ public class ConsejoController {
 	 *
 	 */
 	@GetMapping("/modificar/{titulo}")
-	public String getModificarConsejo(Model model, @PathVariable(value = "titulo") String titulo) {
+	public String getModificarConsejo(Model model, @PathVariable(value = "titulo") Long titulo) {
 		Consejo consejoencontrado = new Consejo();
 		boolean edicion = true;
 		consejoencontrado = consejoService.buscar(titulo);
@@ -101,7 +101,7 @@ public class ConsejoController {
 	 * @method elimina un objeto dentro de la lista
 	 */
 	@GetMapping("/eliminar/{titulo}")
-	public String eliminarConsejo(@PathVariable(value="titulo")String titulo) {
+	public String eliminarConsejo(@PathVariable(value="titulo")Long titulo) {
 		consejoService.eliminar(consejoService.buscar(titulo));
 		return "redirect:/consejos/listadoConsejos";
 	}

@@ -1,59 +1,53 @@
 package ar.edu.unju.fi.service.imp;
 
-import ar.edu.unju.fi.controller.entity.Consejo;
-import ar.edu.unju.fi.listas.ListaConsejo;
-import ar.edu.unju.fi.service.IConsejoService;
+import java.util.List;
 
+import ar.edu.unju.fi.controller.entity.*;
+import ar.edu.unju.fi.repository.IConsejoRepository;
+import ar.edu.unju.fi.service.IConsejoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import jakarta.validation.Valid;
+
 @Service
 public class ConsejoServiceImp implements IConsejoService {
-	    @Autowired
-	    private ListaConsejo listaConsejo;
-	    @Autowired
-	    private Consejo consejo;
+    @Autowired
+    private IConsejoRepository consejoRepository;
+    @Autowired
+    private Consejo consejo;
 
     @Override
-    public List<Consejo> getListaConsejo() {
-        return listaConsejo.getConsejos();
+    public List<Consejo> getListaConsejos() {
+        return consejoRepository.findByEstado(true);
     }
 
     @Override
-    public void guardar(Consejo consejo) {
-        listaConsejo.getConsejos().add(consejo);
+    public void guardar(@Valid Consejo consejo) {
+        consejo.setEstado(true);
+        consejoRepository.save(consejo);
+
     }
 
     @Override
-    public Consejo buscar(String titulo) {
-        Consejo consejoencontrado = null;
-        for (Consejo conse : listaConsejo.getConsejos()) {
-            if (conse.getTitulo().equals(titulo)) {
-                consejoencontrado = conse;
-                break;
-            }
-        }
-        return consejoencontrado;
+    public Consejo buscar(long id) {
+        return consejoRepository.findById(id).get();
     }
 
     @Override
     public void modificar(Consejo consejo) {
-        for (Consejo conse : listaConsejo.getConsejos()) {
-            if (conse.getTitulo().equals(consejo.getTitulo())) {
-                conse.setTexto(consejo.getTexto());
-                break;
-            }
-        }
+        consejoRepository.save(consejo);}
+
+    @Override
+    public void eliminar(Consejo consejoEncontrado) {
+        consejoEncontrado.setEstado(false);
+        consejoRepository.save(consejoEncontrado);
     }
 
     @Override
-    public void eliminar(Consejo consejo) {
-        listaConsejo.getConsejos().remove(consejo);
-    }
-
-    @Override
-    public Consejo getConsejos() {
+    public Consejo getConsejo() {
         return consejo;
     }
+
+
 }

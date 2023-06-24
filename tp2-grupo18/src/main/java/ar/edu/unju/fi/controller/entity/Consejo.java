@@ -23,17 +23,21 @@ public class Consejo{
 	@NotBlank(message="Tiene que escribir un titulo")
 	@Column(name ="conse_titulo",nullable = false)
 	private String titulo;
-	@NotBlank(message="Tine que escribir un texto")
+	@NotBlank(message="Tiene que escribir un texto")
 	@Column(name ="conse_texto",nullable = false)
     private String texto;
+	@NotBlank(message="Tiene que escribir un autor")
+	@Column(name ="conse_autor",nullable = false)
+	private String autor;
 
 	@Column(name="conse_estado",nullable = false)
 	private boolean estado;
 
-	public Consejo(long id, String titulo, String texto, boolean estado) {
+	public Consejo(long id, String titulo, String texto,String autor, boolean estado) {
 		this.id = id;
 		this.titulo = titulo;
 		this.texto = texto;
+		this.autor = autor;
 		this.estado = estado;
 	}
 
@@ -60,10 +64,18 @@ public class Consejo{
 }
     public String getTexto() {
 	return texto;
-}
+	}
     public void setTexto(String texto) {
 	this.texto = texto;
-}
+	}
+
+	public String getAutor() {
+		return autor;
+	}
+	public void setAutor(String autor) {
+		this.autor = autor;
+	}
+
 	public boolean isEstado() {
 		return estado;
 	}

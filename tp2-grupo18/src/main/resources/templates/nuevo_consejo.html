@@ -5,41 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Formulario</title>
     <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
-   <link rel="stylesheet" th:href="@{/css/estilos.css}">
+    <link rel="stylesheet" th:href="@{/css/estilos.css}">
 </head>
 <body id="bodyform">
-<!--Interfas que muestra el formulario de alta de consejos-->
-   <header th:replace="layouts/header :: header"></header>
-    <nav th:replace="layouts/nav :: nav">
-        </nav>
-      <div class="container-fluid">
-       <div class="row justify-content-center">
-         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-6 col-xl-4 col-xxl-4">
-        <section id="contenido">
-			<div id="formulario">
-			<h3 th:text="${edicionConsejo}?'Modificar consejo':'Nuevo consejo'"></h3>
-                <form th:action="${edicionConsejo}?@{/consejos/modificar}:@{/consejos/guardar}" th:object="${consejo}" method="post">
+<!--Interfas que muestra el formulario de alta de Consejo-->
 
+<header th:replace="layouts/header :: header"></header>
+<nav th:replace="layouts/nav :: nav">
+</nav>
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-6 col-xl-4 col-xxl-4">
+            <section id="contenido">
+                <div id="formulario">
+                    <h3 th:text="${edicionConsejo}?'Modificar un Consejo':'Nueva consejo'"></h3>
+                    <form th:action="${edicionConsejo}?@{/consejos/modificar}:@{/consejos/guardar}" th:object="${consejo}" method="post">
+
+                        <input th:field="*{id}" hidden>
+                        <input th:field="*{estado}" hidden>
                         <label>TITULO</label>
+                        <input type="text" th:field="*{titulo}" size="25px" placeholder="Ingrese un titulo">
+                        <div class="text-danger" th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}"></div>
 
-                        <input type="text" th:field="*{titulo}" size="26px" placeholder="Ingrese su titulo">
-                         <div class="text-danger" th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}"></div>
-
-                        <label >TEXTO</label>
-                        <textarea th:field="*{texto}"  placeholder="Ingrese su Consejo" ></textarea>
+                        <label>TEXTO</label>
+                        <textarea type="text" th:field="*{texto}" size="25px" placeholder="Ingrese su Consejo"></textarea>
                         <div class="text-danger" th:if="${#fields.hasErrors('texto')}" th:errors="*{texto}"></div>
 
-                        
-                           <input type="submit"  class="button" th:value="${edicionConsejo}?'Modificar':'Guardar'">
-                         
-              </form> 
-              </div>
-        </section>
-           </div>
-         </div>
+                        <label >AUTOR</label>
+                        <input type="text" th:field="*{autor}" size="25px" placeholder="Ingrese un autor">
+                        <div class="text-danger" th:if="${#fields.hasErrors('autor')}" th:errors="*{autor}"></div>
+
+                        <input type="submit" value="Guardar">
+
+                    </form>
+                </div>
+            </section>
         </div>
-        <footer th:replace="layouts/footer :: footer">       
-        </footer>
-        <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.bundle.js}"></script>
+    </div>
+</div>
+<footer th:replace="layouts/footer :: footer">
+</footer>
+<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>
 </html>
