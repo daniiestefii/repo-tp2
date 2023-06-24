@@ -84,6 +84,7 @@ public class ProductoController {
 		if(result.hasErrors()){
 			mav.setViewName("nuevo_producto");
 			mav.addObject("producto",prod);
+			mav.addObject("categorias",categoriaService.getListaCategoria());
 			return mav;
 		}
 		productoService.guardar(prod);

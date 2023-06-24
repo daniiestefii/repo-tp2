@@ -43,7 +43,7 @@
                           <select th:field="*{empleado}">
 							    <option th:each="emple : ${empleados}" th:text="${emple.nombre + ' ' +emple.apellido + ' ' + emple.dni}" th:value="${emple.id}"></option>
 						 </select>
-                        <div class="text-danger" th:if="${#fields.hasErrors('horario')}" th:errors="*{horario}"></div>
+                        <div class="text-danger" th:if="${#fields.hasErrors('empleado')}" th:errors="*{empleado}"></div>
                     <input type="submit"  class="button" th:value="${edicionServicio}?'Modificar':'Guardar'">
               </form> 
               </div> 

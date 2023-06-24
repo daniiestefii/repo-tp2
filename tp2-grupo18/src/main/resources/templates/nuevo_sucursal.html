@@ -50,17 +50,7 @@
                         <label> Fecha Inicio </label>
                         <input type="date" th:field="*{fechainicio}" size="25px" placeholder="Ingrese una fecha">
                         <div class="text-danger" th:if="${#fields.hasErrors('fechainicio')}" th:errors="*{fechainicio}"></div>
-<<<<<<< HEAD
                        
-                            <input type="submit" th:value="${edicion}?'modificar':'guardar'">
-                        
-              </form> 
-              </div> 
-        </section>
-=======
-
-
-
                         <label>Provincia</label>
                         <br>
                         <select th:field="*{provincia}">
@@ -69,12 +59,10 @@
                         <div class="text-danger" th:if="${#fields.hasErrors('provincia')}" th:errors="*{provincia}"></div>
                         <br>
 
-                        <input type="submit" value="Guardar">
-
-                    </form>
-                </div>
-            </section>
->>>>>>> 50003d8201dc71f0d74ea2e25cd37b1c2ee92980
+                        <input type="submit" th:value="${edicion}?'modificar':'guardar'">                        
+              </form> 
+              </div> 
+        </section>
         </div>
     </div>
 </div>

@@ -47,7 +47,7 @@ public class SucursalController {
 	@GetMapping("/listadoSucursales")
 	public String getSucursalPage(Model model) {
 		model.addAttribute("sucursal",sucursalService.getListaSucursales());
-		model.addAttribute("categorias",provinciaService.getListaProvincias());
+		model.addAttribute("provincias",provinciaService.getListaProvincias());
 		return "Sucursal";
 	}
 	/*
@@ -81,6 +81,7 @@ public class SucursalController {
 		if(result.hasErrors()) {
 			mav.setViewName("nuevo_sucursal");
 			mav.addObject("sucursal", sucu);
+			mav.addObject("provincias", provinciaService.getListaProvincias());
 			return mav;
 		}
 		sucu.setEstado(true);
@@ -118,6 +119,7 @@ public class SucursalController {
 		if(result.hasErrors()){
 			model.addAttribute("edicion",edicion);
 			model.addAttribute("sucursal",sucu);
+			model.addAttribute("provincias", provinciaService.getListaProvincias());
 			return "nuevo_sucursal";
 		}
 		sucursalService.modificar(sucu);
