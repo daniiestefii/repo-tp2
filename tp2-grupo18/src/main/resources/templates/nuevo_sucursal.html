@@ -24,33 +24,33 @@
                         <input th:field="*{id}" hidden>
                         <input th:field="*{estado}" hidden>
                         <label>Nombre</label>
-                        <input type="text" th:field="*{nombre}" size="26px" placeholder="Ingrese un nombre">
+                        <input type="text" th:field="*{nombre}" size="25px" placeholder="Ingrese un nombre">
                         <div class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
 
                         <label>Lugar</label>
-                        <input type="text" th:field="*{lugar}" size="28px" placeholder="Ingrese un lugar">
+                        <input type="text" th:field="*{lugar}" size="25px" placeholder="Ingrese un lugar">
                         <div class="text-danger" th:if="${#fields.hasErrors('lugar')}" th:errors="*{lugar}"></div>
 
 
 
                         <label >Télefono</label>
-                        <input type="number" th:field="*{telefono}" size="26px" placeholder="Ingrese un telefono" maxlength="10" minlength="6">
+                        <input type="number" th:field="*{telefono}" size="25px" placeholder="Ingrese un telefono" maxlength="10" minlength="6">
                         <div class="text-danger" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></div>
 
                         <label>Días</label>
-                        <input type="text" th:field="*{dia}" size="30px" placeholder="Ingrese dias lunes a viernes">
+                        <input type="text" th:field="*{dia}" size="25px" placeholder="Ingrese dias lunes a viernes">
                         <div class="text-danger" th:if="${#fields.hasErrors('dia')}" th:errors="*{dia}"></div>
 
                         <label>Horario hh a hh </label>
-                        <input type="text" th:field="*{horario}" size="32px" placeholder="Ingrese un horario">
+                        <input type="text" th:field="*{horario}" size="25px" placeholder="Ingrese un horario">
                         <div class="text-danger" th:if="${#fields.hasErrors('horario')}" th:errors="*{horario}"></div>
 
                         <label> Correo </label>
-                        <input type="text" th:field="*{gmail}" size="30px" placeholder="Ingrese un correo">
+                        <input type="text" th:field="*{gmail}" size="25px" placeholder="Ingrese un correo">
                         <div class="text-danger" th:if="${#fields.hasErrors('gmail')}" th:errors="*{gmail}"></div>
 
                         <label> Fecha Inicio </label>
-                        <input type="date" th:field="*{fechainicio}" size="30px" placeholder="Ingrese una fecha">
+                        <input type="date" th:field="*{fechainicio}" size="25px" placeholder="Ingrese una fecha">
                         <div class="text-danger" th:if="${#fields.hasErrors('fechainicio')}" th:errors="*{fechainicio}"></div>
 
 
