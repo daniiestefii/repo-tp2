@@ -7,32 +7,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-@Service("provinciaServiceMysql")
-public class ProvinciaServiceMysqlImp implements IProvinciaService {
+@Service
+public class ProvinciaServiceImp implements IProvinciaService {
 
     @Autowired
     private IProvinciaRepository provinciaRepository;
     @Autowired
     private Provincia provincia;
     @Override
-    public List<Provincia> getListaProvincia() {
-        return provinciaRepository.findByEstado(true);
-    }
+    public List<Provincia> getListaProvincias() {return provinciaRepository.findByEstado(true);}
 
     @Override
-    public void guardar(Provincia provincia) {
-        provinciaRepository.save(provincia);
-    }
+    public void guardar(Provincia provincia) { provinciaRepository.save(provincia);}
 
     @Override
-    public Provincia buscar(Long id) {
-        return provinciaRepository.findById(id).get();
-    }
+    public Provincia buscar(Long id) {return provinciaRepository.findById(id).get();}
 
     @Override
-    public void modificar(Provincia provincia) {
-        provinciaRepository.save(provincia);
-    }
+    public void modificar(Provincia provincia) {provinciaRepository.save(provincia);}
 
     @Override
     public void eliminar(Provincia provincia) {
@@ -41,7 +33,5 @@ public class ProvinciaServiceMysqlImp implements IProvinciaService {
     }
 
     @Override
-    public Provincia getProvincia() {
-        return provincia;
-    }
+    public Provincia getProvincia() {return provincia;}
 }
