@@ -2,6 +2,7 @@ package ar.edu.unju.fi.controller.entity;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.*;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
@@ -15,32 +16,52 @@ import jakarta.validation.constraints.Past;
  * @author DOrdonez, RicardoFlores, MiltonDelgado
  */
 @Component
+@Entity
+@Table(name="Sucursal")
+
 public class Sucursal {
-	@NotBlank(message= "debe tener un nombre")
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name ="sucu_id",nullable = false)
+	private long id;
+	@NotBlank(message= "Debe tener un nombre")
+	@Column(name ="sucu_nombre",nullable = false)
 	private String nombre;
 	@NotBlank(message = "El lugar no puede estar vacío")
+	@Column(name ="sucu_lugar",nullable = false)
 	private String lugar;
 	@NotBlank(message = "El telefono no puede estar vacío")
+	@Column(name ="sucu_telefono",nullable = false)
 	private String telefono;
 	@NotBlank(message = "El dia no puede estar vacío")
+	@Column(name ="sucu_dia",nullable = false)
 	private String dia;
 	@NotBlank(message = "El horario no puede estar vacío")
+	@Column(name ="sucu_horario",nullable = false)
 	private String horario;
-	@NotBlank(message = "El gmail no puede estar vacío")
-	@Email(message = "El gmail debe ser una dirección de correo electrónico válida")
+	@NotBlank(message = "El email no puede estar vacío")
+	@Email(message = "El email debe ser una dirección de correo electrónico válida")
+	@Column(name ="sucu_gmail",nullable = false)
 	private String gmail;
 	@DateTimeFormat(pattern="yyyy-MM-dd")
-	@NotNull(message="la fecha no puede ser null")
+	@NotNull(message="La fecha no puede ser nula")
+	@Column(name ="sucu_fechainicio",nullable = false)
 	@Past(message="la fecha debe ser menor a la fecha actual")
 	private LocalDate fechainicio;
-	public Sucursal(@NotBlank(message = "debe tener un nombre") String nombre,
-			@NotBlank(message = "El lugar no puede estar vacío") String lugar,
-			@NotBlank(message = "El telefono no puede estar vacío") String telefono,
-			@NotBlank(message = "El dia no puede estar vacío") String dia,
-			@NotBlank(message = "El horario no puede estar vacío") String horario,
-			@NotBlank(message = "El gmail no puede estar vacío") @Email(message = "El gmail debe ser una dirección de correo electrónico válida") String gmail,
-			@NotNull(message = "la fecha no puede ser null") @Past(message = "la fecha debe ser menor a la fecha actual") LocalDate fechainicio) {
-		super();
+
+	@ManyToOne
+	@JoinColumn(name="provi_id",nullable = false)
+	private Provincia provincia;
+
+	@Column(name="Prod_estado",nullable = false)
+	private boolean estado;
+
+	public Sucursal() {
+		
+	}
+	public Sucursal(long id, String nombre, String lugar, String telefono, String dia, String horario, String gmail, @NotNull(message = "La fecha no puede ser nula") LocalDate fechainicio,@NotNull(message = "Debe seleccionarse una provincia") Provincia provincia, boolean estado) {
+		this.id = id;
 		this.nombre = nombre;
 		this.lugar = lugar;
 		this.telefono = telefono;
@@ -48,11 +69,11 @@ public class Sucursal {
 		this.horario = horario;
 		this.gmail = gmail;
 		this.fechainicio = fechainicio;
+		this.provincia = provincia;
+		this.estado = estado;
 	}
-	
-	public Sucursal() {
-		
-	}
+	public long getId() {return id;}
+	public void setId(long id) {this.id = id;}
 	public String getNombre() {
 		return nombre;
 	}
@@ -95,7 +116,11 @@ public class Sucursal {
 	public void setFechainicio(LocalDate fechainicio) {
 		this.fechainicio = fechainicio;
 	}
-    
-	
+	public boolean isEstado() {return estado;}
+	public void setEstado(boolean estado) {this.estado = estado;}
+
+	public Provincia getProvincia() {return provincia;}
+
+	public void setProvincia(Provincia provincia) {this.provincia = provincia;}
 }
 

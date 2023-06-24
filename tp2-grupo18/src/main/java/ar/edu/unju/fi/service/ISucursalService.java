@@ -1,36 +1,37 @@
 package ar.edu.unju.fi.service;
 
-
+import ar.edu.unju.fi.controller.entity.Provincia;
+import ar.edu.unju.fi.controller.entity.Sucursal;
 import jakarta.validation.Valid;
 
 import java.util.List;
 
-import ar.edu.unju.fi.controller.entity.Sucursal;
 public interface ISucursalService {
-
 	/**
-     * @method Devuelve una lista de todos las sucursales
-     */
-	List<Sucursal> getListaSucursal();
+	 * @method Devuelve una lista de todos los Productos
+	 */
+	List<Sucursal> getListaSucursales();
 	/**
-     * @method Guarda una nueva sucursal
-     */
+	 * @method Guarda un nueva Sucursal
+	 */
 	void guardar(@Valid Sucursal sucursal);
 	/**
-     * @method  Devuelve la sucursal cuyo nombre coincide con el parámetro de sucursal.
-     */
-	Sucursal buscar(String nombre);
+	 * @method  Devuelve la Sucursal cuyo id coincide con el parámetro id.
+	 */
+	Sucursal buscar(long id);
 	/**
-     * @method Modifica una sucursal existente
-     */
+	 * @method Modifica un Sucursal existente
+	 */
 	void modificar(Sucursal sucursal);
 	/**
-     * @method Elimina una sucursal existente
-     */
+	 * @method Elimina una sucursal existente
+	 */
 	void eliminar(Sucursal sucursalEncontrado);
 	/**
-     * @method Devuelve un nuevo objeto sucursal
-     */
+	 * @method Devuelve un nuevo objeto Sucursal
+	 */
 	Sucursal getSucursal();
-	
+
+	List<Sucursal> getListaSucursalesFiltrados(Provincia provincia, boolean estado);
+
 }

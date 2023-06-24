@@ -5,25 +5,26 @@ import jakarta.validation.Valid;
 
 import java.util.List;
 
+
 public interface IProvinciaService {
     /**
-     * @method Devuelve una lista de todos las Provincias
+     * @method Devuelve una lista de todos los Provincias
      */
-    List<Provincia> getListaProvincia();
+    List<Provincia> getListaProvincias();
     /**
-     * @method Guarda una nueva Provincia
+     * @method Guarda un nuevo Provincia
      */
     void guardar(@Valid Provincia provincia);
     /**
-     * @method  Devuelve la Provincia cuyo id coincide con el parámetro id.
+     * @method  Devuelve el Provincia cuyo id coincide con el parámetro id.
      */
     Provincia buscar(Long id);
     /**
-     * @method Modifica una Provincia existente
+     * @method Modifica un Provincia existente
      */
     void modificar(Provincia provincia);
     /**
-     * @method Elimina una Provincia existente
+     * @method Elimina un Provincia existente
      */
     void eliminar(Provincia provinciaEncontrado);
     /**

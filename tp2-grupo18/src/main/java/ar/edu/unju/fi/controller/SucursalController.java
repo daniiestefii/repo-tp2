@@ -1,15 +1,14 @@
 package ar.edu.unju.fi.controller;
 
 
+import ar.edu.unju.fi.controller.entity.Categoria;
+import ar.edu.unju.fi.controller.entity.Producto;
+import ar.edu.unju.fi.service.IProvinciaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.controller.entity.Sucursal;
@@ -24,6 +23,16 @@ public class SucursalController {
 
 	@Autowired
 	private ISucursalService sucursalService;
+
+	@Autowired
+	private IProvinciaService provinciaService;
+
+	/*@GetMapping("/filtradoSucursales")
+	public String getfiltradoProductoPage(@RequestParam("categoria") Categoria categoria , Model model) {
+		model.addAttribute("producto", productoService.getListaProductosFiltrados(categoria,true));
+		model.addAttribute("categorias",categoriaService.getListaCategoria());
+		return "Productos";
+	}*/
 	
 	
 	/*
@@ -37,7 +46,8 @@ public class SucursalController {
 	 */
 	@GetMapping("/listadoSucursales")
 	public String getSucursalPage(Model model) {
-		model.addAttribute("sucursal",sucursalService.getListaSucursal());
+		model.addAttribute("sucursal",sucursalService.getListaSucursales());
+		model.addAttribute("categorias",provinciaService.getListaProvincias());
 		return "Sucursal";
 	}
 	/*
@@ -51,6 +61,7 @@ public class SucursalController {
 	public String getNuevoSucursalPage(Model model) {
 		boolean edicion=false;
 		model.addAttribute("sucursal",sucursalService.getSucursal());
+		model.addAttribute("provincias", provinciaService.getListaProvincias());
 		model.addAttribute("edicion", edicion);
 		return "nuevo_sucursal"; 
 	}
@@ -72,10 +83,13 @@ public class SucursalController {
 			mav.addObject("sucursal", sucu);
 			return mav;
 		}
+		sucu.setEstado(true);
+		//sucu.setProvincia(provinciaService.buscar(1L));
 		sucursalService.guardar(sucu);
-		mav.addObject("sucursal",sucursalService.getListaSucursal());
+		mav.addObject("sucursal",sucursalService.getListaSucursales());
 		return mav;
 	}
+
 	/**
      * @method responde a la peticion de un boton de enlace de la pagina
      * "Sucursal" donde adjunta el nombre del objeto de la lista listado.
@@ -85,10 +99,11 @@ public class SucursalController {
      * 
      */
 	@GetMapping("/modificar/{nombre}")
-	public String getModificarSucursalPage(Model model, @PathVariable(value="nombre")String nombre){
+	public String getModificarSucursalPage(Model model, @PathVariable(value="nombre")Long nombre){
 		boolean edicion = true;
 		Sucursal sucursalEncontrado = sucursalService.buscar(nombre);
 		model.addAttribute("sucursal",sucursalEncontrado);
+		model.addAttribute("provincias", provinciaService.getListaProvincias());
 		model.addAttribute("edicion", edicion);				
 		return "nuevo_sucursal";
 	}
@@ -108,7 +123,7 @@ public class SucursalController {
      * este metodo responde
      */
 	@GetMapping("/eliminar/{nombre}")
-	public String eliminarSucursal(@PathVariable(value="nombre")String nombre) {		
+	public String eliminarSucursal(@PathVariable(value="nombre")Long nombre) {
 		sucursalService.eliminar(sucursalService.buscar(nombre));
 		return "redirect:/sucursales/listadoSucursales";
 	}

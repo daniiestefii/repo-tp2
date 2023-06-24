@@ -3,9 +3,11 @@ package ar.edu.unju.fi.controller.entity;
 import jakarta.persistence.*;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 @Entity
-@Table(name="Provincias")
+@Table(name="Provincia")
 
 public class Provincia {
     @Id
@@ -14,6 +16,13 @@ public class Provincia {
     private Long id;
     @Column(name = "provi_nombre",nullable = false)
     private String nombre;
+
+
+    // Clase Provincia
+    @OneToMany(mappedBy = "provincia")
+    private List<Sucursal> sucursales;
+
+
     @Column(name = "provi_estado",nullable = false)
     private Boolean estado;
 
@@ -49,4 +58,7 @@ public class Provincia {
     public void setEstado(Boolean estado) {
         this.estado = estado;
     }
+
+    public List<Sucursal> getSucursales() { return sucursales;}
+    public void setSucursales(List<Sucursal> sucursales) { this.sucursales = sucursales;}
 }
