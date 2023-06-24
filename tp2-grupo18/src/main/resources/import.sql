@@ -15,3 +15,5 @@ INSERT INTO servicios(Serv_dia,Serv_horario,Emple_id,Serv_estado) VALUES ('Mierc
 INSERT INTO servicios(Serv_dia,Serv_horario,Emple_id,Serv_estado) VALUES ('Jueves','9 a 12 - 16 a 18',3,1);
 INSERT INTO servicios(Serv_dia,Serv_horario,Emple_id,Serv_estado) VALUES ('Viernes','9 a 12 - 16 a 18',2,1);
 INSERT INTO servicios(Serv_dia,Serv_horario,Emple_id,Serv_estado) VALUES ('Sabado','9 a 12 - 16 a 18',4,1);
+INSERT INTO noticias(Noti_titulo,Noti_texto,Noti_estado) VALUES ('CONSEJOS VETERINARIOS','Alimentación adecuada: Proporciona a tu mascota una dieta equilibrada y de alta calidad, adecuada para su especie, raza, edad y tamaño. Consulta con tu veterinario para obtener recomendaciones específicas. ',1);
+INSERT INTO noticias(Noti_titulo,Noti_texto,Noti_estado) VALUES ('IMPORTANCIA DE EVITAR QUE NUESTRAS MASCOTAS SALGAN SOLAS DE CASA',' Seguridad: Al permitir que una mascota salga sin supervisión, aumentamos su riesgo de sufrir accidentes o lesiones. Pueden ser atropelladas por vehículos, ser atacadas por otros animales o incluso extraviarse y perderse.',1);

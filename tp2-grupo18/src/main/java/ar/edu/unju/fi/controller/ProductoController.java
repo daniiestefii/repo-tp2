@@ -88,6 +88,7 @@ public class ProductoController {
 		}
 		productoService.guardar(prod);
 		mav.addObject("producto",productoService.getListaProductos());
+		mav.addObject("categorias",categoriaService.getListaCategoria());
 		return mav;
 	}
 	
@@ -113,8 +114,14 @@ public class ProductoController {
      * el nombre del objeto en la lista.
      */
 	@PostMapping("/modificar")
-	public String modificarProducto(@Valid @ModelAttribute("producto")Producto prod, BindingResult result) {
-		
+	public String modificarProducto(@Valid @ModelAttribute("producto")Producto prod, BindingResult result,Model model) {
+		boolean edicion = true;
+		if(result.hasErrors()){
+			model.addAttribute("edicion",edicion);
+			model.addAttribute("producto",prod);
+			model.addAttribute("categorias", categoriaService.getListaCategoria());
+			return "nuevo_producto";
+		}
 		productoService.modificar(prod);
 		return "redirect:/productos/listadoProductos";
 	}

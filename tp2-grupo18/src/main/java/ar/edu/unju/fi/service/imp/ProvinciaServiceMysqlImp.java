@@ -21,6 +21,7 @@ public class ProvinciaServiceMysqlImp implements IProvinciaService {
 
     @Override
     public void guardar(Provincia provincia) {
+    	provincia.setEstado(true);
         provinciaRepository.save(provincia);
     }
 

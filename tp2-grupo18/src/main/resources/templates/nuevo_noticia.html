@@ -17,7 +17,8 @@
 		  <div id="formulario">
 		  <h3 th:text="${edicion}?'Modificar Noticia':'Nueva Noticia'"></h3>
                 <form th:action="${edicion}?@{/noticias/modificar}:@{/noticias/guardar}" th:object="${noticia}" method="post">
-                       
+                       <input th:field="*{id}" hidden>
+                        <input th:field="*{estado}" hidden>
                         <label>TITULO</label>
                         <input type="text" th:field="*{titulo}" size="26px" placeholder="Ingrese su titulo">
                         <div class="text-danger" th:if="${#fields.hasErrors('titulo')}"></div>

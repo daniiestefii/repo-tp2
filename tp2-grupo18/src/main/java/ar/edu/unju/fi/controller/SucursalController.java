@@ -98,7 +98,13 @@ public class SucursalController {
      * el nombre del objeto en la lista.
      */
 	@PostMapping("/modificar")
-	public String modificarSucursal(@Valid @ModelAttribute("sucursal")Sucursal sucu, BindingResult result) {
+	public String modificarSucursal(@Valid @ModelAttribute("sucursal")Sucursal sucu, BindingResult result,Model model) {
+		boolean edicion = true;
+		if(result.hasErrors()){
+			model.addAttribute("edicion",edicion);
+			model.addAttribute("sucursal",sucu);
+			return "nuevo_sucursal";
+		}
 		sucursalService.modificar(sucu);
 		return "redirect:/sucursales/listadoSucursales";
 	}

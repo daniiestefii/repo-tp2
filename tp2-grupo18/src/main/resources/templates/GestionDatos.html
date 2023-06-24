@@ -7,7 +7,7 @@
     <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
    <link rel="stylesheet" th:href="@{css/estilos.css}">
 </head>
-<body id="bodyform">
+<body>
 <!--layouts-->
    <header th:replace="layouts/header :: header"></header>
     <nav th:replace="layouts/nav :: nav">
@@ -15,11 +15,156 @@
     <!--uso de container, rows y cols-->    
      <div class="container-fluid">
       <div class="row justify-content-center">
-       <div class="col-xs-12 col-sm-12 col-md-8 col-lg-6 col-xl-4 col-xxl-4">
-         
-       </div>
+       <h2 class="titulo-centrado">PRODUCTOS</h2>
+	    <div th:each="pro:${producto}" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-2 my-div highlighted-text">
+	        <div > NOMBRE:</div>
+            <div th:text="${pro.nombre}" ></div>
+            <div > CODIGO:</div>
+            <div  th:text="${pro.codigo}" ></div>
+            <div> OPCIONES: </div>
+            <div>
+	            <a th:href="@{/productos/modificar/}+${pro.id}">Editar</a>
+		        <a th:href="@{/productos/eliminar/}+${pro.id}">Eliminar</a>
+	       </div>
+	  </div>
+	   </div>
+	    <div class="row justify-content-center">
+	     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-2 col-xxl-2 add">  
+          <a th:href="@{/productos/nuevo}">Agregar</a>
+        </div>
+	   </div>
+	     <div class="row justify-content-center">
+	        <h2 class="titulo-centrado">Servicios</h2>
+	        <div th:each="serv:${servicio}" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-2 my-div highlighted-text">
+	        <div > Dia:</div>
+            <div th:text="${serv.dia}" ></div>
+            <div > HORARIO:</div>
+            <div  th:text="${serv.horario}" ></div>
+            <div> NOMBRE EMPLEADO: </div>
+            <div th:text="${(serv.empleado.nombre) + ' ' +(serv.empleado.apellido) }"></div>
+            <div> OPCIONES: </div>
+            <div>
+	            <a th:href="@{/servicios/modificar/}+${serv.id}">Editar</a>
+		        <a th:href="@{/servicios/eliminar/}+${serv.id}">Eliminar</a>
+	       </div>
+	  </div>
+	     </div>
+	     <div class="row justify-content-center">
+	     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-2 col-xxl-2 add">  
+          <a th:href="@{/servicios/nuevo}">Agregar</a>
+        </div>
+	   </div>
+	   <div class="row justify-content-center">
+        <h2 class="titulo-centrado"> SUCURSALES </h2>
+	     <div th:each="sucu:${sucursal}" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-2 my-div highlighted-text">
+	        <div > NOMBRE:</div>
+            <div th:text="${sucu.nombre}" ></div>
+            <div > LUGAR:</div>
+            <div  th:text="${sucu.lugar}" ></div>
+            <div> TELEFONO:</div>
+            <div th:text="${sucu.telefono}"> </div>
+            <div> OPCIONES: </div>
+            <div>
+	            <a th:href="@{/sucursales/modificar/}+${sucu.nombre}">Editar</a>
+		        <a th:href="@{/sucursales/eliminar/}+${sucu.nombre}">Eliminar</a>
+	       </div>
+	  </div>
+	   </div>
+	    <div class="row justify-content-center">
+	     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-2 col-xxl-2 add">  
+          <a th:href="@{/sucursales/nuevo}">Agregar</a>
+        </div>
+	   </div>
+	   <div class="row justify-content-center">
+        <h2 class="titulo-centrado"> NOTICIAS </h2>
+	     <div th:each="noti:${noticia}" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-2 my-div highlighted-text">
+	        <div > TITULO:</div>
+            <div th:text="${noti.titulo}" ></div>
+            <div> OPCIONES: </div>
+            <div>
+	            <a th:href="@{/noticias/modificar/}+${noti.id}">Editar</a>
+		        <a th:href="@{/noticias/eliminar/}+${noti.id}">Eliminar</a>
+	       </div>
+	  </div>
+	   </div>
+	    <div class="row justify-content-center">
+	     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-2 col-xxl-2 add">  
+          <a th:href="@{/noticias/nuevo}">Agregar</a>
+        </div>
+	   </div>
+	   <div class="row justify-content-center">
+        <h2 class="titulo-centrado"> CONSEJOS </h2>
+	     <div th:each="conse:${consejo}" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-2 my-div highlighted-text">
+	        <div > TITULO:</div>
+            <div th:text="${conse.titulo}" ></div>
+            <div> OPCIONES: </div>
+            <div>
+	            <a th:href="@{/consejos/modificar/}+${conse.titulo}">Editar</a>
+		        <a th:href="@{/consejos/eliminar/}+${conse.titulo}">Eliminar</a>
+	       </div>
+	  </div>
+	   </div>
+	    <div class="row justify-content-center">
+	     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-2 col-xxl-2 add">  
+          <a th:href="@{/consejos/nuevo}">Agregar</a>
+        </div>
+	   </div>
+	   <div class="row justify-content-center">
+        <h2 class="titulo-centrado"> CATEGORIAS </h2>
+	     <div th:each="cate:${categoria}" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-2 my-div highlighted-text">
+	        <div > NOMBRE:</div>
+            <div th:text="${cate.nombre}" ></div>
+            <div> OPCIONES: </div>
+            <div>
+	            <a th:href="@{/categorias/modificar/}+${cate.id}">Editar</a>
+		        <a th:href="@{/categorias/eliminar/}+${cate.id}">Eliminar</a>
+	       </div>
+	  </div>
+	   </div>
+	    <div class="row justify-content-center">
+	     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-2 col-xxl-2 add">  
+          <a th:href="@{/categorias/nuevo}">Agregar</a>
+        </div>
+	   </div>
+	   <div class="row justify-content-center">
+        <h2 class="titulo-centrado"> EMPLEADOS </h2>
+	     <div th:each="emp:${empleado}" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-2 my-div highlighted-text">
+	        <div > NOMBRE:</div>
+            <div th:text="${emp.nombre}" ></div>
+            <div > APELLIDO:</div>
+            <div th:text="${emp.apellido}" ></div>
+            <div > DNI:</div>
+            <div th:text="${emp.dni}" ></div>
+            <div> OPCIONES: </div>
+            <div>
+	            <a th:href="@{/empleados/modificar/}+${emp.id}">Editar</a>
+		        <a th:href="@{/empleados/eliminar/}+${emp.id}">Eliminar</a>
+	       </div>
+	  </div>
+	   </div>
+	    <div class="row justify-content-center">
+	     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-2 col-xxl-2 add">  
+          <a th:href="@{/empleados/nuevo}">Agregar</a>
+        </div>
+	   </div>
+	    <div class="row justify-content-center">
+        <h2 class="titulo-centrado"> PROVINCIAS </h2>
+	     <div th:each="prov:${provincia}" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-2 my-div highlighted-text">
+	        <div > NOMBRE:</div>
+            <div th:text="${prov.nombre}" ></div>
+            <div> OPCIONES: </div>
+            <div>
+	            <a th:href="@{/provincias/modificar/}+${prov.id}">Editar</a>
+		        <a th:href="@{/provincias/eliminar/}+${prov.id}">Eliminar</a>
+	       </div>
+	  </div>
+	   </div>
+	    <div class="row justify-content-center">
+	     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-2 col-xxl-2 add">  
+          <a th:href="@{/provincias/nuevo}">Agregar</a>
+        </div>
+	   </div>
       </div>
-     </div>
         <!--layouts-->
         <footer th:replace="layouts/footer :: footer">       
         </footer>

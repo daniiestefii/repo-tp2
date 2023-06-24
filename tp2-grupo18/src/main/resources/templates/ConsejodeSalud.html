@@ -9,7 +9,6 @@
 </head>
 <body>
 <!--Interfas que muestra el listado de consejo-->
-
     <header th:replace="layouts/header :: header">
     </header>
       <nav th:replace="layouts/nav :: nav">
@@ -28,22 +27,8 @@
 	      <tr th:each="cons:${consejo}">
               <td th:text="${cons.titulo}"></td>
               <td th:text="${cons.texto}"></td>
-              <td>
-                  <button type="button" class="btn btn-primary ">
-                      <a class="text-light" th:href="@{/consejos/modificar/}+${cons.titulo}" style="text-decoration: none">Editar</a>
-                  </button>
-              </td>
-              <td>
-                  <button type="button" class="btn btn-danger ">
-                      <a class="text-light" th:href="@{/consejos/eliminar/}+${cons.titulo}" style="text-decoration: none">Eliminar</a>
-                  </button>
-              </td>
 	      </tr>
 	  </table>
-	
-   <button type="button" class="btn btn-dark ">
-        <a class="text-light" th:href="@{/consejos/nuevo}" style="text-decoration: none">Agregar</a>
-    </button>
 </section>
 <footer th:replace="layouts/footer :: footer">
 </footer>

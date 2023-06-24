@@ -108,7 +108,14 @@ public class ServicioController {
 	 * dicho objeto que pertence a la lista.
 	 */
 	@PostMapping("/modificar")
-	public String modificarServicio(@Valid @ModelAttribute("servicio")Servicio servi, BindingResult result) {
+	public String modificarServicio(@Valid @ModelAttribute("servicio")Servicio servi, BindingResult result,Model model) {
+		boolean edicion = true;
+		if(result.hasErrors()){
+			model.addAttribute("edicionServicio",edicion);
+			model.addAttribute("servicio",servi);
+			model.addAttribute("empleados", empleadoService.getListaEmpleado());
+			return "nuevo_servicio";
+		}
 		servicioService.modificar(servi);
 		return "redirect:/servicios/listadoServicios";
 	}

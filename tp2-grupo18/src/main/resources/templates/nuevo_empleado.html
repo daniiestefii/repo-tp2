@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Formulario</title>
+    <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+   <link rel="stylesheet" th:href="@{/css/estilos.css}">
+</head>
+<body id="bodyform">
+<!--Interfas que muestra el formulario de alta de categoria-->
+   <header th:replace="layouts/header :: header"></header>
+    <nav th:replace="layouts/nav :: nav">
+        </nav>
+      <div class="container-fluid">
+       <div class="row justify-content-center">
+         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-6 col-xl-4 col-xxl-4">
+        <section id="contenido">
+			<div id="formulario">
+			<h3 th:text="${edicion}?'Modificar Empleado':'Nuevo Empleado'"></h3>
+                <form th:action="${edicion}?@{/empleados/modificar}:@{/empleados/guardar}" th:object="${empleado}" method="post">
+                        <input th:field="*{id}" hidden>
+                       <input th:field="*{estado}" hidden>
+                        <label>Nombre</label>
+                        <input type="text" th:field="*{nombre}" size="26px" placeholder="Ingrese un nombre">
+                         <div class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
+                        <label>Apellido</label>
+                        <input type="text" th:field="*{apellido}" size="26px" placeholder="Ingrese un apellido">
+                         <div class="text-danger" th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></div>
+                        <label>Dni</label>
+                        <input type="text" th:field="*{dni}" size="26px" placeholder="Ingrese un dni">
+                         <div class="text-danger" th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}"></div>
+                        
+                           <input type="submit"  class="button" th:value="${edicion}?'Modificar':'Guardar'">
+                         
+              </form> 
+              </div>
+        </section>
+           </div>
+         </div>
+        </div>
+        <footer th:replace="layouts/footer :: footer">       
+        </footer>
+        <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.bundle.js}"></script>
+</body>
+</html>

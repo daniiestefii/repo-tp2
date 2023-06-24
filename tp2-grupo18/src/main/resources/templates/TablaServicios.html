@@ -24,27 +24,16 @@
 	            <th> Dia </th>
 	            <th > Horario </th>
 	            <th> Nombre </th>
-                <th> Opciones </th>
+                
 	      </tr>
 	      <tr th:each="ser:${servicio}">
 	         <td th:text="${ser.dia}"></td>
 	         <td th:text="${ser.horario}"></td>
 	         <td th:text="${(ser.empleado.nombre) + ' ' +(ser.empleado.apellido) }"></td>
-              <td>
-                  <button type="button" class="btn btn-primary ">
-                      <a class="text-light" th:href="@{/servicios/modificar/}+${ser.id}" style="text-decoration: none">Editar</a>
-                  </button>
-                  <button type="button" class="btn btn-danger ">
-                      <a class="text-light" th:href="@{/servicios/eliminar/}+${ser.id}" style="text-decoration: none">Eliminar</a>
-                  </button>
-              </td>
 	      </tr>
    </table>
    </div>
    </div>
-        <button type="button" class="btn btn-dark ">
-            <a class="text-light" th:href="@{/servicios/nuevo}" style="text-decoration: none">Agregar</a>
-        </button>
 
    </div>
    </section>
@@ -66,7 +55,6 @@
        </form>
       </div>
       </div>
-      
     </div>
       <br>
     <footer th:replace="layouts/footer :: footer">

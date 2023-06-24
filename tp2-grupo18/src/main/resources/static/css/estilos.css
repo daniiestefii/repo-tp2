@@ -505,3 +505,54 @@ td {
   right: 0;
   z-index: 99;
 }
+
+/* Estilos para el contenedor del div */
+.filtro-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  background-color: #f2f2f2;
+}
+
+/* Estilos para los botones */
+.filtro-div a {
+  display: inline-block;
+  margin: 0 10px;
+  padding: 10px 20px;
+  text-decoration: none;
+  background-color: #4caf50;
+  color: #fff;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.filtro-div a:hover {
+  background-color: #45a049;
+}
+
+.filtro-div a:first-child {
+  margin-left: 0;
+}
+
+.filtro-div a:last-child {
+  margin-right: 0;
+}
+/** botton*/
+.add{
+  
+  
+  background-color: #767b96;
+  color: blue;
+  font-family: 'Console';
+  font-size: 24px;
+  color: blue;
+  text-shadow: 2px 2px 4px blue;
+  text-transform: uppercase;
+  text-align: center;
+
+}
+.add a{
+	margin-top: 50px;
+	color:red;
+}

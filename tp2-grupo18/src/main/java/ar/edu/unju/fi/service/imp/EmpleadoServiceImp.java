@@ -21,6 +21,7 @@ public class EmpleadoServiceImp implements IEmpleadoService {
 
     @Override
     public void guardar(Empleado empleado) {
+    	empleado.setEstado(true);
         empleadoRepository.save(empleado);
     }
 

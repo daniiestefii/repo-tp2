@@ -31,7 +31,6 @@
 	         <th> HORARIOS </th>
 	         <th > E-MAIL </th>
 	         <th > FECHA INICIO </th>
-	         <th> OPCIONES </th>
 	      </tr>
 	      <tr th:each="sucu:${sucursal}">
 	         <td th:text="${sucu.nombre}">
@@ -41,16 +40,9 @@
 	         <td th:text="${sucu.horario}">
 	         <td th:text="${sucu.gmail}">
 	         <td th:text="${sucu.fechainicio}">
-	         <td>
-	           <a th:href="@{/sucursales/modificar/}+${sucu.nombre}">Editar</a>
-	           <a th:href="@{/sucursales/eliminar/}+${sucu.nombre}">Eliminar</a>
-	         </td>
 	      </tr>
    </table>
    </div>
-    <button type="button" class="btn btn-dark ">
-        <a class="text-light" th:href="@{/sucursales/nuevo}" style="text-decoration: none">Agregar</a>
-    </button>
     </div>
 </section>
 </div>

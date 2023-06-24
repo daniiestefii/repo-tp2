@@ -11,6 +11,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
 
 @Component
 @Entity
@@ -20,6 +21,7 @@ public class Categoria {
    @GeneratedValue(strategy = GenerationType.IDENTITY)
    @Column(name="cate_id",nullable = false)
    private long id;
+   @NotBlank(message = "El nombre no puede estar vacío")
    @Column(name="cate_nombre",nullable = false)
    private String nombre;
    @OneToMany(mappedBy ="categoria")

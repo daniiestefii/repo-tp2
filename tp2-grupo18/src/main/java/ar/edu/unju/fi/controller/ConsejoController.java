@@ -93,7 +93,13 @@ public class ConsejoController {
 	 * dicho objeto que pertence a la lista.
 	 */
 	@PostMapping("/modificar")
-	public String modificarConsejo(@ModelAttribute("consejo") Consejo consejo) {
+	public String modificarConsejo(@ModelAttribute("consejo") Consejo consejo,BindingResult result,Model model) {
+		boolean edicion = true;
+		if(result.hasErrors()){
+			model.addAttribute("edicionConsejo",edicion);
+	     	model.addAttribute("consejo",consejo);
+			return "nuevo_consejo";
+		}
 		consejoService.modificar(consejo);
 		return "redirect:/consejos/listadoConsejos";
 	}

@@ -12,6 +12,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 /**
  * @model Servicio
  * @author DOrdonez, RicardoFlores, MiltonDelgado
@@ -32,6 +33,7 @@ public class Servicio {
 	@NotBlank(message = "El horario no puede estar vacío")
 	@Column(name ="Serv_horario", nullable=false)
 	private String horario;
+	@NotNull(message="debe elegir un empleado")
 	@ManyToOne
     @JoinColumn(name = "Emple_id")
 	private Empleado empleado;

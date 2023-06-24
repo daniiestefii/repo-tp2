@@ -21,6 +21,7 @@ public class CategoriaServiceImp implements ICategoriaService{
 
     @Override
     public void guardar(Categoria categoria) {
+       categoria.setEstado(true);
        categoriaRepository.save(categoria);
     }
 

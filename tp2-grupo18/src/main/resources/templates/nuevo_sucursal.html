@@ -20,6 +20,7 @@
 			<div id="formulario">
 			<h3 th:text="${edicion}?'Modificar Sucursal':'Nuevo Sucursal'"></h3>
                 <form th:action="${edicion}?@{/sucursales/modificar}:@{/sucursales/guardar}" th:object="${sucursal}" method="post">
+                       
                         <label>Nombre</label>
                         <input type="text" th:field="*{nombre}" size="28px" placeholder="Ingrese un nombre">
                         <div class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
@@ -48,7 +49,7 @@
                         <input type="date" th:field="*{fechainicio}" size="30px" placeholder="Ingrese una fecha">
                         <div class="text-danger" th:if="${#fields.hasErrors('fechainicio')}" th:errors="*{fechainicio}"></div>
                        
-                            <input type="submit" value="guardar">
+                            <input type="submit" th:value="${edicion}?'modificar':'guardar'">
                         
               </form> 
               </div> 

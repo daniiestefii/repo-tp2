@@ -1,6 +1,9 @@
 package ar.edu.unju.fi.controller.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
 import org.springframework.stereotype.Component;
 
 @Component
@@ -12,6 +15,7 @@ public class Provincia {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name ="provi_id")
     private Long id;
+    @NotBlank(message="no puede estar vacio")
     @Column(name = "provi_nombre",nullable = false)
     private String nombre;
     @Column(name = "provi_estado",nullable = false)

@@ -27,15 +27,8 @@
 	      <tr th:each="noti:${noticia}">
 	         <td th:text="${noti.titulo}">
 	         <td th:text="${noti.texto}"></td>
-	          <td> 
-	            <a th:href="@{/noticias/modificar/}+${noti.titulo}">Editar</a>
-	            <a th:href="@{/noticias/eliminar/}+${noti.titulo}">Eliminar</a>
-	         </td>
 	      </tr>
 	  </table>
-	    </div>
-	  <a class="button" th:href="@{/noticias/nuevo}"> agregar </a>
-	  </div>
 	  </section>
 	  </div>
 	  <!--columna que cambia de tamaño y posicion respecto al tamaño de la pantalla-->

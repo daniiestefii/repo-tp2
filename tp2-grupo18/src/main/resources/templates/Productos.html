@@ -30,11 +30,6 @@
       <div  th:text="${pro.descuento + '%'}" ></div>
       <div> PRECIO CON DESCUENTO: </div>
       <div th:text="${ ( pro.precio - ((pro.descuento * pro.precio) div 100) ) + '$'}"></div>
-      <div > OPCIONES:</div>
-      <div>
-         <a th:href="@{/productos/modificar/}+${pro.id}">Editar</a>
-	     <a th:href="@{/productos/eliminar/}+${pro.id}">Eliminar</a>
-      </div>
     </div>
     <div>
     </div>
@@ -46,14 +41,11 @@
               
 							    <option th:each="categoria : ${categorias}" th:text="${categoria.nombre}" th:value="${categoria.id}"></option>
 						 </select>
-		<input type="submit" th:value="'Filtrar Por Categoria'">
-       </form>
+		 <input type="submit" th:value="'Filtrar Por Categoria'">
+        </form>
+       </div>
       </div>
-      </div>
-    </div>
-    <button type="button" class="btn btn-dark titulo-centrado">
-			 <a class="text-light" th:href="@{/productos/nuevo}" style="text-decoration: none">Agregar</a>
-		 </button>
+     </div>
     <footer th:replace="layouts/footer :: footer"></footer>  
 <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>

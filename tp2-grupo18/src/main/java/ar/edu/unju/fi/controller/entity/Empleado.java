@@ -1,6 +1,9 @@
 package ar.edu.unju.fi.controller.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 
 import java.util.List;
 
@@ -14,10 +17,14 @@ public class Empleado{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name ="Emple_id")
     private Long id;
+    @NotBlank(message="debe ingresar un nombre")
     @Column(name = "Emple_nombre",nullable = false)
     private String nombre;
+    @NotBlank(message="debe ingresar un apellido")
     @Column(name = "Emple_apellido",nullable = false)
     private String apellido;
+    @NotNull(message="no puede estar vacio")
+    @Positive(message="debe ser un numero valido")
     @Column(name = "Emple_dni",nullable = false)
     private int dni;
     @OneToMany(mappedBy = "empleado")
@@ -75,6 +82,4 @@ public class Empleado{
 	public void setEstado(Boolean estado) {
 		this.estado = estado;
 	}
-
-    
 }
