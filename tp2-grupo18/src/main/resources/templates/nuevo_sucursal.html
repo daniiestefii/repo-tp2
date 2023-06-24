@@ -5,60 +5,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Formulario</title>
     <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
-   <link rel="stylesheet" th:href="@{/css/estilos.css}">
+    <link rel="stylesheet" th:href="@{/css/estilos.css}">
 </head>
 <body id="bodyform">
-<!--Interfas que muestra el formulario de alta de sucursales-->
+<!--Interfas que muestra el formulario de alta de sucursal-->
 
-   <header th:replace="layouts/header :: header"></header>
-    <nav th:replace="layouts/nav :: nav">
-        </nav>
-     <div class="container-fluid">
-      <div class="row justify-content-center">
-       <div class="col-xs-12 col-sm-12 col-md-8 col-lg-6 col-xl-4 col-xxl-4">
-        <section id="contenido">
-			<div id="formulario">
-			<h3 th:text="${edicion}?'Modificar Sucursal':'Nuevo Sucursal'"></h3>
-                <form th:action="${edicion}?@{/sucursales/modificar}:@{/sucursales/guardar}" th:object="${sucursal}" method="post">
-                       
+<header th:replace="layouts/header :: header"></header>
+<nav th:replace="layouts/nav :: nav">
+</nav>
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-6 col-xl-4 col-xxl-4">
+            <section id="contenido">
+                <div id="formulario">
+                    <h3 th:text="${edicion}?'Modificar una Sucursal':'Nueva sucursal'"></h3>
+                    <form th:action="${edicion}?@{/sucursales/modificar}:@{/sucursales/guardar}" th:object="${sucursal}" method="post">
+
+                        <input th:field="*{id}" hidden>
+                        <input th:field="*{estado}" hidden>
                         <label>Nombre</label>
-                        <input type="text" th:field="*{nombre}" size="28px" placeholder="Ingrese un nombre">
+                        <input type="text" th:field="*{nombre}" size="25px" placeholder="Ingrese un nombre">
                         <div class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
-                       
+
                         <label>Lugar</label>
-                        <input type="text" th:field="*{lugar}" size="28px" placeholder="Ingrese un lugar">
+                        <input type="text" th:field="*{lugar}" size="25px" placeholder="Ingrese un lugar">
                         <div class="text-danger" th:if="${#fields.hasErrors('lugar')}" th:errors="*{lugar}"></div>
-                       
-                        <label >telefono</label>
-                        <input type="text" th:field="*{telefono}" size="26px" placeholder="Ingrese un telefono">
+
+                        <label >Télefono</label>
+                        <input type="number" th:field="*{telefono}" size="25px" placeholder="Ingrese un telefono" maxlength="10" minlength="6">
                         <div class="text-danger" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></div>
-                       
-                        <label>Dias</label>
-                        <input type="text" th:field="*{dia}" size="30px" placeholder="Ingrese dias lunes a viernes">
+
+                        <label>Días</label>
+                        <input type="text" th:field="*{dia}" size="25px" placeholder="Ingrese dias lunes a viernes">
                         <div class="text-danger" th:if="${#fields.hasErrors('dia')}" th:errors="*{dia}"></div>
-                       
+
                         <label>Horario hh a hh </label>
-                        <input type="text" th:field="*{horario}" size="32px" placeholder="Ingrese un horario">
+                        <input type="text" th:field="*{horario}" size="25px" placeholder="Ingrese un horario">
                         <div class="text-danger" th:if="${#fields.hasErrors('horario')}" th:errors="*{horario}"></div>
-                        
+
                         <label> Correo </label>
-                        <input type="text" th:field="*{gmail}" size="30px" placeholder="Ingrese un correo">
+                        <input type="text" th:field="*{gmail}" size="25px" placeholder="Ingrese un correo">
                         <div class="text-danger" th:if="${#fields.hasErrors('gmail')}" th:errors="*{gmail}"></div>
-                        
+
                         <label> Fecha Inicio </label>
-                        <input type="date" th:field="*{fechainicio}" size="30px" placeholder="Ingrese una fecha">
+                        <input type="date" th:field="*{fechainicio}" size="25px" placeholder="Ingrese una fecha">
                         <div class="text-danger" th:if="${#fields.hasErrors('fechainicio')}" th:errors="*{fechainicio}"></div>
+<<<<<<< HEAD
                        
                             <input type="submit" th:value="${edicion}?'modificar':'guardar'">
                         
               </form> 
               </div> 
         </section>
+=======
+
+
+
+                        <label>Provincia</label>
+                        <br>
+                        <select th:field="*{provincia}">
+                            <option th:each="provincia : ${provincias}" th:text="${provincia.nombre}" th:value="${provincia.id}"></option>
+                        </select>
+                        <div class="text-danger" th:if="${#fields.hasErrors('provincia')}" th:errors="*{provincia}"></div>
+                        <br>
+
+                        <input type="submit" value="Guardar">
+
+                    </form>
+                </div>
+            </section>
+>>>>>>> 50003d8201dc71f0d74ea2e25cd37b1c2ee92980
         </div>
-        </div>
-        </div>
-        <footer th:replace="layouts/footer :: footer">       
-        </footer>
-        <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+    </div>
+</div>
+<footer th:replace="layouts/footer :: footer">
+</footer>
+<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>
 </html>

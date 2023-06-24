@@ -5,39 +5,30 @@ import jakarta.validation.Valid;
 
 import java.util.List;
 
-/**
- * @author DOrdonez
- */
 public interface IConsejoService {
     /**
-     * @method Devuelve una lista de todos los consejos existentes
+     * @method Devuelve una lista de todos los Consejos
      */
-    List<Consejo> getListaConsejo();
-
-
+    List<Consejo> getListaConsejos();
     /**
-     * @method Guarda un nuevo consejo
+     * @method Guarda un nuevo Consejo
      */
     void guardar(@Valid Consejo consejo);
-
     /**
-     * @method  Devuelve el consejo cuyo título coincide con el parámetro titulo.
+     * @method  Devuelve un Consejo cuyo id coincide con el parámetro id.
      */
-    Consejo buscar(String titulo);
-
+    Consejo buscar(long id);
     /**
-     * @method Modifica un consejo existente
+     * @method Modifica un Consejo existente
      */
     void modificar(Consejo consejo);
-
     /**
-     * @method Elimina un consejo existente
+     * @method Elimina una consejo existente
      */
-    void eliminar(Consejo consejo);
-
+    void eliminar(Consejo consejoEncontrado);
     /**
      * @method Devuelve un nuevo objeto Consejo
      */
-    Consejo getConsejos();
+    Consejo getConsejo();
 
 }
