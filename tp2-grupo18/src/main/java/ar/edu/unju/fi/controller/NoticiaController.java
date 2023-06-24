@@ -26,15 +26,13 @@ public class NoticiaController {
 	 * sin necesidad de instanciar**/
 	@Autowired
 	private Noticia noticia;
+	/** servicio*/
 	@Autowired
 	private INoticiaService noticiaService;
 	
 	
-	/**
-	 * metodo getMapping que responde a una peticion /noticias/
-	 * listadoNoticias para retornar a una pagina "index"(noticias) mandando a la
-	 * vez la lista que contiene las noticas a la pagina para ser mostrada
-	 * **/
+	/** metodo getMapping que envia a la vista una lista de objetos de
+	 * la base de datos, la vista es una pagina index*/
 	@GetMapping("/listadoNoticias")
 	public String getNoticiaPage(Model model) {
 		model.addAttribute("noticia",noticiaService.getListaNoticias());
@@ -70,6 +68,10 @@ public class NoticiaController {
 		
 		return mav;
 	}
+	/** metodo getMapping que utiliza una variable enviada por la peticion
+	 * la cual es utilizada para identificar el objeto dentro de una lista de
+	 * la base de datos, el objeto es enviado a la vista de otra pagina para
+	 * ser modificado en un formulario*/
 	@GetMapping("/modificar/{id}")
 	public String getModificarNoticiaPage(Model model, @PathVariable(value="id")Long id){
 		boolean edicion = true;
@@ -78,6 +80,10 @@ public class NoticiaController {
 		model.addAttribute("edicion", edicion);				
 		return "nuevo_noticia";
 	}
+	/** metodo postMapping que utiliza un objeto de la vista a la cual
+	 * realiza la peticion para modificar ese mismo objeto en su tabla
+	 * correspondiente, si es que no es enviado con errores el objeto de lo
+	 * contrario se vuelve a enviar el mismo objeto al formulario*/
 	@PostMapping("/modificar")
 	public String modificarNoticia(@Valid @ModelAttribute("noticia")Noticia noti, BindingResult result,Model model) {
 		boolean edicion = true;
@@ -89,7 +95,10 @@ public class NoticiaController {
 		noticiaService.modificar(noti);
 		return "redirect:/noticias/listadoNoticias";
 	}
-	
+	/** metodo getMapping que utiliza una variable enviada por peticion
+	 * este metodo simplemente busca con el parametro identificador
+	 * a un determinado objeto dentro de una tabla determinada y cambia
+	 * su estado a false*/
 	@GetMapping("/eliminar/{id}")
 	public String eliminarNoticia(@PathVariable(value="id")Long id) {		
 		noticiaService.eliminar(noticiaService.buscar(id));

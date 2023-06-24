@@ -24,16 +24,19 @@ import jakarta.validation.Valid;
 @RequestMapping("/empleados")
 
 public class EmpleadoController{
-    
+	/** servicio*/
 	@Autowired
 	private IEmpleadoService empleadoService;
-	
+	/** metodo getMapping que envia a la vista una lista de objetos de
+	 * la base de datos, la vista es una redireccion*/
 	@GetMapping("/listadoEmpleado")
 	public String getEmpleadoPage(Model model){
 		model.addAttribute("empleado",empleadoService.getListaEmpleado());
 		return "redirect:/gestionDatos";
 	}
-	
+	/** metodo getMapping que retorna a una pagina de formulario, donde envia a
+	 * la vista una lista de entidades y un parametro util para
+	 * definir el uso del formulario */
 	@GetMapping("/nuevo")
 	public String getNuevoEmpleadoPage(Model model) {
 		boolean edicion = false;
@@ -42,7 +45,10 @@ public class EmpleadoController{
 		return "nuevo_empleado";	
 	}
 	
-	
+	/** metodo postMapping que utiliza un objeto de la vista
+	 * donde, si el objeto es enviado sin errores este se guarda en
+	 * la tabla mediante el servicio. si el objeto viene con errores
+	 * entonces retorna la vista al formulario*/
 	@PostMapping("/guardar")
 	public String getGuardarEmpleado(@Valid @ModelAttribute("empleado")Empleado emp, BindingResult result,Model model){
 		boolean edicion = false;
@@ -55,7 +61,10 @@ public class EmpleadoController{
 		return "redirect:/gestionDatos";
 	}
 	
-	
+	/** metodo getMapping que utiliza una variable enviada por la peticion
+	 * la cual es utilizada para identificar el objeto dentro de una lista de
+	 * la base de datos, el objeto es enviado a la vista de otra pagina para
+	 * ser modificado en un formulario*/
 	@GetMapping("/modificar/{id}")
 	public String getModificarEmpleadoPage(Model model, @PathVariable(value="id")Long id){
 		boolean edicion = true;
@@ -64,7 +73,10 @@ public class EmpleadoController{
 		model.addAttribute("edicion", edicion);	
 		return "nuevo_empleado";
 	}
-	
+	/** metodo postMapping que utiliza un objeto de la vista a la cual
+	 * realiza la peticion para modificar ese mismo objeto en su tabla
+	 * correspondiente, si es que no es enviado con errores el objeto de lo
+	 * contrario se vuelve a enviar el mismo objeto al formulario*/
 	@PostMapping("/modificar")
 	public String modificarEmpleado(@Valid @ModelAttribute("empleado")Empleado emp, BindingResult result,Model model) {
 		boolean edicion = true;
@@ -76,7 +88,10 @@ public class EmpleadoController{
 		empleadoService.modificar(emp);
 		return "redirect:/gestionDatos";
 	}
-	
+	/** metodo getMapping que utiliza una variable enviada por peticion
+	 * este metodo simplemente busca con el parametro identificador
+	 * a un determinado objeto dentro de una tabla determinada y cambia
+	 * su estado a false*/
 	@GetMapping("/eliminar/{id}")
 	public String eliminarEmpleado(@PathVariable(value="id")Long id){		
 		empleadoService.eliminar(empleadoService.buscar(id));

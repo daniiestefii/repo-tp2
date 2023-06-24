@@ -8,11 +8,12 @@ import jakarta.validation.constraints.Positive;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
-
+/** entidad de base de datos*/
 @Component
 @Entity
 @Table(name="Empleados")
 public class Empleado{
+	/** identificador de la tabla*/
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name ="Emple_id")
@@ -27,6 +28,7 @@ public class Empleado{
     @Positive(message="debe ser un numero valido")
     @Column(name = "Emple_dni",nullable = false)
     private int dni;
+    /** establece relacion con servicio*/
     @OneToMany(mappedBy = "empleado")
     private List<Servicio> servicio;
     @Column(name = "Emple_estado",nullable = false)

@@ -20,14 +20,15 @@ public class ServicioController {
 
 	@Autowired
 	private Servicio servicio;
-
+	/** servicio*/
 	@Autowired
 	private IServicioService servicioService;
-     
+	/** servicio*/
 	@Autowired
 	private IEmpleadoService empleadoService;
 
-	
+	/** metodo de filtrado que muestra la misma pagina de donde se lo utiliza
+	 * pero con la diferencia de los objetos a listar de la tabla*/
 	@GetMapping("/filtradoServicios")
 	public String getfiltradoServicioPage(@RequestParam("dia") String dia ,Model model) {
 		model.addAttribute("servicio", servicioService.getListaServicioFiltrados(dia));

@@ -23,17 +23,14 @@ import jakarta.validation.Valid;
 
 public class ProductoController {
     
-	/**
-	 * Inyeccion de dependencia, para utilizar el objeto de la clase
-	 * sin necesidad de instanciar
-	 * **/
-	
+	/** servicio*/
 	@Autowired
-	//@Qualifier("IProductoService")
 	private IProductoService productoService;
 	@Autowired
+	/** servicio*/
 	private ICategoriaService categoriaService;
-	
+	/** metodo de filtrado que muestra la misma pagina de donde se lo utiliza
+	 * pero con la diferencia de los objetos a listar de la tabla*/
 	@GetMapping("/filtradoProductos")
 	public String getfiltradoProductoPage(@RequestParam("categoria") Categoria categoria ,Model model) {
 		model.addAttribute("producto", productoService.getListaProductosFiltrados(categoria,true));

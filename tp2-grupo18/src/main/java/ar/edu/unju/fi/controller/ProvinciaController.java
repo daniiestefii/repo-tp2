@@ -23,7 +23,7 @@ import jakarta.validation.Valid;
 @Controller
 @RequestMapping("/provincias")
 public class ProvinciaController{
-    
+	/** servicio*/
 	@Autowired
 	private IProvinciaService provinciaService;
 	

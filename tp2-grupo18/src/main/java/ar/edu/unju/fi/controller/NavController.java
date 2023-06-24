@@ -26,8 +26,8 @@ import jakarta.validation.Valid;
 @Controller
 public class NavController {
 
+	/** servicios*/
 	@Autowired
-	//@Qualifier("IProductoService")
 	private IProductoService productoService;
 	@Autowired
 	private ICategoriaService categoriaService;
@@ -53,7 +53,9 @@ public class NavController {
 	    
 		return "Formulario";
 	}
-	
+	/** metodo que devuelve la vista a GestionDatos una pagina que es utilizada
+	 * para gestionar todas las entidas por lo que atravez de model se envia
+	 * a la vista todos las entidades de cada tabla*/
 	@GetMapping("/gestionDatos")
 	public String getGestionDatos(Model model){
 		model.addAttribute("producto", productoService.getListaProductos());

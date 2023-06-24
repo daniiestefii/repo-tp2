@@ -13,11 +13,12 @@ import jakarta.validation.constraints.NotBlank;
  * @model Noticia
  * @author DOrdonez, RicardoFlores, MiltonDelgado
  */
-
+/** se convierte en una entidad de base de datos*/
 @Component
 @Entity
 @Table(name="Noticias")
 public class Noticia {
+	/** identificador */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name ="Noti_id")

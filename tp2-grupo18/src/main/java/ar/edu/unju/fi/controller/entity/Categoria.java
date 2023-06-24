@@ -13,10 +13,12 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 
+/** estableciendo como una entidad de base de datos*/
 @Component
 @Entity
 @Table(name="Categoria")
 public class Categoria {
+   /**identificador */	
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
    @Column(name="cate_id",nullable = false)
@@ -24,8 +26,8 @@ public class Categoria {
    @NotBlank(message = "El nombre no puede estar vacío")
    @Column(name="cate_nombre",nullable = false)
    private String nombre;
+   /** establece relacion con categoria*/
    @OneToMany(mappedBy ="categoria")
-   //@Column(name="cate_productos",nullable = false)
    private List<Producto> productos;
    @Column(name="cate_estado",nullable = false)
    private boolean estado;
