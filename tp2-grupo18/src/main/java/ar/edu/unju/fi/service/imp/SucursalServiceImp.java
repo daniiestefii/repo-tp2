@@ -42,7 +42,6 @@ public class SucursalServiceImp implements ISucursalService {
 
 	@Override
 	public void modificar(Sucursal sucursal) {
-		//sucursal.setEstado(true);
 		sucursalRepository.save(sucursal);}
 
 	@Override

@@ -61,7 +61,7 @@
                         <div class="text-danger" th:if="${#fields.hasErrors('provincia')}" th:errors="*{provincia}"></div>
                         <br>
 
-                        <input type="submit" value="Guardar">
+                        <input type="submit" th:value="${edicion}?'Modificar':'Guardar'">
 
                     </form>
                 </div>

@@ -1,5 +1,6 @@
 package ar.edu.unju.fi.controller;
 
+import ar.edu.unju.fi.service.INoticiaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.controller.entity.Noticia;
-import ar.edu.unju.fi.listas.ListaNoticia;
 import jakarta.validation.Valid;
 
 
@@ -23,10 +23,9 @@ public class NoticiaController {
 	/** 
 	 * Inyeccion de dependencia, para utilizar el objeto de la clase
 	 * sin necesidad de instanciar**/
+
 	@Autowired
-	private Noticia noticia;
-	@Autowired
-	private ListaNoticia listaNot;
+	private INoticiaService noticiaService;
 	
 	
 	/**
@@ -36,7 +35,7 @@ public class NoticiaController {
 	 * **/
 	@GetMapping("/listadoNoticias")
 	public String getNoticiaPage(Model model) {
-		model.addAttribute("noticia",listaNot.getNoticias());
+		model.addAttribute("noticia",noticiaService.getListaNoticias());
 		return "index";
 	}
 	/** 
@@ -45,7 +44,7 @@ public class NoticiaController {
 	@GetMapping("/nuevo")
 	public String getNuevoNoticiaPage(Model model) {
 		boolean edicion = false;
-		model.addAttribute("noticia",noticia);
+		model.addAttribute("noticia",noticiaService.getNoticia());
 		model.addAttribute("edicion", edicion);
 		return "nuevo_noticia"; 
 	}
@@ -62,48 +61,29 @@ public class NoticiaController {
 			mav.setViewName("nuevo_noticia");
 			mav.addObject("nuevo_noticia", noti);
 			return mav;
-		}	
-		listaNot.getNoticias().add(noti);
-		mav.addObject("noticia",listaNot.getNoticias());
+		}
+		noticiaService.guardar(noti);
+		mav.addObject("noticia",noticiaService.getListaNoticias());
 		
 		return mav;
 	}
 	@GetMapping("/modificar/{nombre}")
-	public String getModificarNoticiaPage(Model model, @PathVariable(value="nombre")String nombre){
+	public String getModificarNoticiaPage(Model model, @PathVariable(value="nombre")Long nombre){
 		boolean edicion = true;
-		for(Noticia noti : listaNot.getNoticias()) {
-			if(noti.getTitulo().equals(nombre)){
-				noticia.setTitulo(noti.getTitulo());
-				noticia.setTexto(noti.getTexto());
-				break;
-			}
-		}
-		model.addAttribute("noticia", noticia);
+		Noticia noticiaEncontrado = noticiaService.buscar(nombre);
+		model.addAttribute("noticia", noticiaEncontrado);
 		model.addAttribute("edicion", edicion);				
 		return "nuevo_noticia";
 	}
 	@PostMapping("/modificar")
 	public String modificarNoticia(@Valid @ModelAttribute("noticia")Noticia noti, BindingResult result) {
-		
-		for(Noticia noticia : listaNot.getNoticias()) {
-			if(noticia.getTitulo().equals(noti.getTitulo())) {
-				noticia.setTitulo(noti.getTitulo());
-				noticia.setTexto(noti.getTexto());
-				break;
-			}
-		}
+		noticiaService.modificar(noti);
 		return "redirect:/noticias/listadoNoticias";
 	}
 	
 	@GetMapping("/eliminar/{nombre}")
-	public String eliminarNoticia(@PathVariable(value="nombre")String nombre) {		
-		
-		for(Noticia noticia : listaNot.getNoticias()) {
-			if(noticia.getTitulo().equals(nombre)) {
-				listaNot.getNoticias().remove(noticia);
-				break;
-			}
-		}
+	public String eliminarNoticia(@PathVariable(value="nombre")Long nombre) {
+		noticiaService.eliminar(noticiaService.buscar(nombre));
 		return "redirect:/noticias/listadoNoticias";
 	}
 }

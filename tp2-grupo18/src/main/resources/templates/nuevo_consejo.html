@@ -35,7 +35,7 @@
                         <input type="text" th:field="*{autor}" size="25px" placeholder="Ingrese un autor">
                         <div class="text-danger" th:if="${#fields.hasErrors('autor')}" th:errors="*{autor}"></div>
 
-                        <input type="submit" value="Guardar">
+                        <input type="submit" th:value="${edicionConsejo}?'Modificar':'Guardar'">
 
                     </form>
                 </div>

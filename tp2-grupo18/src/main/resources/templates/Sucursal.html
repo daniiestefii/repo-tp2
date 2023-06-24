@@ -43,10 +43,17 @@
 	         <td th:text="${sucu.horario}">
 	         <td th:text="${sucu.gmail}">
 	         <td th:text="${sucu.fechainicio}">
-	         <td>
-	           <a th:href="@{/sucursales/modificar/}+${sucu.id}">Editar</a>
-	           <a th:href="@{/sucursales/eliminar/}+${sucu.id}">Eliminar</a>
-	         </td>
+              <td>
+                  <button type="button" class="btn btn-primary ">
+                      <a class="text-light" th:href="@{/sucursales/modificar/}+${sucu.id}" style="text-decoration: none">Editar</a>
+                  </button>
+              </td>
+              <td>
+                  <button type="button" class="btn btn-danger ">
+                      <a class="text-light" th:href="@{/sucursales/eliminar/}+${sucu.id}" style="text-decoration: none">Eliminar</a>
+                  </button>
+              </td>
+
 	      </tr>
    </table>
    </div>

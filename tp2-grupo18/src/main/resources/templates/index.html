@@ -22,19 +22,37 @@
        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 col-xxl-8">
         <section id="articulos">
             <div class="card">
-         <div class="table-responsive">   
-       <table>
+         <div class="table-responsive">
+             <table class="table table-success table-striped-columns border-dark">
+                 <tr id="colorbarras">
+                     <th> NOTICIA </th>
+                     <th> TITULO </th>
+                     <th>  TEXTO </th>
+                     <th>  AUTOR </th>
+                     <th > FECHA </th>
+                     <th> OPCIONES </th>
+                 </tr>
+
 	      <tr th:each="noti:${noticia}">
 	         <td th:text="${noti.titulo}">
-	         <td th:text="${noti.texto}"></td>
-	          <td> 
-	            <a th:href="@{/noticias/modificar/}+${noti.titulo}">Editar</a>
-	            <a th:href="@{/noticias/eliminar/}+${noti.titulo}">Eliminar</a>
-	         </td>
+	         <td th:text="${noti.texto}">
+              <td th:text="${noti.autor}">
+              <td th:text ="${noti.fecha}">
+              <td>
+                  <button type="button" class="btn btn-primary ">
+                      <a class="text-light" th:href="@{/noticias/modificar/}+${noti.id}" style="text-decoration: none">Editar</a>
+                  </button>
+              </td>
+              <td>
+                  <button type="button" class="btn btn-danger ">
+                      <a class="text-light" th:href="@{/noticias/eliminar/}+${noti.id}" style="text-decoration: none">Eliminar</a>
+                  </button>
+              </td>
+
 	      </tr>
 	  </table>
 	    </div>
-	  <a class="button" th:href="@{/noticias/nuevo}"> agregar </a>
+	  <a class="button" th:href="@{/noticias/nuevo}"> Agregar </a>
 	  </div>
 	  </section>
 	  </div>
