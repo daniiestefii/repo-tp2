@@ -17,12 +17,12 @@ import jakarta.validation.constraints.NotNull;
  * @model Servicio
  * @author DOrdonez, RicardoFlores, MiltonDelgado
  */
-
+/** se vuelve una entidad de la base de datos*/
 @Component
 @Entity
-
 @Table(name="Servicios")
 public class Servicio {
+	/** identificador*/
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name ="Serv_id", nullable=false)
@@ -33,6 +33,7 @@ public class Servicio {
 	@NotBlank(message = "El horario no puede estar vacío")
 	@Column(name ="Serv_horario", nullable=false)
 	private String horario;
+	/** establece una relacion con empleado*/
 	@NotNull(message="debe elegir un empleado")
 	@ManyToOne
     @JoinColumn(name = "Emple_id")

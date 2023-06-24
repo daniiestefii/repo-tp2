@@ -15,11 +15,12 @@ import jakarta.validation.constraints.*;
  * @model Producto
  * @author DOrdonez, RicardoFlores, MiltonDelgado 
  */
+/** se vuelve una entidad en la base de datos*/
 @Component
 @Entity
-
 @Table(name="Producto")
 public class Producto {
+	/** identificador */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name ="Prod_id")
@@ -35,6 +36,7 @@ public class Producto {
 	@NotNull(message = "No puede quedar vacio")
 	@Column(name="Prod_precio",nullable = false)
 	private double precio;
+	/** establece una relacion con categoria*/
 	@ManyToOne
 	@JoinColumn(name="cate_id",nullable = false)
 	private Categoria categoria;
