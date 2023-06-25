@@ -10,7 +10,7 @@ import ar.edu.unju.fi.controller.entity.Servicio;
 public class ListaServicio{
    private List<Servicio>servicios;
 
-	/*
+	/**
 	 * Esta lista de servicios contiene objetos de la clase "Servicio".
 	 */
    public ListaServicio() {

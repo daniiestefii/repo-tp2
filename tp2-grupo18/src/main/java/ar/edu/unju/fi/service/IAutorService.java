@@ -1,10 +1,8 @@
 package ar.edu.unju.fi.service;
 
 import ar.edu.unju.fi.controller.entity.Autor;
-import jakarta.validation.Valid;
 
 import java.util.List;
-
 
 public interface IAutorService {
     /**
@@ -14,7 +12,7 @@ public interface IAutorService {
     /**
      * @method Guarda un nuevo Autor
      */
-    void guardar(@Valid Autor autor);
+    void guardar(Autor autor);
     /**
      * @method  Devuelve el Autor cuyo id coincide con el parámetro id.
      */

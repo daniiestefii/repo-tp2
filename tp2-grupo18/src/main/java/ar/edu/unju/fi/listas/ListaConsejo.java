@@ -11,7 +11,7 @@ import ar.edu.unju.fi.controller.entity.Consejo;
 public class ListaConsejo{
    private List<Consejo>consejos;
 
-	/*
+	/**
 	 * Esta lista de consejos para la salud de las mascotas contiene objetos de la clase "Consejo".
 	 */
    public ListaConsejo(){

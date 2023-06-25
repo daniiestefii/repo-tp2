@@ -1,9 +1,6 @@
 package ar.edu.unju.fi.service;
 
-import ar.edu.unju.fi.controller.entity.Provincia;
 import ar.edu.unju.fi.controller.entity.Sucursal;
-import jakarta.validation.Valid;
-
 import java.util.List;
 
 public interface ISucursalService {
@@ -14,7 +11,7 @@ public interface ISucursalService {
 	/**
 	 * @method Guarda un nueva Sucursal
 	 */
-	void guardar(@Valid Sucursal sucursal);
+	void guardar(Sucursal sucursal);
 	/**
 	 * @method  Devuelve la Sucursal cuyo id coincide con el parámetro id.
 	 */

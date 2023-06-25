@@ -5,7 +5,6 @@ import java.time.LocalDate;
 import jakarta.persistence.*;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
-
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -13,12 +12,17 @@ import jakarta.validation.constraints.Past;
 
 /**
  * @model Sucursal
- * @author DOrdonez, RicardoFlores, MiltonDelgado
+ * @author DOrdonez, MiltonDelgado
  */
+
+/**
+ * estableciendo como una entidad de base de datos
+ **/
 @Component
 @Entity
 @Table(name="Sucursal")
 
+/** identificador*/
 public class Sucursal {
 
 	@Id
@@ -50,6 +54,7 @@ public class Sucursal {
 	@Past(message="la fecha debe ser menor a la fecha actual")
 	private LocalDate fechainicio;
 
+	/** establece una relacion con provincia*/
 	@ManyToOne
 	@JoinColumn(name="provi_id",nullable = false)
 	private Provincia provincia;
@@ -72,6 +77,7 @@ public class Sucursal {
 		this.provincia = provincia;
 		this.estado = estado;
 	}
+
 	public long getId() {return id;}
 	public void setId(long id) {this.id = id;}
 	public String getNombre() {

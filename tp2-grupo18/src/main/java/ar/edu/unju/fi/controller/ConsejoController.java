@@ -12,7 +12,10 @@ import org.springframework.web.servlet.ModelAndView;
 import ar.edu.unju.fi.controller.entity.Consejo;
 import jakarta.validation.Valid;
 
-
+/**
+ * @model Consejo
+ * @author DOrdonez, MiltonDelgado
+ */
 @Controller
 @RequestMapping("/consejos")
 public class ConsejoController {

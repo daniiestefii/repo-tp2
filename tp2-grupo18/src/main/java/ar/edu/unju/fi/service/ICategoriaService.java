@@ -3,8 +3,6 @@ package ar.edu.unju.fi.service;
 import java.util.List;
 
 import ar.edu.unju.fi.controller.entity.Categoria;
-
-import jakarta.validation.Valid;
 public interface ICategoriaService {
 	/**
      * @method Devuelve una lista de todos los categoria
@@ -13,7 +11,7 @@ public interface ICategoriaService {
     /**
      * @method Guarda una nueva categoria
      */
-    void guardar(@Valid Categoria categoria);
+    void guardar(Categoria categoria);
     /**
      * @method  Devuelve una categoria cuyo id coincide con el parámetro id.
      */

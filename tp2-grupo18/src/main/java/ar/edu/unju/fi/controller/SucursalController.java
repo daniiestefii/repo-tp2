@@ -1,8 +1,5 @@
 package ar.edu.unju.fi.controller;
 
-
-import ar.edu.unju.fi.controller.entity.Categoria;
-import ar.edu.unju.fi.controller.entity.Producto;
 import ar.edu.unju.fi.service.IProvinciaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,24 +7,27 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-
 import ar.edu.unju.fi.controller.entity.Sucursal;
 import ar.edu.unju.fi.service.ISucursalService;
 import jakarta.validation.Valid;
 
 
-
+/**
+ * @model Sucursal
+ * @author DOrdonez, MiltonDelgado
+ */
 @Controller
 @RequestMapping("/sucursales")
 public class SucursalController {
-
+	/** sucursal*/
 	@Autowired
 	private ISucursalService sucursalService;
-
+	/** provincia*/
 	@Autowired
 	private IProvinciaService provinciaService;
 
-
+	/** metodo de filtrado que muestra la misma pagina de donde se lo utiliza
+	 * pero con la diferencia de los objetos a listar de la tabla*/
 	@GetMapping("/filtradoSucursales")
 	public String getfiltradoSucursalesPage(@RequestParam("fechainicio") String fechainicio,@RequestParam("fechafin") String fechafin ,Model model) {
 		model.addAttribute("sucursal", sucursalService.getListaSucursalesFiltradosForFecha(fechainicio,fechafin));
@@ -35,7 +35,7 @@ public class SucursalController {
 	}
 	
 	
-	/*
+	/**
 	 * Este método utiliza la anotación @GetMapping para mapear una solicitud GET a la ruta
 	 * "/listadoSucursales".
 	 * Devuelve la vista "Sucursal" con un modelo que contiene la lista de sucursales en un
@@ -50,7 +50,7 @@ public class SucursalController {
 		model.addAttribute("provincias",provinciaService.getListaProvincias());
 		return "Sucursal";
 	}
-	/*
+	/**
 	 * Este método utiliza la anotación @GetMapping para mapear una solicitud GET a la ruta "/nuevo".
 	 * Devuelve la vista "nuevo_sucursal" con un modelo que contiene un objeto "sucursal".
 	 *
@@ -66,7 +66,7 @@ public class SucursalController {
 		return "nuevo_sucursal"; 
 	}
 
-	/*
+	/**
 	 * Este método utiliza la anotación @PostMapping para mapear una solicitud POST a la ruta "/guardar".
 	 * Agrega un objeto "sucursal" a una lista de sucursales en un objeto "listaSucu".
 	 * Devuelve la vista "Sucursal" con un modelo que contiene la lista actualizada de sucursales.

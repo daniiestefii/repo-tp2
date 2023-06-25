@@ -2,17 +2,23 @@ package ar.edu.unju.fi.controller.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+/**
+ * @model Provincia
+ * @author DOrdonez, MiltonDelgado
+ */
 
+/**
+ * estableciendo como una entidad de base de datos
+ **/
 @Component
 @Entity
 @Table(name="Provincia")
 
 public class Provincia {
+    /** identificador*/
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name ="provi_id")

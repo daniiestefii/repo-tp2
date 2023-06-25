@@ -39,12 +39,7 @@ public Noticia(Long id,String titulo, String texto,boolean estado){
 	this.estado = estado;
 	
 }
-	/**
-	 *
-	 * @Get
-	 * @Set
-	 * 
-	 */
+
   public Noticia() {
 	  
   }

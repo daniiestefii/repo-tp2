@@ -1,10 +1,7 @@
 package ar.edu.unju.fi.service;
 
 import ar.edu.unju.fi.controller.entity.Autor;
-import ar.edu.unju.fi.controller.entity.Categoria;
 import ar.edu.unju.fi.controller.entity.Consejo;
-import ar.edu.unju.fi.controller.entity.Producto;
-import jakarta.validation.Valid;
 
 import java.util.List;
 
@@ -16,7 +13,7 @@ public interface IConsejoService {
     /**
      * @method Guarda un nuevo Consejo
      */
-    void guardar(@Valid Consejo consejo);
+    void guardar(Consejo consejo);
     /**
      * @method  Devuelve un Consejo cuyo id coincide con el parámetro id.
      */

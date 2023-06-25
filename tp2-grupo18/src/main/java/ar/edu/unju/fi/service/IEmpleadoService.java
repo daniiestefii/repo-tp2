@@ -1,7 +1,6 @@
 package ar.edu.unju.fi.service;
 
 import ar.edu.unju.fi.controller.entity.Empleado;
-import jakarta.validation.Valid;
 
 import java.util.List;
 
@@ -13,7 +12,7 @@ public interface IEmpleadoService {
     /**
      * @method Guarda una nuevo Empleado
      */
-    void guardar(@Valid Empleado empleado);
+    void guardar(Empleado empleado);
     /**
      * @method  Devuelve  el empleado cuyo id coincide con el parámetro id.
      */

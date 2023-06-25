@@ -1,8 +1,6 @@
 package ar.edu.unju.fi.service;
 
-import ar.edu.unju.fi.controller.entity.Empleado;
 import ar.edu.unju.fi.controller.entity.Servicio;
-import jakarta.validation.Valid;
 
 import java.util.List;
 
@@ -14,7 +12,7 @@ public interface IServicioService {
     /**
      * @method Guarda una nuevo servicio
      */
-    void guardar(@Valid Servicio servicio);
+    void guardar(Servicio servicio);
     /**
      * @method  Devuelve el servicio cuyo nombre coincide con el parámetro de servicio.
      */

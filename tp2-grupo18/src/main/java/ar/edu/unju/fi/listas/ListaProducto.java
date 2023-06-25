@@ -11,7 +11,7 @@ import ar.edu.unju.fi.controller.entity.Producto;
 public class ListaProducto {
    private List<Producto>productos;
    
-	/*
+	/**
 	 * Esta lista de productos contiene objetos de la clase "Producto".
 	 */
    

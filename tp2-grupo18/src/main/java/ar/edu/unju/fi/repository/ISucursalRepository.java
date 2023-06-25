@@ -2,8 +2,6 @@ package ar.edu.unju.fi.repository;
 
 import java.time.LocalDate;
 import java.util.List;
-
-import ar.edu.unju.fi.controller.entity.Provincia;
 import ar.edu.unju.fi.controller.entity.Sucursal;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;

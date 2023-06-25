@@ -3,19 +3,20 @@ package ar.edu.unju.fi.controller.entity;
 import jakarta.persistence.*;
 import org.springframework.stereotype.Component;
 
-
 import jakarta.validation.constraints.NotBlank;
-
 
 /**
  * @model Consejo
  * @author DOrdonez, RicardoFlores, MiltonDelgado
  */
+
+/** estableciendo como una entidad de base de datos*/
 @Component
 @Entity
 @Table(name="Consejo")
 public class Consejo{
 
+	/** identificador*/
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name ="conse_id",nullable = false)
@@ -27,6 +28,7 @@ public class Consejo{
 	@Column(name ="conse_texto",nullable = false)
     private String texto;
 
+	/** establece una relacion con autor*/
 	@ManyToOne
 	@JoinColumn(name="autor_id",nullable = false)
 	private Autor autor;
@@ -44,12 +46,6 @@ public class Consejo{
 
 	public Consejo() {
 	}
-
-	/**
-	 *
-	 * @Get
-	 * @Set
-	 */
 
 	public long getId() {
 		return id;

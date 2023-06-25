@@ -5,12 +5,18 @@ import jakarta.validation.constraints.NotBlank;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+/**
+ * @model Autor
+ * @author DOrdonez, MiltonDelgado
+ */
 
+/** estableciendo como una entidad de base de datos*/
 @Component
 @Entity
 @Table(name="Autor")
 
 public class Autor {
+    /** identificador*/
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name ="autor_id")
@@ -35,6 +41,7 @@ public class Autor {
         this.consejos = consejos;
         this.estado = estado;
     }
+
     public Long getId() {
         return id;
     }

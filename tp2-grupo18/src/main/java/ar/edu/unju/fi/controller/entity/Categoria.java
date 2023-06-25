@@ -13,6 +13,11 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 
+/**
+ * @model Categoria
+ * @author DOrdonez, MiltonDelgado
+ */
+
 /** estableciendo como una entidad de base de datos*/
 @Component
 @Entity

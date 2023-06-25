@@ -8,6 +8,11 @@ import jakarta.validation.constraints.Positive;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
+/**
+ * @model Empleado
+ * @author DOrdonez, MiltonDelgado
+ */
+
 /** entidad de base de datos*/
 @Component
 @Entity

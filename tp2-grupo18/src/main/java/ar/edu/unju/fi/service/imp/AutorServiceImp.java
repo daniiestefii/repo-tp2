@@ -36,7 +36,9 @@ public class AutorServiceImp implements IAutorService {
         autor.setEstado(false);
         autorRepository.save(autor);
     }
-
+    /**
+     * devuelve un objeto
+     */
     @Override
     public Autor getAutor() {return autor;}
 }

@@ -12,7 +12,7 @@ import ar.edu.unju.fi.controller.entity.Sucursal;
 public class ListaSucursal{
    private List<Sucursal>sucursales;
 
-	/*
+	/**
 	 * Esta lista de sucursales contiene objetos de la clase "Sucursal".
 	 */
    public ListaSucursal() {

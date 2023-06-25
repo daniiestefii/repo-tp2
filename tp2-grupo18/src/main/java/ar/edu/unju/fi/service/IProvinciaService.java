@@ -1,10 +1,7 @@
 package ar.edu.unju.fi.service;
 
 import ar.edu.unju.fi.controller.entity.Provincia;
-import jakarta.validation.Valid;
-
 import java.util.List;
-
 
 public interface IProvinciaService {
     /**
@@ -14,7 +11,7 @@ public interface IProvinciaService {
     /**
      * @method Guarda un nuevo Provincia
      */
-    void guardar(@Valid Provincia provincia);
+    void guardar(Provincia provincia);
     /**
      * @method  Devuelve el Provincia cuyo id coincide con el parámetro id.
      */

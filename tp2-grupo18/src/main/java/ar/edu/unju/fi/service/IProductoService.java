@@ -2,12 +2,8 @@ package ar.edu.unju.fi.service;
 
 import ar.edu.unju.fi.controller.entity.Categoria;
 import ar.edu.unju.fi.controller.entity.Producto;
-import jakarta.validation.Valid;
 
 import java.util.List;
-
-
-
 
 public interface IProductoService {
 	/**
@@ -17,7 +13,7 @@ public interface IProductoService {
 	/**
      * @method Guarda un nuevo Producto
      */
-	void guardar(@Valid Producto producto);
+	void guardar(Producto producto);
 	/**
      * @method  Devuelve el Producto cuyo nombre coincide con el parámetro nombre.
      */

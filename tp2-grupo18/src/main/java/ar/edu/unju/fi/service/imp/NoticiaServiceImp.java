@@ -3,10 +3,7 @@ package ar.edu.unju.fi.service.imp;
 import ar.edu.unju.fi.controller.entity.Noticia;
 import ar.edu.unju.fi.repository.INoticiaRepository;
 import ar.edu.unju.fi.service.INoticiaService;
-import jakarta.validation.Valid;
-
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +21,7 @@ public class NoticiaServiceImp implements INoticiaService{
 	}
 	/** guarda un objeto que es recibido como parametro en la tabla
      * pero antes de eso su estado cambia a true*/
-	public void guardar(@Valid Noticia noticia) {
+	public void guardar(Noticia noticia) {
 		noticia.setEstado(true);
 		listaNoticia.save(noticia);
 	}

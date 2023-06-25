@@ -10,7 +10,9 @@ import ar.edu.unju.fi.controller.entity.Noticia;
 @Component
 public class ListaNoticia{
    private List<Noticia>noticias;
-   
+    /**
+     * Esta lista de productos contiene objetos de la clase "Noticia".
+     */
    public ListaNoticia() {
 	   noticias = new ArrayList<Noticia>();
 	   

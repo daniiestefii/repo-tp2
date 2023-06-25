@@ -1,15 +1,12 @@
 package ar.edu.unju.fi.service.imp;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import ar.edu.unju.fi.controller.entity.Categoria;
 import ar.edu.unju.fi.controller.entity.Producto;
 import ar.edu.unju.fi.repository.IProductoRepository;
 import ar.edu.unju.fi.service.IProductoService;
-import jakarta.validation.Valid;
 
 @Service("ProductoServiceImp")
 public class ProductoServiceImp implements IProductoService {
@@ -31,7 +28,7 @@ public class ProductoServiceImp implements IProductoService {
      * dentro de la listaProducto
      */
 	@Override
-	public void guardar(@Valid Producto producto) {
+	public void guardar(Producto producto) {
 		producto.setEstado(true);
 	   listaProducto.save(producto);
 	}
