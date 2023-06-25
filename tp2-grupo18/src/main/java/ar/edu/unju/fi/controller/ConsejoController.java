@@ -2,6 +2,7 @@ package ar.edu.unju.fi.controller;
 
 import ar.edu.unju.fi.controller.entity.Autor;
 import ar.edu.unju.fi.service.IAutorService;
+import ar.edu.unju.fi.service.ICategoriaService;
 import ar.edu.unju.fi.service.IConsejoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,6 +29,9 @@ public class ConsejoController {
 	@Autowired
 	private IAutorService autorService;
 
+	@Autowired
+	/** servicio*/
+	private ICategoriaService categoriaService;
 
 	/** metodo de filtrado que muestra la misma pagina de donde se lo utiliza
 	 * pero con la diferencia de los objetos a listar de la tabla*/
@@ -49,6 +53,7 @@ public class ConsejoController {
 	public String getConsejoPage(Model model) {
 		model.addAttribute("consejo", consejoService.getListaConsejos());
 		model.addAttribute("autores",autorService.getListaAutores());
+		model.addAttribute("categorias",categoriaService.getListaCategoria());
 		return "ConsejodeSalud";
 	}
 
@@ -87,6 +92,7 @@ public class ConsejoController {
 		}
 		consejoService.guardar(cons);
 		mav.addObject("consejo", consejoService.getListaConsejos());
+		mav.addObject("autores", autorService.getListaAutores());
 		return mav;
 	}
 	/**
