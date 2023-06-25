@@ -29,8 +29,8 @@ public class SucursalController {
 
 
 	@GetMapping("/filtradoSucursales")
-	public String getfiltradoSucursalesPage(@RequestParam("dia") String dia,@RequestParam("dia1") String dia1 ,Model model) {
-		model.addAttribute("sucursal", sucursalService.getListaSucursalesFiltradosForFecha(dia,dia1));
+	public String getfiltradoSucursalesPage(@RequestParam("fechainicio") String fechainicio,@RequestParam("fechafin") String fechafin ,Model model) {
+		model.addAttribute("sucursal", sucursalService.getListaSucursalesFiltradosForFecha(fechainicio,fechafin));
 		return "Sucursal";
 	}
 	

@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ISucursalRepository extends CrudRepository<Sucursal,Long>{
     public List<Sucursal> findByEstado(boolean estado);
-    @Query("SELECT e FROM Sucursal e WHERE e.fechainicio BETWEEN :startDate AND :endDate")
+    @Query("SELECT e FROM Sucursal e WHERE e.fechainicio BETWEEN :startDate AND :endDate AND e.estado= true ")
     List<Sucursal> findByDateBetween(@Param("startDate") LocalDate startDate, @Param("endDate") LocalDate endDate);
 
 }
