@@ -26,14 +26,15 @@ public class Consejo{
 	@NotBlank(message="Tiene que escribir un texto")
 	@Column(name ="conse_texto",nullable = false)
     private String texto;
-	@NotBlank(message="Tiene que escribir un autor")
-	@Column(name ="conse_autor",nullable = false)
-	private String autor;
+
+	@ManyToOne
+	@JoinColumn(name="autor_id",nullable = false)
+	private Autor autor;
 
 	@Column(name="conse_estado",nullable = false)
 	private boolean estado;
 
-	public Consejo(long id, String titulo, String texto,String autor, boolean estado) {
+	public Consejo(long id, String titulo, String texto,Autor autor, boolean estado) {
 		this.id = id;
 		this.titulo = titulo;
 		this.texto = texto;
@@ -69,10 +70,10 @@ public class Consejo{
 	this.texto = texto;
 	}
 
-	public String getAutor() {
+	public Autor getAutor() {
 		return autor;
 	}
-	public void setAutor(String autor) {
+	public void setAutor(Autor autor) {
 		this.autor = autor;
 	}
 

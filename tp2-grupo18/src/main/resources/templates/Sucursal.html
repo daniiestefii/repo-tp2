@@ -53,16 +53,12 @@
 <div class="row justify-content-center">
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-3">
         <form class="custom-form" th:action="@{/sucursales/filtradoSucursales}" method="get">
-
             <input type="date" name="fechainicio" >
             <input type="date" name="fechafin" >
             <div>
                 <br>
                 <input type="submit" th:value="'Filtrar Por Fecha'">
             </div>
-
-
-
         </form>
     </div>
 </div>
@@ -71,9 +67,6 @@
 <div class="row justify-content-center">
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-3">
         <form class="custom-form" th:action="@{/sucursales/listadoSucursales}" method="get">
-
-
-
 
             <input type="submit" th:value="'Mostrar todos'">
         </form>

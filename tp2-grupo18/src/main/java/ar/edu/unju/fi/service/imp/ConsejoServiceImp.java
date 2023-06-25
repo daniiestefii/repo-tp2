@@ -49,5 +49,8 @@ public class ConsejoServiceImp implements IConsejoService {
         return consejo;
     }
 
-
+    @Override
+    public List<Consejo> getListaConsejosFiltrados(Autor autor, boolean estado) {
+        return consejoRepository.findByAutorAndEstado(autor,estado);
+    }
 }

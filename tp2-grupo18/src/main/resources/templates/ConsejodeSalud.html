@@ -22,15 +22,43 @@
     <img src="../images/preve1.jpeg" class="img-fluid" alt="">
 
       <table class="table table-success table-striped-columns">
-	      <tr>
-	      </tr>
+          <tr id="colorbarras">
+              <th> TITULO </th>
+              <th> TEXTO </th>
+              <th>  AUTOR </th>
+          </tr>
 	      <tr th:each="cons:${consejo}">
               <td th:text="${cons.titulo}"></td>
               <td th:text="${cons.texto}"></td>
-              <td th:text="${cons.autor}"></td>
+              <td th:text="${cons.autor.nombre}"></td>
 	      </tr>
 	  </table>
 </section>
+
+<div class="row justify-content-center">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-3">
+        <form class="custom-form" th:action="@{/consejos/filtradoConsejos}" method="get">
+            <select name="autor">
+
+                <option th:each="autor : ${autores}" th:text="${autor.nombre}" th:value="${autor.id}"></option>
+            </select>
+            <input type="submit" th:value="'Filtrar Por Autor'">
+
+        </form>
+    </div>
+</div>
+<br>
+
+<div class="row justify-content-center">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-3">
+        <form class="custom-form" th:action="@{/consejos/listadoConsejos}" method="get">
+            <input type="submit" th:value="'Mostrar todos'">
+        </form>
+    </div>
+</div>
+<br>
+
+
 <footer th:replace="layouts/footer :: footer">
 </footer>
 <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>

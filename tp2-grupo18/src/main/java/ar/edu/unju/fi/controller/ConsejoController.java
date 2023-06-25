@@ -1,5 +1,7 @@
 package ar.edu.unju.fi.controller;
 
+import ar.edu.unju.fi.controller.entity.Autor;
+import ar.edu.unju.fi.service.IAutorService;
 import ar.edu.unju.fi.service.IConsejoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,8 +22,19 @@ public class ConsejoController {
 	@Autowired
 	private IConsejoService consejoService;
 
-	
-	
+	@Autowired
+	private IAutorService autorService;
+
+
+	/** metodo de filtrado que muestra la misma pagina de donde se lo utiliza
+	 * pero con la diferencia de los objetos a listar de la tabla*/
+	@GetMapping("/filtradoConsejos")
+	public String getfiltradoConsejoPage(@RequestParam("autor") Autor autor , Model model) {
+		model.addAttribute("consejo", consejoService.getListaConsejosFiltrados(autor,true));
+		model.addAttribute("autores",autorService.getListaAutores());
+		return "ConsejodeSalud";
+	}
+
 	/**
 	 * Este método utiliza la anotación @GetMapping para mapear una solicitud GET a la ruta "/listadoConsejos".
 	 * Devuelve la vista "ConsejodeSalud" con un modelo que contiene una lista de consejos.
@@ -32,6 +45,7 @@ public class ConsejoController {
 	@GetMapping("/listadoConsejos")
 	public String getConsejoPage(Model model) {
 		model.addAttribute("consejo", consejoService.getListaConsejos());
+		model.addAttribute("autores",autorService.getListaAutores());
 		return "ConsejodeSalud";
 	}
 
@@ -46,6 +60,7 @@ public class ConsejoController {
 	public String getNuevoConsejoPage(Model model) {
 		boolean edicion = false;
 		model.addAttribute("consejo", consejo);
+		model.addAttribute("autores",autorService.getListaAutores());
 		model.addAttribute("edicionConsejo", edicion);
 		return "nuevo_consejo";
 	}
@@ -64,6 +79,7 @@ public class ConsejoController {
 		if (result.hasErrors()) {
 			mav.setViewName("nuevo_consejo");
 			mav.addObject("consejo", cons);
+			mav.addObject("autores", autorService.getListaAutores());
 			return mav;
 		}
 		consejoService.guardar(cons);
@@ -84,6 +100,7 @@ public class ConsejoController {
 		boolean edicion = true;
 		consejoencontrado = consejoService.buscar(titulo);
 		model.addAttribute("consejo", consejoencontrado);
+		model.addAttribute("autores",autorService.getListaAutores());
 		model.addAttribute("edicionConsejo", edicion);
 		return "nuevo_consejo";
 
@@ -97,6 +114,7 @@ public class ConsejoController {
 		boolean edicion = true;
 		if(result.hasErrors()){
 			model.addAttribute("edicionConsejo",edicion);
+			model.addAttribute("autores",autorService.getListaAutores());
 	     	model.addAttribute("consejo",consejo);
 			return "nuevo_consejo";
 		}

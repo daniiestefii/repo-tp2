@@ -30,9 +30,13 @@
                         <textarea type="text" th:field="*{texto}" size="25px" placeholder="Ingrese su Consejo"></textarea>
                         <div class="text-danger" th:if="${#fields.hasErrors('texto')}" th:errors="*{texto}"></div>
 
-                        <label >AUTOR</label>
-                        <input type="text" th:field="*{autor}" size="25px" placeholder="Ingrese un autor">
+                        <label>AUTOR</label>
+                        <br>
+                        <select th:field="*{autor}">
+                            <option th:each="autor : ${autores}" th:text="${autor.nombre}" th:value="${autor.id}"></option>
+                        </select>
                         <div class="text-danger" th:if="${#fields.hasErrors('autor')}" th:errors="*{autor}"></div>
+                        <br>
 
                         <input type="submit" value="Guardar">
 

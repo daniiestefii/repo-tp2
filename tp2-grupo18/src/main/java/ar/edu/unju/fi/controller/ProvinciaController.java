@@ -1,6 +1,5 @@
 package ar.edu.unju.fi.controller;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -9,14 +8,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
-import ar.edu.unju.fi.controller.entity.Categoria;
-import ar.edu.unju.fi.controller.entity.Producto;
 import ar.edu.unju.fi.controller.entity.Provincia;
-import ar.edu.unju.fi.service.ICategoriaService;
-import ar.edu.unju.fi.service.IProductoService;
 import ar.edu.unju.fi.service.IProvinciaService;
 import jakarta.validation.Valid;
 
@@ -77,7 +70,7 @@ public class ProvinciaController{
 	}
 	
 	@GetMapping("/eliminar/{id}")
-	public String eliminarCategoria(@PathVariable(value="id")Long id){		
+	public String eliminarProvincia(@PathVariable(value="id")Long id){
 		provinciaService.eliminar(provinciaService.buscar(id));
 		return "redirect:/gestionDatos";
 	}
