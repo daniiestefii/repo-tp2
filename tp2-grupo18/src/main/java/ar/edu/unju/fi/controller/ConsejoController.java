@@ -29,10 +29,6 @@ public class ConsejoController {
 	@Autowired
 	private IAutorService autorService;
 
-	@Autowired
-	/** servicio*/
-	private ICategoriaService categoriaService;
-
 	/** metodo de filtrado que muestra la misma pagina de donde se lo utiliza
 	 * pero con la diferencia de los objetos a listar de la tabla*/
 	@GetMapping("/filtradoConsejos")
@@ -53,7 +49,6 @@ public class ConsejoController {
 	public String getConsejoPage(Model model) {
 		model.addAttribute("consejo", consejoService.getListaConsejos());
 		model.addAttribute("autores",autorService.getListaAutores());
-		model.addAttribute("categorias",categoriaService.getListaCategoria());
 		return "ConsejodeSalud";
 	}
 
