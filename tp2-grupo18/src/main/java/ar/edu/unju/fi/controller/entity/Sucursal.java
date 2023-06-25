@@ -54,7 +54,7 @@ public class Sucursal {
 	@JoinColumn(name="provi_id",nullable = false)
 	private Provincia provincia;
 
-	@Column(name="Prod_estado",nullable = false)
+	@Column(name="sucu_estado",nullable = false)
 	private boolean estado;
 
 	public Sucursal() {

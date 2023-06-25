@@ -27,12 +27,12 @@ public class SucursalController {
 	@Autowired
 	private IProvinciaService provinciaService;
 
-	/*@GetMapping("/filtradoSucursales")
-	public String getfiltradoProductoPage(@RequestParam("categoria") Categoria categoria , Model model) {
-		model.addAttribute("producto", productoService.getListaProductosFiltrados(categoria,true));
-		model.addAttribute("categorias",categoriaService.getListaCategoria());
-		return "Productos";
-	}*/
+
+	@GetMapping("/filtradoSucursales")
+	public String getfiltradoSucursalesPage(@RequestParam("dia") String dia,@RequestParam("dia1") String dia1 ,Model model) {
+		model.addAttribute("sucursal", sucursalService.getListaSucursalesFiltradosForFecha(dia,dia1));
+		return "Sucursal";
+	}
 	
 	
 	/*

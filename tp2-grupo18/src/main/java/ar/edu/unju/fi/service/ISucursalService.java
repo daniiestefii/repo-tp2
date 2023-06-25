@@ -32,6 +32,6 @@ public interface ISucursalService {
 	 */
 	Sucursal getSucursal();
 
-	List<Sucursal> getListaSucursalesFiltrados(Provincia provincia, boolean estado);
+	List<Sucursal> getListaSucursalesFiltradosForFecha(String dia,String dia1);
 
 }

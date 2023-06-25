@@ -1,5 +1,6 @@
 package ar.edu.unju.fi.service.imp;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import ar.edu.unju.fi.controller.entity.Provincia;
@@ -56,10 +57,14 @@ public class SucursalServiceImp implements ISucursalService {
 
 		return sucursal;
 	}
-
 	@Override
-	public List<Sucursal> getListaSucursalesFiltrados(Provincia provincia, boolean estado) {
-		return null;
+
+	public List<Sucursal> getListaSucursalesFiltradosForFecha(String dia,String dia1) {
+
+		LocalDate startDate = LocalDate.parse(dia);
+		LocalDate endDate = LocalDate.parse(dia1);
+
+		return sucursalRepository.findByDateBetween(startDate,endDate);
 	}
 
 
